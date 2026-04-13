@@ -10,7 +10,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
+import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
+import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
+import com.example.sportlife.AndroidBackGround.Dto.Request.AuthRequest;
+import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.AuthServiceImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.CallBackHandlerImpl;
 import com.example.sportlife.R;
@@ -21,12 +26,15 @@ import java.util.List;
 import java.util.Map;
 
 import lombok.RequiredArgsConstructor;
+import retrofit2.Call;
 
 @RequiredArgsConstructor
 public class MainActivity extends AppCompatActivity {
     AppCompatButton appCompatButton;
     EditText editTextName;
     EditText editTextPassword;
+    ApiRepository apiRepository;
+    ErrorController errorController;
     AuthServiceImpl authServiceImpl;
 
     @Override
@@ -45,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+         apiRepository =
+                RetrofitClient.getApiRepository();
+        errorController=new ErrorController();
+        authServiceImpl=new AuthServiceImpl(apiRepository,errorController);
         UIController uiController=new UIController(this,editTexts);
         appCompatButton.setOnClickListener(v -> authServiceImpl.auth(editTextName.getText().toString(),editTextPassword.getText().toString(), new CallBackHandlerImpl(uiController)));
     }

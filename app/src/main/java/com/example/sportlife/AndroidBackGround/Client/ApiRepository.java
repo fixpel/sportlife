@@ -8,6 +8,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface ApiRepository {
-    @POST
+    @POST("Employee/auth")
     Call<AuthResponse> auth(@Body AuthRequest request);
 }

@@ -25,6 +25,7 @@ public class UIController {
         editTexts.forEach(e->e.setError(error.getErrors().get(e.getTag().toString()).toString()));
     }
     public void ErrorService(String message){
+        System.out.println(message);
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
 }
