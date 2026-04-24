@@ -5,7 +5,7 @@ import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.RefreshServic
 import lombok.Data;
 
 @Data
-public class SecurityContext {
+public  class SecurityContext {
     private static String tokenAccess;
     private static String tokenRefresh;
     private static SecurityContext context;

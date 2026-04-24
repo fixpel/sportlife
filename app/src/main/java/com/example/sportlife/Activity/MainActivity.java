@@ -1,6 +1,5 @@
 package com.example.sportlife.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,10 +17,10 @@ import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Security.SecurityContext;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.AuthService;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
-import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.ValidatedService;
 import com.example.sportlife.R;
 
 import java.util.ArrayList;
@@ -34,18 +33,10 @@ public class MainActivity extends AppCompatActivity {
     TextView noneAcount;
 
     private  AuthService authService;
-    private ValidatedService validatedService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String refresh = SecurityContext.createContext().getTokenRefresh();
-        if(refresh!=null&&validatedService.validated(refresh)){
-            Intent intent=new Intent(this, ActivityLogin.class);
-            this.startActivity(intent);
-            this.finish();
-            return;
-        }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         appCompatButton = findViewById(R.id.btn_login);
@@ -67,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
         UIController uiController=new UIController(this,editTexts);
         ErrorController errorController = new ErrorController();
         ApiRepository apiRepository = RetrofitClient.getApiRepository();
-        authService =new AuthService(apiRepository, errorController);
+        SecurityContext context=new SecurityContext();
+        SessionManager session=new SessionManager(getApplicationContext(),context);
+        authService =new AuthService(apiRepository, errorController,session);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController);
         noneAcount.setOnClickListener(new View.OnClickListener() {
             @Override

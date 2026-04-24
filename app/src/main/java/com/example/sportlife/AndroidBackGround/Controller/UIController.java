@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 
 import java.util.List;
 
@@ -26,5 +27,8 @@ public  class UIController {
     }
     public void ErrorService(String message){
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
+    }
+    public void findTop(FindTopResponse response){//выводит объекты на экран, активности пока нет.
+
     }
 }

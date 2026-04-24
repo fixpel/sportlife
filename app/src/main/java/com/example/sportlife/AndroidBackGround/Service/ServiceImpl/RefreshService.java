@@ -1,5 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import com.example.sportlife.Activity.ActivityHome;
+import com.example.sportlife.Activity.MainActivity;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
@@ -23,25 +25,22 @@ import retrofit2.Response;
 @RequiredArgsConstructor
 public class RefreshService{
     private final CallBackHandlerImpl callBack;
-    private final UIController uiController;
-    public String refresh(String tokenRefresh) {
+    public RefreshResponse refresh(String tokenRefresh) {
         String tokenAccess = "";
-        ErrorController errorController=new ErrorController();
         ApiRepository apiRepositor= RetrofitClient.getApiRepository();
         RefreshRequest request=new RefreshRequest(tokenRefresh);
-        Response<RefreshResponse> responseCall= null;
+        Response<RefreshResponse> responseCall = null;
         try {
             responseCall = apiRepositor.refresh(request).execute();
             if(responseCall.isSuccessful()&&responseCall.body()!=null) {
                 tokenAccess = responseCall.body().getTokenAccess();
-            }else{
-                ErrorResponse errorResponse=new ErrorResponse();
-                errorResponse=errorController.parseError(responseCall);
-                uiController.ErrorService(errorResponse.getErrors().get("result").toString());
             }
         } catch (IOException e) {
             callBack.onNetworkError(e);
         }
-        return tokenAccess;
+        if(responseCall.body().getTokenRefresh()==null){
+            callBack.onSuccess(MainActivity.class);
+        }
+        return responseCall.body();
     }
 }

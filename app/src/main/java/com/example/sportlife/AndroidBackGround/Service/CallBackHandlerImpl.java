@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,5 +25,10 @@ public class CallBackHandlerImpl implements CallBackHandler {
     @Override
     public void onNetworkError(Throwable t) {
         uiController.ErrorService(t.getMessage());
+    }
+
+    @Override
+    public void findTop(FindTopResponse response) {
+        uiController.findTop(response);
     }
 }
