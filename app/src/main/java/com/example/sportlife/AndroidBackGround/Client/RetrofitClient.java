@@ -18,7 +18,7 @@ public class RetrofitClient {
             .writeTimeout(3,TimeUnit.MINUTES)
             .readTimeout(3,TimeUnit.MINUTES)
             .build();
-    private static final Retrofit retrofit=new Retrofit.Builder().baseUrl("https://127.0.0.1:8080/api/").client(httpClient).addConverterFactory(GsonConverterFactory.create()).build();
+    private static final Retrofit retrofit=new Retrofit.Builder().baseUrl("https://localhost:49182/api/").client(httpClient).addConverterFactory(GsonConverterFactory.create()).build();
     public static ApiRepository getApiRepository(){
         return retrofit.create(ApiRepository.class);
     }

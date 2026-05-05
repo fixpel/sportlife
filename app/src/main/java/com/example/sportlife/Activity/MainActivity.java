@@ -2,6 +2,7 @@ package com.example.sportlife.Activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,48 +27,34 @@ import com.example.sportlife.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    AppCompatButton appCompatButton;
-    EditText editTextName;
-    EditText editTextPassword;
-    TextView noneAcount;
+public class MainActivity extends CreateActivity {
+    @Override
+    protected int getIdLayout() {
+        return R.layout.activity_main;
+    }
 
-    private  AuthService authService;
+    @Override
+    protected int getIdView() {
+        return R.id.activity_main;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        appCompatButton = findViewById(R.id.btn_login);
-        editTextName = findViewById(R.id.et_name);
-        editTextPassword = findViewById(R.id.et_password);
-        noneAcount = findViewById(R.id.none_account);
-        List<EditText> editTexts=new ArrayList<>();
+        Button appCompatButton = findViewById(R.id.btn_login);
+        EditText editTextName = findViewById(R.id.et_name);
+        EditText editTextPassword = findViewById(R.id.et_password);
+        TextView noneAcount = findViewById(R.id.none_account);
+        List<TextView> editTexts=new ArrayList<>();
         editTexts.add(editTextPassword);
         editTexts.add(editTextName);
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-
-        noneAcount = findViewById(R.id.none_account);
         UIController uiController=new UIController(this,editTexts);
-        ErrorController errorController = new ErrorController();
-        ApiRepository apiRepository = RetrofitClient.getApiRepository();
         SecurityContext context=new SecurityContext();
         SessionManager session=new SessionManager(getApplicationContext(),context);
-        authService =new AuthService(apiRepository, errorController,session);
+        AuthService authService =new AuthService(session);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController);
-        noneAcount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callBack.onSuccess(ActivityLogin.class);
-            }
-        });
+
+        noneAcount.setOnClickListener(v->{callBack.onSuccess(ActivityLogin.class);});
         appCompatButton.setOnClickListener(v -> authService.auth(editTextName.getText().toString(),editTextPassword.getText().toString(),callBack));
 
 

@@ -1,17 +1,22 @@
 package com.example.sportlife.AndroidBackGround.Client;
 
 import com.example.sportlife.AndroidBackGround.Dto.Request.AuthRequest;
+import com.example.sportlife.AndroidBackGround.Dto.Request.ExpertsRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.RefreshRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.RegistrationRequest;
+import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RefreshResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RegistrationResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.SearchResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.UpdateResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiRepository {
     @POST("Employee/auth")
@@ -22,4 +27,8 @@ public interface ApiRepository {
     Call<RefreshResponse> refresh(@Body RefreshRequest request);
     @GET("Employee/top")
     Call<FindTopResponse> findTop();
+    @POST("Employee/experts")
+    Call<UpdateResponse> updateExperts(@Body ExpertsRequest request);
+    @POST("Exercise/search")
+    Call<SearchResponse> search(@Body SearchRequest request, @Query("size") int size,@Query("page") int page );
 }

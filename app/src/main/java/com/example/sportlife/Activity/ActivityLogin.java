@@ -47,20 +47,15 @@ public class ActivityLogin extends CreateActivity {
         editTextName=findViewById(R.id.et_name);
         editTextPassword=findViewById(R.id.et_password);
         AppCompatButton appCompatButton = findViewById(R.id.btn_register);
-        List<EditText> editTexts=new ArrayList<>();
+        List<TextView> editTexts=new ArrayList<>();
         editTexts.add(editTextName);
         editTexts.add(editTextPassword);
         UIController uiController=new UIController(this,editTexts);
-        ErrorController errorController=new ErrorController();
-        ApiRepository apiRepository=RetrofitClient.getApiRepository();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController);
-        registrationService=new RegistrationService(apiRepository,errorController);
+        registrationService=new RegistrationService();
         tv_have_account = findViewById(R.id.tv_have_account);
-        tv_have_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callBack.onSuccess(MainActivity.class);
-            }
+        tv_have_account.setOnClickListener(v-> {
+            callBack.onSuccess(MainActivity.class);
         });
         appCompatButton.setOnClickListener(v->registrationService.registration(editTextName.getText().toString(),editTextPassword.getText().toString(),callBack));
 

@@ -41,7 +41,7 @@ public class ActivityHome extends CreateActivity {
         Button search=this.findViewById(R.id.btnSearch);
         Button history=this.findViewById(R.id.btnHistory);
         search.setOnClickListener(v->{
-            callBack.onSuccess(null);//активность поиска.
+            callBack.onSuccess(ActivityLevel.class);//активность поиска.
         });
         history.setOnClickListener(v->{
             callBack.onSuccess(null);//активность истории

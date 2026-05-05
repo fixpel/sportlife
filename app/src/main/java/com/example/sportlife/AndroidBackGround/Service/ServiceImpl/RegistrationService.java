@@ -2,6 +2,7 @@ package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
 import com.example.sportlife.Activity.ActivityLogin;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
+import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Dto.Request.RegistrationRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
@@ -15,12 +16,12 @@ import lombok.RequiredArgsConstructor;
 import retrofit2.Call;
 import retrofit2.Response;
 
-@RequiredArgsConstructor
+
 public class RegistrationService {
-    private final ApiRepository apiRepository;
-    private final ErrorController errorController;
     public void registration(String name, String password, CallBackHandler callBack){
         RegistrationRequest request=new RegistrationRequest(name,password);
+        ApiRepository apiRepository= RetrofitClient.getApiRepository();
+        ErrorController errorController=new ErrorController();
         apiRepository.registration(request).enqueue(new retrofit2.Callback<RegistrationResponse>() {
             @Override
             public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {

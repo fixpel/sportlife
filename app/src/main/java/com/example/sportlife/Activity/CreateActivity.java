@@ -16,7 +16,6 @@ import com.example.sportlife.R;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
 public abstract class CreateActivity extends AppCompatActivity {
     protected abstract  int getIdLayout();
     protected abstract int getIdView();

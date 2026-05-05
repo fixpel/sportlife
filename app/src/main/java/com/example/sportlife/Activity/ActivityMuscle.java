@@ -6,26 +6,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.OnApplyWindowInsetsListener;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
-import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindTopService;
+import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 
-import org.jspecify.annotations.NonNull;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ActivityMusc extends CreateActivity {
-
-    ImageView imgFront, imgBack;
+public class ActivityMuscle extends CreateActivity {
+    ImageView imgFront;
+    ImageView imgBack;
     TextView tvPageNumber;
+    List<String> muscles;
     int currentPage = 1;
 
     @Override
@@ -40,33 +34,25 @@ public class ActivityMusc extends CreateActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-
         imgFront = findViewById(R.id.imgFront);
         imgBack = findViewById(R.id.imgBack);
         tvPageNumber = findViewById(R.id.tvPageNumber);
+        Button back=findViewById(R.id.btnBack);
+        Button save=findViewById(R.id.btnSave);;
 
-
-        FindTopService findTopService=new FindTopService();
         UIController uiController=new UIController(this,null);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController);
-        findTopService.findTop(callBack);
-
-
+        SearchService service=new SearchService();
         findViewById(R.id.btnPrev).setOnClickListener(v -> switchPage(-1));
         findViewById(R.id.btnNext).setOnClickListener(v -> switchPage(1));
 
-
-        Button back=this.findViewById(R.id.btnBack);
-        Button save=this.findViewById(R.id.btnSave);
-
         back.setOnClickListener(v->{
-            callBack.onSuccess(null);//назад
+            callBack.onSuccess(ActivityLevel.class);//назад
         });
         save.setOnClickListener(v->{
-            callBack.onSuccess(null);//сохранить
+            service.setMuscles(muscles);
+            callBack.onSuccess(null);//переход на выбор инвентаря ;
         });
 
         setupZoneButtons();
@@ -96,12 +82,10 @@ public class ActivityMusc extends CreateActivity {
         Button zoneButton = findViewById(buttonId);
         if (zoneButton != null) {
             zoneButton.setOnClickListener(v -> {
+                muscles.add(zoneButton.getText().toString());
                 // Переключаем состояние кнопки
                 boolean isSelected = !zoneButton.isSelected();
                 zoneButton.setSelected(isSelected);
-
-                // Можно добавить логирование или сохранение
-                // Например: selectedMuscles.put(getMuscleName(buttonId), isSelected);
             });
         }
     }
@@ -117,7 +101,6 @@ public class ActivityMusc extends CreateActivity {
         if (currentPage == 1) {
             imgFront.setVisibility(View.VISIBLE);
             imgBack.setVisibility(View.GONE);
-
             showZonesForPage(1);
         } else {
             imgFront.setVisibility(View.GONE);

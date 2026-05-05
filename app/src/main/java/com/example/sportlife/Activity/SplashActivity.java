@@ -12,13 +12,21 @@ import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.R;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends CreateActivity {
+
+    @Override
+    protected int getIdLayout() {
+        return R.layout.acivity_splash;
+    }
+
+    @Override
+    protected int getIdView() {
+        return R.id.android_splash;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.Theme_SportLife_Splash);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acivity_splash);
         SecurityContext context = new SecurityContext();
         SessionManager session=new SessionManager(getApplicationContext(),context);
         UIController uiController=new UIController(this,null);

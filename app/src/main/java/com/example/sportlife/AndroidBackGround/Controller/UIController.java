@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sportlife.Activity.MainActivity;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.R;
@@ -21,12 +22,18 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public  class UIController {
-    private final Activity activity;
-    private final List<EditText> editTexts;
+    private  Activity activity;
+    private  List<TextView> editTexts;
+
     public void openNextScreen(Class<? extends Activity> to){
         Intent intent=new Intent(activity, to);
         activity.startActivity(intent);

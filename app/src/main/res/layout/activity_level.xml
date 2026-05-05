@@ -66,6 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Как вы себя оцениваете?"
+            android:tag="experts"
+            android:id="@+id/expert"
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="24dp"/>

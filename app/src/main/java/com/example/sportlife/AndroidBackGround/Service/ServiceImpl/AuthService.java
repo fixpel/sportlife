@@ -2,6 +2,7 @@ package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
 import com.example.sportlife.Activity.ActivityHome;
 import com.example.sportlife.Activity.ActivityLogin;
+import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Dto.Request.AuthRequest;
 import com.example.sportlife.AndroidBackGround.Security.SecurityContext;
@@ -19,11 +20,11 @@ import retrofit2.Response;
 
 @RequiredArgsConstructor
 public class AuthService {
-    private final ApiRepository apiRepository;
-    private final ErrorController errorController;
     private final SessionManager session;
     public void auth(String name,String password, CallBackHandler callback){
+        ErrorController errorController=new ErrorController();
         AuthRequest authRequest=new AuthRequest(name,password);
+        ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.auth(authRequest).enqueue(new retrofit2.Callback<AuthResponse>() {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
