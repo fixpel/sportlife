@@ -69,17 +69,6 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="8dp"
-                    android:text="Добро пожаловать \n&quot;name&quot;"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:layout_width="69dp"
                     android:layout_height="48dp"
                     android:layout_alignParentTop="true"
@@ -97,6 +86,19 @@
             </RelativeLayout>
 
             <!-- BODY -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+
+                android:background="#333333"
+                android:text="Добро пожаловать \n&quot;name&quot;"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <ScrollView
                 android:background="#333333"
                 android:layout_width="match_parent"

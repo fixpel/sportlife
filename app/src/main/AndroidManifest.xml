@@ -49,6 +49,11 @@
             android:name=".Activity.ActivityHome"
             android:exported="true" >
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
 
 
@@ -66,10 +71,7 @@
             android:name=".Activity.ActivityMuscle"
             android:exported="true" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
 
         </activity>
@@ -79,7 +81,10 @@
             android:name=".Activity.ActivityInventory"
             android:exported="true" >
 
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 

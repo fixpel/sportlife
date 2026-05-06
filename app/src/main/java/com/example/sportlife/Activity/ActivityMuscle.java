@@ -22,7 +22,7 @@ import com.example.sportlife.R;
 
 import org.jspecify.annotations.NonNull;
 
-public class ActivityMusc extends CreateActivity {
+public class ActivityMuscle extends CreateActivity {
 
     ImageView imgFront, imgBack;
     TextView tvPageNumber;
@@ -100,8 +100,7 @@ public class ActivityMusc extends CreateActivity {
                 boolean isSelected = !zoneButton.isSelected();
                 zoneButton.setSelected(isSelected);
 
-                // Можно добавить логирование или сохранение
-                // Например: selectedMuscles.put(getMuscleName(buttonId), isSelected);
+
             });
         }
     }
