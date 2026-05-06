@@ -37,17 +37,26 @@ public class ActivityInventory extends CreateActivity {
 
     @Override
     protected int getIdView() {
-        return R.id.activityEquipment;
+        return R.id.activityInventory;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FindTopService findTopService=new FindTopService();
-        UIController uiController=new UIController(this,null);
-        CallBackHandler callBack=new CallBackHandlerImpl(uiController);
+        FindTopService findTopService = new FindTopService();
+        UIController uiController = new UIController(this, null);
+        CallBackHandler callBack = new CallBackHandlerImpl(uiController);
         findTopService.findTop(callBack);
 
+        Button back=this.findViewById(R.id.btnBack);
+        Button save=this.findViewById(R.id.btnSave);
 
+        back.setOnClickListener(v->{
+            callBack.onSuccess(null);//назад
+        });
+        save.setOnClickListener(v->{
+            callBack.onSuccess(null);//сохранить
+        });
 
+    }
 }
