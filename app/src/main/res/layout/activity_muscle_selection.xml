@@ -93,10 +93,10 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zoneDeltaFront"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="0sp"
+                android:layout_height="45sp"
+                android:layout_marginStart="40sp"
+                android:layout_marginTop="20sp"
                 android:background="@drawable/muscle_zone_selector"
                 android:padding="4dp"
                 android:text="Дельты"

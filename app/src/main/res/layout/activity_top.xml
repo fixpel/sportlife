@@ -18,12 +18,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#333333">
 
             <!-- HEADER -->
             <RelativeLayout
@@ -52,31 +54,31 @@
                     android:contentDescription="Profile"
                     android:src="@drawable/avatar" />
 
+
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="126dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="9dp"
                     android:layout_toEndOf="@+id/btnSettings"
                     android:text="Sport -"
                     android:textColor="#FFFFFF"
                     android:textSize="35sp"
                     android:textStyle="bold" />
 
-
                 <TextView
-                    android:layout_width="69dp"
-                    android:layout_height="48dp"
+                    android:layout_width="138dp"
+                    android:layout_height="49dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="42dp"
-                    android:layout_marginBottom="7dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="4dp"
                     android:layout_toStartOf="@+id/btnProfile"
                     android:layout_toEndOf="@+id/textView2"
                     android:text="life"
@@ -99,73 +101,65 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <ScrollView
-                android:background="#333333"
+
+            <LinearLayout
+                android:id="@+id/linerLayout"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="682dp"
+                android:background="#333333"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <LinearLayout
-                    android:id="@+id/linerLayout"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:text="Топ 10"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Топ 10"
-                        android:textSize="22sp"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="16dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewTop"
+                    android:layout_width="472dp"
+                    android:layout_height="598dp"
+                    android:nestedScrollingEnabled="false" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerViewTop"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:nestedScrollingEnabled="false"/>
-
-                </LinearLayout>
-            </ScrollView>
+            </LinearLayout>
 
             <!-- FOOTER BUTTONS -->
             <LinearLayout
-                android:background="#333333"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:background="#333333"
+                android:gravity="bottom"
                 android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center">
+                android:padding="16dp">
 
                 <Button
                     android:id="@+id/btnSearch"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:backgroundTint="#00B7B7"
                     android:text="Поиск"
                     android:textColor="#FFFFFF"
                     app:icon="@drawable/lupa"
-                    app:iconGravity="textStart"
-                     />
+                    app:iconGravity="textStart" />
 
                 <Button
                     android:id="@+id/btnHistory"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:backgroundTint="#00B7B7"
                     android:text="История"
                     android:textColor="#FFFFFF"
                     app:icon="@drawable/history"
-                    app:iconGravity="textStart"
-                    />
-
+                    app:iconGravity="textStart" />
 
 
             </LinearLayout>
