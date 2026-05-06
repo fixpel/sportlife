@@ -48,7 +48,7 @@ public  class UIController {
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
     public void findTop(FindTopResponse response){
-        RecyclerView recyclerView=activity.findViewById();
+        RecyclerView recyclerView=null;
         recyclerView.setAdapter(new RecyclerView.Adapter(){
             @NonNull
             @Override
