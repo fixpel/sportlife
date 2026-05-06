@@ -50,7 +50,7 @@ public class ActivityInventory extends CreateActivity {
 
         Button back=this.findViewById(R.id.btnBack);
         Button save=this.findViewById(R.id.btnSave);
-
+// ПИРИВЕТ ДИИИМААА
         back.setOnClickListener(v->{
             callBack.onSuccess(null);//назад
         });
