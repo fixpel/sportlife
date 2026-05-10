@@ -23,6 +23,7 @@ public class SearchResponse {
         private String video;
         private String description;
         private String name;
+        private String photo;
         private List<String> muscles;
         private List<String> items;
         private Boolean favourites;

@@ -1,32 +1,19 @@
 package com.example.sportlife.Activity;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.OnApplyWindowInsetsListener;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
-import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindTopService;
+import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindInventoryService;
+import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 
-import org.jspecify.annotations.NonNull;
-
-public class ActivityInventory extends CreateActivity {
-
-
-
+public  class ActivityInventory extends CreateActivity {
     @Override
     protected int getIdLayout() {
         return R.layout.activity_equipment_selection;
@@ -40,22 +27,45 @@ public class ActivityInventory extends CreateActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FindTopService findTopService=new FindTopService();
         UIController uiController=new UIController(this,null);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController);
-        findTopService.findTop(callBack);
+        FindInventoryService service=new FindInventoryService();
+        Button back=findViewById(R.id.btnBack);
+        Button save=findViewById(R.id.btnSave);
+        ImageView next=findViewById(R.id.btnNext);
+        ImageView prev=findViewById(R.id.btnPrev);
+        TextView page=findViewById(R.id.tvPageNumber);
+        next.setOnClickListener(v->{
+            int pageint=Integer.parseInt(page.getText().toString());
+            if(pageint<service.getTotalPage()){
+                pageint=pageint+1;
+                page.setText(Integer.toString(pageint));
+                next.setVisibility(TextView.VISIBLE);
+                service.findInventory(pageint-1,callBack);
+            }
+            if(pageint==service.getTotalPage()){
+                next.setVisibility(TextView.GONE);
+            }
 
-
-
-
-        Button back=this.findViewById(R.id.btnBack);
-        Button save=this.findViewById(R.id.btnSave);
-
+        });
+        prev.setOnClickListener(v->{
+            int pageint=Integer.parseInt(page.getText().toString());
+            if(pageint!=1){
+                pageint=pageint-1;
+                page.setText(Integer.toString(pageint));
+                prev.setVisibility(TextView.VISIBLE);
+                service.findInventory(pageint-1,callBack);
+            }
+            if(pageint==1){
+                prev.setVisibility(TextView.GONE);
+            }
+        });
         back.setOnClickListener(v->{
-            callBack.onSuccess(null);//назад
+            callBack.onSuccess(ActivityMuscle.class);//назад
         });
         save.setOnClickListener(v->{
-            callBack.onSuccess(null);//сохранить
+            SearchService.setItems(SearchService.getItems(),callBack);
+            callBack.onSuccess(ActivityResult.class);//сохранить
         });
     }
 

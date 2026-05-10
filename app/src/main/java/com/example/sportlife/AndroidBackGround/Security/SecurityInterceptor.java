@@ -26,7 +26,7 @@ public class SecurityInterceptor implements Interceptor {
                 || path.contains("/register")){
             return chain.proceed(request);
         }
-        String token=SecurityContext.createContext().getTokenAccess();
+        String token= SecurityContext.getTokenAccess();
         request=chain.request().newBuilder().addHeader("Authorization","Bearer "+token).build();
         return chain.proceed(request);
     }

@@ -26,12 +26,8 @@ import org.jspecify.annotations.NonNull;
 import java.util.List;
 
 public class ActivityMuscle extends CreateActivity {
-
-    ImageView imgFront, imgBack;
-    TextView tvPageNumber;
     int currentPage = 1;
-    SearchService service;
-    List<String> muscle;
+    List<String> muscles;
 
     @Override
     protected int getIdLayout() {
@@ -48,11 +44,6 @@ public class ActivityMuscle extends CreateActivity {
 
 
         super.onCreate(savedInstanceState);
-
-        imgFront = findViewById(R.id.imgFront);
-        imgBack = findViewById(R.id.imgBack);
-        tvPageNumber = findViewById(R.id.tvPageNumber);
-
         UIController uiController=new UIController(this,null);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController);
 
@@ -68,8 +59,8 @@ public class ActivityMuscle extends CreateActivity {
             callBack.onSuccess(ActivityLevel.class);//назад
         });
         save.setOnClickListener(v->{
-            service.setMuscles(muscle);
-            callBack.onSuccess(null);//сохранить
+            SearchService.setMuscles(muscles, callBack);
+            callBack.onSuccess(ActivityInventory.class);//сохранить
         });
 
         setupZoneButtons();
@@ -100,7 +91,7 @@ public class ActivityMuscle extends CreateActivity {
         if (zoneButton != null) {
             zoneButton.setOnClickListener(v -> {
                 // Переключаем состояние кнопки
-                muscle.add(zoneButton.getText().toString());
+                muscles.add(zoneButton.getText().toString());
                 boolean isSelected = !zoneButton.isSelected();
                 zoneButton.setSelected(isSelected);
 
@@ -115,6 +106,9 @@ public class ActivityMuscle extends CreateActivity {
         currentPage += direction;
         if (currentPage < 1) currentPage = 1;
         if (currentPage > 2) currentPage = 2;
+        ImageView imgFront = findViewById(R.id.imgFront);
+        ImageView imgBack = findViewById(R.id.imgBack);
+        TextView tvPageNumber = findViewById(R.id.tvPageNumber);
 
         tvPageNumber.setText(String.valueOf(currentPage));
 

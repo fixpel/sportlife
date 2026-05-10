@@ -54,7 +54,7 @@
         </LinearLayout>
 
         <!-- 3. Сердечко (Справа) -->
-        <androidx.appcompat.widget.AppCompatCheckBox
+        <ImageView
             android:id="@+id/chkFavorite"
             android:layout_width="60dp"
             android:layout_height="match_parent"

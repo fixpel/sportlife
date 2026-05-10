@@ -6,6 +6,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Request.RefreshRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.RegistrationRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RefreshResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RegistrationResponse;
@@ -31,4 +32,6 @@ public interface ApiRepository {
     Call<UpdateResponse> updateExperts(@Body ExpertsRequest request);
     @POST("Exercise/search")
     Call<SearchResponse> search(@Body SearchRequest request, @Query("size") int size,@Query("page") int page );
+    @GET("Infentory/info")
+    Call<FindInventoryResponse> findInventory(@Query("size") int size,@Query("page") int page);
 }

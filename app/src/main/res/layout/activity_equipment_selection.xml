@@ -53,6 +53,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
+            android:id="@+id/recyclerInventory"
             android:layout_height="match_parent" />
 
         <!-- Контейнер для карточек -->

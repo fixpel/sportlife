@@ -93,9 +93,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_gravity="center"
-
+                android:id="@+id/welcome"
                 android:background="#333333"
-                android:text="Добро пожаловать \n&quot;name&quot;"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
