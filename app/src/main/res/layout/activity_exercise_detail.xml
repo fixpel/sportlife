@@ -88,7 +88,7 @@
                         android:layout_height="40dp"
                         android:button="@null"
                         android:background="@null"
-                        android:foreground="@drawable/heart_selector"
+
                         android:clickable="true"
                         android:focusable="true"/>
                 </LinearLayout>
@@ -183,13 +183,13 @@
                     android:textColor="#FFFFFF"
                     android:layout_marginBottom="12dp"/>
 
-                <LinearLayout
-                    android:id="@+id/muscleGroupsContainer"
+                <TextView
+                    android:id="@+id/tvMuscle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <!-- Сюда будут добавляться мышцы динамически -->
-                </LinearLayout>
+                    android:text="Дельты"
+                    android:textColor="#E0E0E0"
+                    android:textSize="16sp"/>
             </LinearLayout>
 
         </LinearLayout>

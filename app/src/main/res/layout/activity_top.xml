@@ -61,9 +61,10 @@
                     android:layout_height="45dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginBottom="8dp"
+
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="11dp"
                     android:layout_toEndOf="@+id/btnSettings"
                     android:text="Sport -"
                     android:textColor="#FFFFFF"
@@ -71,14 +72,14 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="138dp"
-                    android:layout_height="49dp"
+                    android:layout_width="58dp"
+                    android:layout_height="39dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="13dp"
-                    android:layout_marginEnd="50dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="23dp"
+                    android:layout_marginBottom="14dp"
                     android:layout_toStartOf="@+id/btnProfile"
                     android:layout_toEndOf="@+id/textView2"
                     android:text="life"
@@ -105,7 +106,7 @@
             <LinearLayout
                 android:id="@+id/linerLayout"
                 android:layout_width="match_parent"
-                android:layout_height="682dp"
+                android:layout_height="480dp"
                 android:background="#333333"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -122,8 +123,8 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewTop"
-                    android:layout_width="426dp"
-                    android:layout_height="592dp"
+                    android:layout_width="362dp"
+                    android:layout_height="410dp"
                     android:nestedScrollingEnabled="false" />
 
             </LinearLayout>

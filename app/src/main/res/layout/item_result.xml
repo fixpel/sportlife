@@ -63,7 +63,7 @@
             android:button="@null"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="@drawable/heart_selector"
+
             android:gravity="center" />
     </LinearLayout>
 
