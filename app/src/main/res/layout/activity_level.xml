@@ -82,7 +82,8 @@
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:backgroundTint="#00E676"
+            android:background="@drawable/level_button_selector"
+            app:backgroundTint="@null"
             app:cornerRadius="30dp" />
 
         <!-- Кнопка: Опытный -->
@@ -95,7 +96,8 @@
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:backgroundTint="#FFEB3B"
+            android:background="@drawable/level_button_selector"
+            app:backgroundTint="@null"
             app:cornerRadius="30dp" />
 
         <!-- Кнопка: Профи -->
@@ -107,7 +109,8 @@
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:backgroundTint="#FF5252"
+            android:background="@drawable/level_button_selector"
+            app:backgroundTint="@null"
             app:cornerRadius="30dp" />
     </LinearLayout>
 
