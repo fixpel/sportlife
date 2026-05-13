@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activityLevel"
+    android:background="#1A1A1A"> <!-- Общий фон экрана (за пределами карточки) -->
+
+    <!-- Шапка (Цвет #3F3F3F) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:gravity="center"
+        android:background="#3F3F3F">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sport - "
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="life"
+            android:textColor="#00B7B7"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Основная область (Цвет #333333) -->
+    <!-- Используем layout_weight="1", чтобы она заняла всё свободное место -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="#333333">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поиск:"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Подготовка"
+            android:textSize="18sp"
+            android:textColor="#B0B0B0"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Как вы себя оцениваете?"
+            android:tag="experts"
+            android:id="@+id/expert"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Кнопка: Новичок -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNovice"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:text="Новичок"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:background="@drawable/level_button_selector"
+            app:backgroundTint="@null"
+            app:cornerRadius="30dp" />
+
+        <!-- Кнопка: Опытный -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExperienced"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:text="Опытный"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:background="@drawable/level_button_selector"
+            app:backgroundTint="@null"
+            app:cornerRadius="30dp" />
+
+        <!-- Кнопка: Профи -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPro"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="Профи"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:background="@drawable/level_button_selector"
+            app:backgroundTint="@null"
+            app:cornerRadius="30dp" />
+    </LinearLayout>
+
+    <!-- Нижняя область (Цвет #3F3F3F) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center"
+        android:background="#3F3F3F">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:text="Назад"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#757575"
+            app:cornerRadius="24dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="Сохранить"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#00ACC1"
+            app:cornerRadius="24dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

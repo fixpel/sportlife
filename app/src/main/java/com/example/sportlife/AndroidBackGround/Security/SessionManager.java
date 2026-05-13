@@ -3,23 +3,20 @@ package com.example.sportlife.AndroidBackGround.Security;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import org.jetbrains.annotations.UnknownNullability;
+import lombok.NoArgsConstructor;
 
-import lombok.RequiredArgsConstructor;
-
+@NoArgsConstructor
 public  class SessionManager {
-    private final SharedPreferences preferences;
-    private final SecurityContext context;
-    public SessionManager(Context contextShared, SecurityContext context){
+    private SharedPreferences preferences;
+    public SessionManager(Context contextShared){
         this.preferences=contextShared.getSharedPreferences("User", Context.MODE_PRIVATE);
-        this.context = context;
     }
     public  void saveToken(String accessToken,String refreshToken){
         preferences.edit().putString("access",accessToken).putString("refresh",refreshToken).apply();
-        context.setTokenRefresh(refreshToken);
-        context.setTokenAccess(accessToken);
+        SecurityContext.setTokenRefresh(refreshToken);
+        SecurityContext.setTokenAccess(accessToken);
     }
-    public String gerAccessToken(){
+    public String getAccessToken(){
         return  preferences.getString("access",null);
     }
     public String getRefreshToken(){

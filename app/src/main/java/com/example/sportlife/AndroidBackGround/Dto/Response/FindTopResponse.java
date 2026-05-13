@@ -10,13 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FindTopResponse {
-    private List<Top> top;
+    private List<EmployeeTop> top;
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public class Top{
+    public class EmployeeTop {
         private String login;
         private Long activity;
+        private String experts;
         private String avatar;
     }
 }

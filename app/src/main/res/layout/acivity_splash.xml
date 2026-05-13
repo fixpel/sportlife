@@ -2,15 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/android_splash"
     android:background="@color/white">
 
     <ImageView
         android:id="@+id/splashLogo"
-        android:layout_width="256dp"
+        android:layout_width="261dp"
         android:layout_height="252dp"
         android:layout_gravity="center"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ikonka" />
+        android:src="@drawable/zvezda" />
 
     <ProgressBar
         android:id="@+id/loadingIndicator"
