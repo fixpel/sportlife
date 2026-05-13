@@ -1,5 +1,8 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import androidx.fragment.app.strictmode.GetTargetFragmentRequestCodeUsageViolation;
+
+import com.example.sportlife.Activity.ActivityInventory;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
@@ -8,13 +11,16 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryRespons
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-@Data
 public class FindInventoryService {
-    private   int totalPage;
+    @Setter
+    @Getter
+    private static int totalPage;
     public void findInventory(int page,CallBackHandler callBack){
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.findInventory(10,page).enqueue(new Callback<FindInventoryResponse>() {

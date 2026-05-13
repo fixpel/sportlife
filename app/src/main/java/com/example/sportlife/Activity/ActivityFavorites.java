@@ -32,11 +32,9 @@ public class ActivityFavorites extends CreateActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FindTopService findTopService = new FindTopService();
         UIController uiController = new UIController(this, null);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
-        findTopService.findTop(callBack);
 
 
 

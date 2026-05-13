@@ -1,6 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Security;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,17 +22,15 @@ public class AuthenticatorRefresh implements Authenticator {
     @Nullable
     @Override
     public Request authenticate(@Nullable Route route, @NonNull Response response) {
+        SessionManager session=new SessionManager(context);
         RefreshService refreshService=new RefreshService(new CallBackHandlerImpl(null,null));
-        String tokenRefresh= SecurityContext.getTokenRefresh();
+        String tokenRefresh= session.getRefreshToken();
         RefreshResponse refresh=refreshService.refresh(tokenRefresh);
         if(refresh==null){
             return null;
         }
-        SessionManager session=new SessionManager(context);
-        session.saveToken(refresh.getTokenAccess(),refresh.getTokenRefresh());
-        SecurityContext.setTokenRefresh(tokenRefresh);
-        String tokenAccess=refresh.getTokenAccess();
-        SecurityContext.setTokenAccess(tokenAccess);
+        session.saveToken(refresh.getAccessToken(),refresh.getRefreshToken());
+        String tokenAccess=refresh.getAccessToken();
         return response.request().newBuilder().addHeader("Authorization", "Bearer " + tokenAccess).build();
     }
 }

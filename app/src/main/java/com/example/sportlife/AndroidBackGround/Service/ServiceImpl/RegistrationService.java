@@ -31,8 +31,6 @@ public class RegistrationService {
                     String tokenAccess =response.body().getAccessToken();
                     String tokenRefresh=response.body().getRefreshToken();
                     SecurityContext.createContext();
-                    SecurityContext.setTokenAccess(tokenAccess);
-                    SecurityContext.setTokenRefresh(tokenRefresh);
                     SecurityContext.setName(name);
                     session.saveToken(tokenAccess,tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);

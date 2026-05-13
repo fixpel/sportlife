@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:background="@drawable/equipment_card_bg">
+        android:background="@drawable/level_button_selector">
 
         <!-- Левая часть: Фото -->
         <FrameLayout
@@ -24,8 +24,7 @@
                 android:id="@+id/imgEquipment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_dumbbells" />
+                android:scaleType="centerCrop" />
         </FrameLayout>
 
         <!-- Правая часть: Название -->
@@ -40,8 +39,8 @@
                 android:id="@+id/tvEquipmentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Гантели"
-                android:textColor="#FFFFFF"
+                android:text=""
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:shadowColor="#000000"

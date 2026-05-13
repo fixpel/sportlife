@@ -44,13 +44,13 @@ public class ActivityHome extends CreateActivity {
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
         findTopService.findTop(callBack);
-        Button search=this.findViewById(R.id.btnSearch);
-        Button history=this.findViewById(R.id.btnHistory);
+        Button search=findViewById(R.id.btnSearch);
+        Button history=findViewById(R.id.btnHistory);
         search.setOnClickListener(v->{
             callBack.onSuccess(ActivityLevel.class);//активность поиска.
         });
         history.setOnClickListener(v->{
-            callBack.onSuccess(null);//активность истории
+            callBack.onSuccess(ActivityFavorites.class);//активность истории
         });
     }
 }

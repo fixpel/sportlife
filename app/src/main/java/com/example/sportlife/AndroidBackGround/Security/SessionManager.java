@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public  class SessionManager {
+public class SessionManager {
     private SharedPreferences preferences;
     public SessionManager(Context contextShared){
         this.preferences=contextShared.getSharedPreferences("User", Context.MODE_PRIVATE);

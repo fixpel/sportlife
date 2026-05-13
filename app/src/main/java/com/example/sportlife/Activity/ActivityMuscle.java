@@ -6,14 +6,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.OnApplyWindowInsetsListener;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
@@ -24,11 +16,12 @@ import com.example.sportlife.R;
 
 import org.jspecify.annotations.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityMuscle extends CreateActivity {
     int currentPage = 1;
-    List<String> muscles;
+    List<String> muscles=new ArrayList<>();
 
     @Override
     protected int getIdLayout() {
@@ -54,15 +47,17 @@ public class ActivityMuscle extends CreateActivity {
         findViewById(R.id.btnNext).setOnClickListener(v -> switchPage(1));
 
 
-        Button back=this.findViewById(R.id.btnBack);
-        Button save=this.findViewById(R.id.btnSave);
+        Button back=findViewById(R.id.btnBack);
+        Button save=findViewById(R.id.btnSave);
 
         back.setOnClickListener(v->{
+            SearchService.getMuscles().clear();
             callBack.onSuccess(ActivityLevel.class);//назад
         });
         save.setOnClickListener(v->{
-            SearchService.setMuscles(muscles, callBack);
-            callBack.onSuccess(ActivityInventory.class);//сохранить
+            if(SearchService.setMuscles(muscles, callBack)){
+                callBack.onSuccess(ActivityInventory.class);
+            }
         });
 
         setupZoneButtons();
@@ -93,8 +88,12 @@ public class ActivityMuscle extends CreateActivity {
         if (zoneButton != null) {
             zoneButton.setOnClickListener(v -> {
                 // Переключаем состояние кнопки
-                muscles.add(zoneButton.getText().toString());
                 boolean isSelected = !zoneButton.isSelected();
+                if(isSelected){
+                    muscles.add(zoneButton.getText().toString());
+                }else{
+                    muscles.remove(zoneButton.getText().toString());
+                }
                 zoneButton.setSelected(isSelected);
 
                 // Можно добавить логирование или сохранение

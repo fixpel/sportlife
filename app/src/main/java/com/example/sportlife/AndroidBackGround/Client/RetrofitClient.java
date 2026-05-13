@@ -11,11 +11,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static final OkHttpClient httpClient= new OkHttpClient.Builder()
-            .addInterceptor(new SecurityInterceptor())
+            .addInterceptor(new SecurityInterceptor(SessionContext.getAppContext()))
             .authenticator(new AuthenticatorRefresh(SessionContext.getAppContext()))
             //.connectTimeout(30, TimeUnit.SECONDS)
-            //.writeTimeout(3,TimeUnit.MINUTES)
-            //.readTimeout(3,TimeUnit.MINUTES)
+            //.writeTimeout(30,TimeUnit.SECONDS)
+            //.readTimeout(30,TimeUnit.SECONDS)
             .build();
     private static final Retrofit retrofit=new Retrofit.Builder().baseUrl("http://192.168.2.61:49182/api/").client(httpClient).addConverterFactory(GsonConverterFactory.create()).build();
     public static ApiRepository getApiRepository(){

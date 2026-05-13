@@ -8,4 +8,26 @@
         android:centerColor="#00ACC1"
         android:endColor="#00E5FF"
         android:type="linear"/>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- Состояние "Выбрано" -->
+        <item android:state_selected="true">
+            <shape android:shape="rectangle">
+                <stroke
+                    android:width="3dp"
+                    android:color="#00ACC1"/> <!-- Бирюзовая рамка -->
+                <corners android:radius="8dp"/>
+                <solid android:color="#4000ACC1"/> <!-- Полупрозрачный бирюзовый фон -->
+            </shape>
+        </item>
+        <!-- Состояние "Обычное" -->
+        <item>
+            <shape android:shape="rectangle">
+                <stroke
+                    android:width="2dp"
+                    android:color="#80DEEA"/> <!-- Светло-голубая рамка -->
+                <corners android:radius="8dp"/>
+                <solid android:color="#00000000"/> <!-- Прозрачный -->
+            </shape>
+        </item>
+    </selector>
 </shape>
