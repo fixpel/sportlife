@@ -15,33 +15,39 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindTopService;
 import com.example.sportlife.R;
 
-public class ActivityFavorites extends CreateActivity {
+public class ActivityProfile extends CreateActivity {
 
 
 
     @Override
     protected int getIdLayout() {
-        return R.layout.activity_favorites;
+        return R.layout.activity_profile;
     }
 
     @Override
     protected int getIdView() {
-        return R.id.activityFavorites;
+        return R.id.activityProfile;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FindTopService findTopService = new FindTopService();
         UIController uiController = new UIController(this, null);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
+        findTopService.findTop(callBack);
 
 
 
         Button back = this.findViewById(R.id.btnBack);
+        Button save = this.findViewById(R.id.btnSave);
 
         back.setOnClickListener(v -> {
             callBack.onSuccess(null);//назад
+        });
+        save.setOnClickListener(v -> {
+            callBack.onSuccess(null);//вперед
         });
 
     }

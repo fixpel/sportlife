@@ -19,6 +19,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.UpdateResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -31,13 +32,13 @@ public interface ApiRepository {
     Call<RefreshResponse> refresh(@Body RefreshRequest request);
     @GET("Employee/top")
     Call<FindTopResponse> findTop();
-    @POST("Employee/experts")
+    @PATCH("Employee/experts")
     Call<UpdateResponse> updateExperts(@Body ExpertsRequest request);
 
     @POST("Exercise/search")
     Call<SearchResponse> search(@Body SearchRequest request, @Query("size") int size,@Query("page") int page );
 
-    @GET("Infentory/info")
+    @GET("Inventory/info")
     Call<FindInventoryResponse> findInventory(@Query("size") int size,@Query("page") int page);
 
     @POST("Favourites/create")

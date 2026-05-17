@@ -7,6 +7,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Request.RefreshRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RefreshResponse;
 import com.example.sportlife.AndroidBackGround.Security.SecurityContext;
 import com.example.sportlife.AndroidBackGround.Security.SessionManager;
+import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ import retrofit2.Response;
 
 @RequiredArgsConstructor
 public class RefreshService{
-    private final CallBackHandlerImpl callBack;
+    private final CallBackHandler callBack;
     public RefreshResponse refresh(String tokenRefresh) {
         ApiRepository apiRepositor= RetrofitClient.getApiRepository();
         RefreshRequest request=new RefreshRequest(tokenRefresh);
@@ -27,7 +28,7 @@ public class RefreshService{
                 return responseCall.body();
             }
         } catch (IOException e) {
-            callBack.onTools(e.getMessage());
+            return null;
         }
         return null;
     }

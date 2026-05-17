@@ -19,9 +19,6 @@ import retrofit2.Response;
 public class AuthService {
     private final SessionManager session;
     public void auth(String name,String password, CallBackHandler callBack){
-        if(name.isEmpty()||password.isEmpty()){
-            return;
-        }
         AuthRequest authRequest=new AuthRequest(name,password);
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.auth(authRequest).enqueue(new retrofit2.Callback<AuthResponse>() {
@@ -31,7 +28,7 @@ public class AuthService {
                     String tokenAccess = response.body().getAccessToken();
                     String tokenRefresh = response.body().getRefreshToken();
                     SecurityContext.createContext();
-                    SecurityContext.setTokenAccess(tokenAccess);
+                    SecurityContext.setName(name);
                     session.saveToken(tokenAccess, tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);
                 }else{

@@ -1,6 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Controller;
 
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
+import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.google.gson.Gson;
 
 import java.io.IOException;

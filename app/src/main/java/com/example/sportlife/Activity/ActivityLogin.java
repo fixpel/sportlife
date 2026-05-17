@@ -38,14 +38,10 @@ public class ActivityLogin extends CreateActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         RegistrationService registrationService;
-        EditText editTextName;
-        EditText editTextPassword;
-
         TextView tv_have_account = findViewById(R.id.tv_have_account);
-        editTextName=findViewById(R.id.et_name);
-        editTextPassword=findViewById(R.id.et_password);
+        EditText editTextName=findViewById(R.id.et_name);
+        EditText editTextPassword=findViewById(R.id.et_password);
         AppCompatButton appCompatButton = findViewById(R.id.btn_register);
         List<TextView> editTexts=new ArrayList<>();
         editTexts.add(editTextName);

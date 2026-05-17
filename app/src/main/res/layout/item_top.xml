@@ -8,27 +8,27 @@
     app:cardElevation="0dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:background="#E5E5E5"
         android:gravity="center_vertical"
-        android:padding="12dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="12dp">
 
         <!-- Иконка пользователя -->
         <ImageView
             android:id="@+id/avatarIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="Avatar"/>
+            android:contentDescription="Avatar"
+            android:scaleType="centerCrop" />
 
         <!-- Блок с Именем и Рангом -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="293dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
@@ -36,17 +36,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Имя"
-                android:textStyle="bold"
+                android:textColor="#000000"
                 android:textSize="16sp"
-                android:textColor="#000000" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/userRank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Экспертность"
-                android:textSize="12sp"
-                android:textColor="#666666" />
+                android:textColor="#666666"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Число очков -->
@@ -55,9 +55,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00"
+            android:textColor="#000000"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000000"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -1,5 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import android.util.Log;
+
 import com.example.sportlife.Activity.ActivityMuscle;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
@@ -31,6 +33,5 @@ public class UpdateExpertsService {
                 callBack.onTools(t.getMessage());
             }
         });
-
     }
 }

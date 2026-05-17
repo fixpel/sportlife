@@ -8,6 +8,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.SearchResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -21,17 +22,21 @@ public class SearchService {
     @Getter
     private static List<String> muscles;
     @Getter
-    private static List<String> items;
+    private static List<String> items=new ArrayList<>();
     @Getter
     private static List<SearchResponse.Exercise> exercises;
-    public void search(CallBackHandler callBack, int page){
+    @Getter
+    private static int totalPage;
+    public static void search(CallBackHandler callBack, int page){
         SearchRequest request=new SearchRequest(muscles,items);
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
+        callBack.onTools(items.toString());
         apiRepository.search(request,10,page).enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
                     exercises=response.body().getExercises();
+                    totalPage=response.body().getTotalPage();
                     callBack.findExercise(response.body());
                 }else{
                     callBack.onError(response);
@@ -44,18 +49,21 @@ public class SearchService {
             }
         });
     }
-    public static void setMuscles(List<String> muscles, CallBackHandler callBack){
+    public static Boolean setMuscles(List<String> muscles, CallBackHandler callBack){
         if(muscles.isEmpty()){
             callBack.onTools("");
+            return false;
         }else {
             SearchService.muscles = muscles;
+            return true;
         }
     }
-    public static void setItems(List<String> items, CallBackHandler callBack){
+    public static Boolean setItems(List<String> items, CallBackHandler callBack){
         if(items.isEmpty()){
             callBack.onTools("");
+            return false;
         }else {
-            SearchService.items = items;
+            return true;
         }
     }
 }

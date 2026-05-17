@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RefreshResponse{
-    private String tokenRefresh;
-    private String tokenAccess;
+    private String refreshToken;
+    private String accessToken;
 }
