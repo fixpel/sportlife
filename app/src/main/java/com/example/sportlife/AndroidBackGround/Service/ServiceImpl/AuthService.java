@@ -25,11 +25,13 @@ public class AuthService {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
+                    callBack.onTools("rererer");
                     String tokenAccess = response.body().getAccessToken();
                     String tokenRefresh = response.body().getRefreshToken();
                     SecurityContext.createContext();
                     SecurityContext.setName(name);
                     session.saveToken(tokenAccess, tokenRefresh);
+                    callBack.onTools("auth");
                     callBack.onSuccess(ActivityHome.class);
                 }else{
                     callBack.onError(response);

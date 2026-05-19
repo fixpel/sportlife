@@ -35,6 +35,7 @@ public class SplashActivity extends CreateActivity {
             service.splash(callBack);
             callBack.onSuccess(MainActivity.class);
         }else{
+            callBack.onTools(session.getAccessToken());
             service.splash(callBack);
             callBack.onSuccess(ActivityHome.class);
         }

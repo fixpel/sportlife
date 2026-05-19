@@ -1,11 +1,11 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import androidx.annotation.NonNull;
+
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
-import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
-import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
-import com.example.sportlife.AndroidBackGround.Dto.Response.SearchResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.util.ArrayList;
@@ -20,31 +20,31 @@ import retrofit2.Response;
 @Data
 public class SearchService {
     @Getter
-    private static List<String> muscles;
+    private static List<String> muscles=new ArrayList<>();
     @Getter
     private static List<String> items=new ArrayList<>();
     @Getter
-    private static List<SearchResponse.Exercise> exercises;
+    private static List<ExerciseCardResponse.Exercise> exercises;
     @Getter
     private static int totalPage;
     public static void search(CallBackHandler callBack, int page){
         SearchRequest request=new SearchRequest(muscles,items);
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         callBack.onTools(items.toString());
-        apiRepository.search(request,10,page).enqueue(new Callback<SearchResponse>() {
+        apiRepository.search(request,10,page).enqueue(new Callback<ExerciseCardResponse>() {
             @Override
-            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
+            public void onResponse(@NonNull Call<ExerciseCardResponse> call, @NonNull Response<ExerciseCardResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
                     exercises=response.body().getExercises();
                     totalPage=response.body().getTotalPage();
-                    callBack.findExercise(response.body());
+                    callBack.findExercises(response.body());
                 }else{
                     callBack.onError(response);
                 }
             }
 
             @Override
-            public void onFailure(Call<SearchResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<ExerciseCardResponse> call, @NonNull Throwable t) {
                 callBack.onTools(t.getMessage());
             }
         });
@@ -64,6 +64,15 @@ public class SearchService {
             return false;
         }else {
             return true;
+        }
+    }
+    public static void findExercise(CallBackHandler callBack,String name){
+        ExerciseCardResponse.Exercise exercise=exercises.stream().filter(e->
+            e.getName().equals(name)).findFirst().orElse(null);
+        if(exercise==null){
+            callBack.onTools("объект не найден");
+        }else{
+            callBack.findExercise(exercise);
         }
     }
 }

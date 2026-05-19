@@ -13,6 +13,7 @@ import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindTopService;
+import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.ProfileInfoService;
 import com.example.sportlife.R;
 
 public class ActivityProfile extends CreateActivity {
@@ -32,22 +33,15 @@ public class ActivityProfile extends CreateActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FindTopService findTopService = new FindTopService();
         UIController uiController = new UIController(this, null);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
-        findTopService.findTop(callBack);
-
-
-
-        Button back = this.findViewById(R.id.btnBack);
-        Button save = this.findViewById(R.id.btnSave);
+        ProfileInfoService service=new ProfileInfoService();
+        service.info(callBack);
+        Button back =findViewById(R.id.btnBack);
 
         back.setOnClickListener(v -> {
             callBack.onSuccess(null);//назад
-        });
-        save.setOnClickListener(v -> {
-            callBack.onSuccess(null);//вперед
         });
 
     }

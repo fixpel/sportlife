@@ -1,5 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Controller;
 
+import static androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_FILL;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
@@ -9,23 +11,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+import androidx.annotation.OptIn;
+import androidx.media3.common.MediaItem;
+import androidx.media3.common.util.UnstableApi;
+import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sportlife.Activity.ActivityExercisedetail;
+import com.example.sportlife.Activity.ActivityExerciseDetail;
+import com.example.sportlife.Activity.ActivityFavouriteDetails;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
-import com.example.sportlife.AndroidBackGround.Dto.Response.SearchResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,8 +54,6 @@ public  class UIController {
         editTexts.forEach(e->{
             if(error.getErrors().containsKey(e.getTag().toString())){
                 e.setError(error.getErrors().get(e.getTag().toString()).toString());
-            }else{
-                return;
             }
         });
     }
@@ -124,7 +128,7 @@ public  class UIController {
             }
         });
     }
-    public void findExercises(SearchResponse response, CallBackHandler callBack){
+    public void findExercises(ExerciseCardResponse response, CallBackHandler callBack, Class<?extends Activity> to){
         RecyclerView recyclerView=activity.findViewById(R.id.recyclerViewResults);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setAdapter(new RecyclerView.Adapter() {
@@ -137,13 +141,14 @@ public  class UIController {
 
             @Override
             public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-                SearchResponse.Exercise exercise=response.getExercises().get(position);
-                ImageView photo=holder.itemView.findViewById(R.id.imgExercise);
-                errorService(photo.toString());
+                ExerciseCardResponse.Exercise exercise=response.getExercises().get(position);
+                View view=holder.itemView;
+                ImageView photo=view.findViewById(R.id.imgExercise);
                 Picasso.get().load(exercise.getPhoto()).fit().centerCrop().into(photo);
-                TextView name=holder.itemView.findViewById(R.id.tvName);
-                TextView experts=holder.itemView.findViewById(R.id.tvExpertise);
-                ImageView favourites=holder.itemView.findViewById(R.id.chkFavorite);
+                TextView name=view.findViewById(R.id.tvName);
+                TextView experts=view.findViewById(R.id.tvExpertise);
+                ImageView favourites=view.findViewById(R.id.chkFavorite);
+                PlayerView video=activity.findViewById(R.id.videoContainer);
                 if(exercise.getFavourites()){
                     Picasso.get()
                             .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
@@ -155,7 +160,7 @@ public  class UIController {
                             .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
                             .fit()
                             .centerCrop()
-                            .into(favourites);;//не закрашенне сердечко
+                            .into(favourites);//не закрашенне сердечко
                 }
                 experts.setText(exercise.getExperts());
                 name.setText(exercise.getName());
@@ -174,16 +179,105 @@ public  class UIController {
                                 .fit()
                                 .centerCrop()
                                 .into(favourites);//меняем на закрашеное сердцо
-                    exercise.setFavourites(true);
-                    callBack.onCreateFavourite(exercise.getName());
+                        exercise.setFavourites(true);
+                        callBack.onCreateFavourite(exercise.getName());
                 }
                 });
-                holder.itemView.setOnClickListener(v->openNextScreen(ActivityExercisedetail.class));
+               view.setOnClickListener(v->{
+                   if(to== ActivityExerciseDetail.class){
+                       ActivityExerciseDetail.setNameExercise(name.getText().toString());
+                   }else{
+                       ActivityFavouriteDetails.setNameExercise(name.getText().toString());
+                   }
+                   openNextScreen(to);
+               });
             }
 
             @Override
             public int getItemCount() {
                 return response.getExercises().size();
+            }
+        });
+    }
+    @OptIn(markerClass = UnstableApi.class)
+    public void findExercise(ExerciseCardResponse.Exercise exercise, CallBackHandler callBack){
+        TextView name=activity.findViewById(R.id.tvExerciseTitle);
+        name.setText(exercise.getName());
+        ImageView favourite=activity.findViewById(R.id.chkFavorite);
+        TextView description=activity.findViewById(R.id.tvTechnique);
+        description.setText(exercise.getDescription());
+        TextView items=activity.findViewById(R.id.tvEquipment);
+        TextView muscles=activity.findViewById(R.id.tvMuscle);
+        muscles.setText(String.join(", ",exercise.getMuscles()));
+        items.setText(String.join(", ", exercise.getItems()));
+        ExoPlayer player=new ExoPlayer.Builder(activity).build();
+        MediaItem mediaItem=MediaItem.fromUri(exercise.getVideo());
+        player.setMediaItem(mediaItem);
+        PlayerView videoPlayer=activity.findViewById(R.id.videoContainer);
+        videoPlayer.setPlayer(player);
+        videoPlayer.setUseController(true);
+        videoPlayer.setShowBuffering(PlayerView.SHOW_BUFFERING_ALWAYS);
+        videoPlayer.setControllerHideOnTouch(true);
+        videoPlayer.setResizeMode(RESIZE_MODE_FILL);
+        videoPlayer.setControllerHideOnTouch(true);
+        videoPlayer.setControllerShowTimeoutMs(5000);
+        if(activity instanceof ActivityExerciseDetail){
+            ActivityExerciseDetail.setPlayer(player);
+        }else{
+            ActivityFavouriteDetails.setPlayer(player);
+        }
+        player.prepare();
+        player.play();
+        if(exercise.getFavourites()){
+            Picasso.get()
+                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
+                    .fit()
+                    .centerCrop()
+                    .into(favourite);
+        } else{
+            Picasso.get()
+                    .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
+                    .fit()
+                    .centerCrop()
+                    .into(favourite);//меняем на незакрашенное сердце
+        }
+        favourite.setOnClickListener(v->{
+            if(exercise.getFavourites()) {
+                Picasso.get()
+                        .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
+                        .fit()
+                        .centerCrop()
+                        .into(favourite);//меняем на незакрашенное сердце
+                exercise.setFavourites(false);
+                callBack.onDeleteFavourite(exercise.getName());
+            }else{
+                Picasso.get()
+                        .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
+                        .fit()
+                        .centerCrop()
+                        .into(favourite);//меняем на закрашеное сердцо
+                exercise.setFavourites(true);
+                callBack.onCreateFavourite(exercise.getName());
+            }
+        });
+    }
+    public void profile(ProfileResponse response){
+        editTexts.forEach(e->{
+            switch (e.getTag().toString()){
+                case "avatar":
+                    e.setText(response.getAvatar());
+                case "login":
+                    e.setText(response.getLogin());
+                case "experts":
+                    if(response.getExperts()==null){
+                        e.setText("уровень ещё неуказано");
+                    }else {
+                        e.setText(response.getExperts());
+                    }
+                case "activity":
+                    e.setText(response.getActivity().toString());
+                case "top":
+                    e.setText(response.getTop());
             }
         });
     }

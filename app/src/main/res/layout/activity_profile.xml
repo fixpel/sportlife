@@ -56,9 +56,9 @@
                     android:id="@+id/imgAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_background"
 
-                    android:background="@drawable/circle_background"/>
+                    android:scaleType="centerCrop" />
 
                 <ImageView
                     android:id="@+id/btnChangeAvatar"
@@ -69,6 +69,7 @@
                     android:background="@drawable/circle_accent"
                     android:padding="8dp"
                     android:contentDescription="Сменить аватар"/>
+
             </FrameLayout>
 
             <!-- Единый стиль для всех полей -->
@@ -81,19 +82,36 @@
                 android:textSize="14sp"
                 android:layout_marginBottom="8dp"/>
 
-            <TextView
-                android:id="@+id/tvName"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:padding="12dp"
-                android:background="@drawable/profile_field_bg"
-                android:text="Не указано"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginBottom="24dp"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:tag="Name"
+
+                    android:background="@drawable/profile_field_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:text="Name"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="10dp"
+                    app:srcCompat="@drawable/edit"
+                    android:background="@drawable/edit_background"/>
+
+            </FrameLayout>
 
             <!-- Поле: Экспертность -->
             <TextView
@@ -102,15 +120,19 @@
                 android:text="Экспертность"
                 android:textColor="#B0B0B0"
                 android:textSize="14sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                />
+
 
             <TextView
                 android:id="@+id/tvExpertise"
+                android:tag="expert"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="12dp"
                 android:background="@drawable/profile_field_bg"
-                android:text="Не указано"
+                android:text="None"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -129,11 +151,12 @@
 
             <TextView
                 android:id="@+id/tvActivity"
+                android:tag="activity"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="12dp"
                 android:background="@drawable/profile_field_bg"
-                android:text="50"
+                android:text="00"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -152,6 +175,7 @@
 
             <TextView
                 android:id="@+id/tvRating"
+                android:tag="raiting"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="12dp"
@@ -163,6 +187,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_marginBottom="24dp"/>
+
 
         </LinearLayout>
     </ScrollView>

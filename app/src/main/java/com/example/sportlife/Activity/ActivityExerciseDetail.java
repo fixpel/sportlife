@@ -1,13 +1,10 @@
 package com.example.sportlife.Activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.media3.exoplayer.ExoPlayer;
 
-import com.example.sportlife.Activity.CreateActivity;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
@@ -15,10 +12,27 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindTopService;
 import com.example.sportlife.R;
 
-public class ActivityExercisedetail extends CreateActivity {
+import lombok.Getter;
+import lombok.Setter;
 
-
-
+public class ActivityExerciseDetail extends CreateActivity {
+    @Setter
+    public static String nameExercise;
+    @Setter
+    @Getter
+    public static ExoPlayer player;
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        if(player!=null){
+            player.release();
+        }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.pause();
+    }
     @Override
     protected int getIdLayout() {
         return R.layout.activity_exercise_detail;

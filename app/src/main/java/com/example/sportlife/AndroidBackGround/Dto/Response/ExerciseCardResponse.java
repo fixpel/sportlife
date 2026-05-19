@@ -1,7 +1,5 @@
 package com.example.sportlife.AndroidBackGround.Dto.Response;
 
-import androidx.core.text.util.LocalePreferences;
-
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchResponse {
+public class ExerciseCardResponse {
     private List<Exercise> exercises;
     private int size;
     private int page;

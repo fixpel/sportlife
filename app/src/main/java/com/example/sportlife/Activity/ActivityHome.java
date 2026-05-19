@@ -3,6 +3,7 @@ package com.example.sportlife.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -46,11 +47,13 @@ public class ActivityHome extends CreateActivity {
         findTopService.findTop(callBack);
         Button search=findViewById(R.id.btnSearch);
         Button history=findViewById(R.id.btnHistory);
+        ImageView profile=findViewById(R.id.btnProfile);
         search.setOnClickListener(v->{
             callBack.onSuccess(ActivityLevel.class);//активность поиска.
         });
         history.setOnClickListener(v->{
             callBack.onSuccess(ActivityFavorites.class);//активность истории
         });
+        profile.setOnClickListener(v->callBack.onSuccess(ActivityProfile.class));
     }
 }

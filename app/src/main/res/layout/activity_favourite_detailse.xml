@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#333333"
-    android:id="@+id/activityExerciseDetail">
+    android:id="@+id/activityFavouriteDetail">
 
     <!-- Шапка -->
     <LinearLayout

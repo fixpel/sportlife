@@ -37,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Избранное"
+        android:id="@+id/favorites"
+        android:tag="favourites"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
@@ -46,7 +48,7 @@
 
     <!-- Список карточек -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewFavorites"
+        android:id="@+id/recyclerViewResults"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

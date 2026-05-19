@@ -34,12 +34,14 @@ android {
 }
 
 dependencies {
+    implementation("androidx.media3:media3-exoplayer:1.8.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation(libs.recyclerview)
+    implementation(libs.media3.ui)
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
     implementation(libs.appcompat)

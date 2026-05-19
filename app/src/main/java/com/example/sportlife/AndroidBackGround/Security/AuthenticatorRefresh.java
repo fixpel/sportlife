@@ -23,6 +23,7 @@ public class AuthenticatorRefresh implements Authenticator {
     @Override
     public Request authenticate(@Nullable Route route, @NonNull Response response) {
         SessionManager session=new SessionManager(context);
+        Log.d("rrr","ererer");
         RefreshService refreshService=new RefreshService(new CallBackHandlerImpl(null,null));
         String tokenRefresh= session.getRefreshToken();
         RefreshResponse refresh=refreshService.refresh(tokenRefresh);
