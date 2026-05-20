@@ -55,4 +55,7 @@ public class ProfileService {
             }
         });
     }
+    public void findAvatars(CallBackHandler callBack){
+
+    }
 }
