@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A1A1A"
+    android:id="@+id/activitySchedule">
+
+    <!-- ==================== ШАПКА ==================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="#3F3F3F">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sport - "
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="life"
+            android:textColor="#00B7B7"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ==================== ТЕЛО ==================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="#333333"
+        android:padding="16dp">
+
+        <!-- Заголовок раздела -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Расписание"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выберите дни тренировок"
+            android:textSize="14sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Контейнер с кнопками дней недели -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMonday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Понедельник"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTuesday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Вторник"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWednesday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Среда"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnThursday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Четверг"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFriday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Пятница"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaturday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Суббота"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSunday"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:text="Воскресенье"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#D3D3D3"
+                    app:cornerRadius="8dp"
+                    android:layout_marginBottom="12dp"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- ==================== ФУТЕР ==================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="#3F3F3F">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:text="Назад"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:backgroundTint="#757575"
+            app:cornerRadius="24dp" />
+    </LinearLayout>
+
+</LinearLayout>
