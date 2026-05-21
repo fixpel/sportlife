@@ -123,12 +123,12 @@
                     android:layout_marginBottom="12dp"/>
 
                 <!-- Placeholder для видео -->
-                <androidx.media3.ui.PlayerView
+                <WebView
                     android:id="@+id/videoContainer"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:background="#555555">
-                </androidx.media3.ui.PlayerView>
+                </WebView>
             </LinearLayout>
 
             <!-- Секция: Инвентарь -->

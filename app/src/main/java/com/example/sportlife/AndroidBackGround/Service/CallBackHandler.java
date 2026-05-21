@@ -1,7 +1,9 @@
 package com.example.sportlife.AndroidBackGround.Service;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
@@ -22,4 +24,5 @@ public interface CallBackHandler {
     void onDeleteFavourite(String name);
     void findFavourites(ExerciseCardResponse response);
     void profile(ProfileResponse response);
+    void findAvatars(FindAvatarResponse response, AlertDialog dialog);
 }

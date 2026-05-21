@@ -39,6 +39,7 @@ public class ActivityProfile extends CreateActivity {
         textViews.add(findViewById(R.id.tvRating));
         Button back =findViewById(R.id.btnBack);
         ImageView edit=findViewById(R.id.imageButton);
+        ImageView editAvatar=findViewById(R.id.btnChangeAvatar);
         UIController uiController = new UIController(this, textViews);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
@@ -48,6 +49,7 @@ public class ActivityProfile extends CreateActivity {
             callBack.onSuccess(ActivityHome.class);//назад
         });
         edit.setOnClickListener(v->callBack.onSuccess(ActivityEdit.class));
+        editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));
     }
 
 
