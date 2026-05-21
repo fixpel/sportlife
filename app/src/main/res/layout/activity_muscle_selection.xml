@@ -90,8 +90,10 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zoneDeltaFront"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="0sp"
                 android:layout_height="45sp"
                 android:layout_marginStart="40sp"
@@ -103,12 +105,10 @@
                 android:textSize="10sp"
                 android:textStyle="bold"
                 android:visibility="visible"
+                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.18"
-                app:backgroundTint="@null"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
-
+                app:layout_constraintWidth_percent="0.18" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/zoneKardio"

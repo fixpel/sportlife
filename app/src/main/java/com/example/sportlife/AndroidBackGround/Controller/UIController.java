@@ -31,6 +31,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
@@ -285,14 +286,14 @@ public  class UIController {
                         .load(name)
                         .circleCrop()
                         .into(avatar);
-                view.setOnClickListener(v->{
-                    ActivityEditAvatar.setNameAvatar(name);
-                    if(v.isSelected()){
+                MaterialButton button=view.findViewById(R.id.button);
+                avatar.setOnClickListener(v->{
+                    if(button.isSelected()){
                         ActivityEditAvatar.setNameAvatar(null);
-                        v.setSelected(false);
+                        button.setSelected(false);
                     }else{
                         ActivityEditAvatar.setNameAvatar(name);
-                        v.setSelected(true);
+                        button.setSelected(true);
                     }
                 });
             }
