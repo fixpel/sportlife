@@ -1,28 +1,29 @@
 package com.example.sportlife.AndroidBackGround.Controller;
 
-import static androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_FILL;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
-import androidx.media3.common.MediaItem;
 import androidx.media3.common.util.UnstableApi;
-import androidx.media3.ui.PlayerView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.sportlife.Activity.ActivityEditAvatar;
 import com.example.sportlife.Activity.ActivityExerciseDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
@@ -203,6 +204,13 @@ public  class UIController {
         TextView muscles=activity.findViewById(R.id.tvMuscle);
         muscles.setText(String.join(", ",exercise.getMuscles()));
         items.setText(String.join(", ", exercise.getItems()));
+        WebView video=activity.findViewById(R.id.videoContainer);
+        video.getSettings().setJavaScriptEnabled(true);
+        video.setWebViewClient(new WebViewClient());
+        video.getSettings().setUseWideViewPort(true);
+        video.getSettings().setLoadWithOverviewMode(true);
+        video.getSettings().setDomStorageEnabled(true);
+        video.loadUrl(exercise.getVideo());
         if(exercise.getFavourites()){
             Glide.with(activity)
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
@@ -232,7 +240,6 @@ public  class UIController {
             }
         });
     }
-    @SuppressLint("SetTextI18n")
     public void profile(ProfileResponse response){
         errorService(response.toString());
         editTexts.forEach(e->{
@@ -255,6 +262,43 @@ public  class UIController {
                 case "top":
                     e.setText(response.getTop().toString());
                     break;
+            }
+        });
+    }
+    public void findAvatars(FindAvatarResponse response, AlertDialog dialog){
+        RecyclerView recyclerView=dialog.findViewById(R.id.recylerAvatar);
+        recyclerView.setLayoutManager(new GridLayoutManager(dialog.getContext(),2));
+        recyclerView.setAdapter(new RecyclerView.Adapter() {
+            @NonNull
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view=dialog.getLayoutInflater().inflate(R.layout.avatar_item,parent,false);
+                return new RecyclerView.ViewHolder(view){};
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+                String name = response.getNames().get(position);
+                View view = holder.itemView;
+                ImageView avatar = view.findViewById(R.id.imgAvatarItem);
+                Glide.with(holder.itemView.getContext())
+                        .load(name)
+                        .circleCrop()
+                        .into(avatar);
+                view.setOnClickListener(v->{
+                    ActivityEditAvatar.setNameAvatar(name);
+                    if(v.isSelected()){
+                        ActivityEditAvatar.setNameAvatar(null);
+                        v.setSelected(false);
+                    }else{
+                        ActivityEditAvatar.setNameAvatar(name);
+                        v.setSelected(true);
+                    }
+                });
+            }
+            @Override
+            public int getItemCount() {
+                return response.getNames().size();
             }
         });
     }

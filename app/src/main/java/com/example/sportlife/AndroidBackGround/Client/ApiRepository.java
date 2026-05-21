@@ -9,7 +9,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.UpdateEmployeeRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FavouritesResponse;
-import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarsResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
@@ -63,5 +63,5 @@ public interface ApiRepository {
     @PATCH("Employee/update")
     Call<UpdateEmployeeResponse> update(@Body UpdateEmployeeRequest request);
     @GET("Avatar/info")
-    Call<FindAvatarsResponse> findAvatars(@Query("size") int size,@Query("page") int page);
+    Call<FindAvatarResponse> findAvatars();
 }

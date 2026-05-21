@@ -1,6 +1,8 @@
 package com.example.sportlife.Activity;
 
 import android.os.Bundle;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;

@@ -5,9 +5,6 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class FindAvatarsResponse {
+public class FindAvatarResponse {
         private List<String> names;
-        private int page;
-        private int size;
-        private long totalPage;
 }

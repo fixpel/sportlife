@@ -1,6 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Service;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 
 import com.example.sportlife.Activity.ActivityExerciseDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
@@ -8,6 +9,7 @@ import com.example.sportlife.Activity.MainActivity;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
@@ -83,5 +85,10 @@ public class CallBackHandlerImpl implements CallBackHandler {
     @Override
     public void profile(ProfileResponse response) {
         uiController.profile(response);
+    }
+
+    @Override
+    public void findAvatars(FindAvatarResponse response, AlertDialog dialog) {
+        uiController.findAvatars(response,dialog);
     }
 }
