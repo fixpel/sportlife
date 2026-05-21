@@ -8,12 +8,14 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/button"
         android:background="@drawable/avatar_background2"
-        app:backgroundTint="#00ACC1"
+        app:backgroundTint="@null"
         app:cornerRadius="40dp" />
 
     <ImageView
         android:layout_width="70dp"
+        android:id="@+id/imgAvatarItem"
         android:layout_height="70dp"
         android:layout_gravity="center"
         android:background="@drawable/avatar_background"
