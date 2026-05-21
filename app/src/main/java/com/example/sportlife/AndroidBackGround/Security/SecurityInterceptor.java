@@ -36,7 +36,6 @@ public class SecurityInterceptor implements Interceptor {
             return chain.proceed(request);
         }
         String path = request.url().encodedPath();
-        Log.d("auth","notAuth");
         if (path.contains("/auth")
                 || path.contains("/refresh")
                 || path.contains("/register")
@@ -44,7 +43,6 @@ public class SecurityInterceptor implements Interceptor {
                 || path.contains("/splash")) {
             return chain.proceed(request);
         }
-        Log.d("auth","notAuthhhhh");
         SessionManager session = new SessionManager(context);
 
         String token = session.getAccessToken();

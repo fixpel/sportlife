@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
-import com.example.sportlife.AndroidBackGround.Security.SecurityContext;
 import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SplashService;
@@ -25,7 +24,6 @@ public class SplashActivity extends CreateActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SecurityContext context = new SecurityContext();
         SessionManager session=new SessionManager(getApplicationContext());
         UIController uiController=new UIController(this,null);
         ErrorController errorController=new ErrorController();
@@ -35,7 +33,6 @@ public class SplashActivity extends CreateActivity {
             service.splash(callBack);
             callBack.onSuccess(MainActivity.class);
         }else{
-            callBack.onTools(session.getAccessToken());
             service.splash(callBack);
             callBack.onSuccess(ActivityHome.class);
         }

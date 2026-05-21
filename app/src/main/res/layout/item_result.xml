@@ -19,8 +19,7 @@
             android:id="@+id/imgExercise"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:scaleType="centerCrop" />
 
         <!-- 2. Текст (Центр) -->
         <LinearLayout

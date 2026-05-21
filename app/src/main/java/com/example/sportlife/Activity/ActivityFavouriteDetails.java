@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.media3.exoplayer.ExoPlayer;
-
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
@@ -16,23 +14,10 @@ import com.example.sportlife.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
 import lombok.Setter;
 
 public class ActivityFavouriteDetails extends CreateActivity{
-    @Setter
-    public static ExoPlayer player;
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        if(player!=null){
-            player.release();
-        }
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        player.pause();
-    }
     @Setter
     public static String nameExercise;
     @Override

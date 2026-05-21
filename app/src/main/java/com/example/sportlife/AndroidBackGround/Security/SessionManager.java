@@ -11,10 +11,14 @@ public class SessionManager {
     public SessionManager(Context contextShared){
         this.preferences=contextShared.getSharedPreferences("User", Context.MODE_PRIVATE);
     }
-    public  void saveToken(String accessToken,String refreshToken){
+    public void saveToken(String accessToken,String refreshToken){
         preferences.edit().putString("access",accessToken).putString("refresh",refreshToken).apply();
-        SecurityContext.setTokenRefresh(refreshToken);
-        SecurityContext.setTokenAccess(accessToken);
+    }
+    public void saveName(String name){
+        preferences.edit().putString("name",name).apply();
+    }
+    public String getName(){
+        return preferences.getString("name",null);
     }
     public String getAccessToken(){
         return  preferences.getString("access",null);

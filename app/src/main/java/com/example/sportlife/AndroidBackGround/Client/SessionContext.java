@@ -9,7 +9,6 @@ public class SessionContext extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         appSessionContext = getApplicationContext();
     }
 

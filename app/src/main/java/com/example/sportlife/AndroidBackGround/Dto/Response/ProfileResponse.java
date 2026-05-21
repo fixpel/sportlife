@@ -10,5 +10,5 @@ public class ProfileResponse {
     private String avatar;
     private String experts;
     private Long activity;
-    private int top;
+    private Long top;
 }

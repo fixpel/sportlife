@@ -2,6 +2,7 @@ package com.example.sportlife.AndroidBackGround.Controller;
 
 import static androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_FILL;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
@@ -14,11 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.util.UnstableApi;
-import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.sportlife.Activity.ActivityExerciseDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
@@ -29,7 +30,6 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -78,10 +78,9 @@ public  class UIController {
                 ImageView avatar = holder.itemView.findViewById(R.id.avatarIcon);
                 name.setText(user.getLogin());
                 rank.setText(user.getExperts());
-                Picasso.get()
+                Glide.with(holder.itemView.getContext())
                         .load(user.getAvatar())
-                        .fit()
-                        .centerCrop()
+                        .circleCrop()
                         .into(avatar);
             }
             @Override
@@ -106,9 +105,8 @@ public  class UIController {
                 ImageView photo = holder.itemView.findViewById(R.id.imgEquipment);
                 TextView name = holder.itemView.findViewById(R.id.tvEquipmentName);
                 name.setText(inventory.getName());
-                Picasso.get()
+                Glide.with(holder.itemView.getContext())
                         .load(inventory.getPhoto())
-                        .fit()
                         .centerCrop()
                         .into(photo);
                 holder.itemView.setOnClickListener(v->{
@@ -144,21 +142,18 @@ public  class UIController {
                 ExerciseCardResponse.Exercise exercise=response.getExercises().get(position);
                 View view=holder.itemView;
                 ImageView photo=view.findViewById(R.id.imgExercise);
-                Picasso.get().load(exercise.getPhoto()).fit().centerCrop().into(photo);
+                Glide.with(holder.itemView.getContext()).load(exercise.getPhoto()).circleCrop().into(photo);
                 TextView name=view.findViewById(R.id.tvName);
                 TextView experts=view.findViewById(R.id.tvExpertise);
                 ImageView favourites=view.findViewById(R.id.chkFavorite);
-                PlayerView video=activity.findViewById(R.id.videoContainer);
                 if(exercise.getFavourites()){
-                    Picasso.get()
+                    Glide.with(holder.itemView.getContext())
                             .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                            .fit()
                             .centerCrop()
                             .into(favourites);//закрашенное сердечко
                 }else{
-                    Picasso.get()
+                    Glide.with(holder.itemView.getContext())
                             .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                            .fit()
                             .centerCrop()
                             .into(favourites);//не закрашенне сердечко
                 }
@@ -166,17 +161,15 @@ public  class UIController {
                 name.setText(exercise.getName());
                 favourites.setOnClickListener(v->{
                     if(exercise.getFavourites()) {
-                        Picasso.get()
+                        Glide.with(activity)
                                 .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                                .fit()
                                 .centerCrop()
                                 .into(favourites);//меняем на незакрашенное сердце
                         exercise.setFavourites(false);
                         callBack.onDeleteFavourite(exercise.getName());
                     }else{
-                        Picasso.get()
+                        Glide.with(activity)
                                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                                .fit()
                                 .centerCrop()
                                 .into(favourites);//меняем на закрашеное сердцо
                         exercise.setFavourites(true);
@@ -210,50 +203,28 @@ public  class UIController {
         TextView muscles=activity.findViewById(R.id.tvMuscle);
         muscles.setText(String.join(", ",exercise.getMuscles()));
         items.setText(String.join(", ", exercise.getItems()));
-        ExoPlayer player=new ExoPlayer.Builder(activity).build();
-        MediaItem mediaItem=MediaItem.fromUri(exercise.getVideo());
-        player.setMediaItem(mediaItem);
-        PlayerView videoPlayer=activity.findViewById(R.id.videoContainer);
-        videoPlayer.setPlayer(player);
-        videoPlayer.setUseController(true);
-        videoPlayer.setShowBuffering(PlayerView.SHOW_BUFFERING_ALWAYS);
-        videoPlayer.setControllerHideOnTouch(true);
-        videoPlayer.setResizeMode(RESIZE_MODE_FILL);
-        videoPlayer.setControllerHideOnTouch(true);
-        videoPlayer.setControllerShowTimeoutMs(5000);
-        if(activity instanceof ActivityExerciseDetail){
-            ActivityExerciseDetail.setPlayer(player);
-        }else{
-            ActivityFavouriteDetails.setPlayer(player);
-        }
-        player.prepare();
-        player.play();
         if(exercise.getFavourites()){
-            Picasso.get()
+            Glide.with(activity)
                     .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                    .fit()
                     .centerCrop()
                     .into(favourite);
         } else{
-            Picasso.get()
+            Glide.with(activity)
                     .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                    .fit()
                     .centerCrop()
                     .into(favourite);//меняем на незакрашенное сердце
         }
         favourite.setOnClickListener(v->{
             if(exercise.getFavourites()) {
-                Picasso.get()
+                Glide.with(activity)
                         .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                        .fit()
                         .centerCrop()
                         .into(favourite);//меняем на незакрашенное сердце
                 exercise.setFavourites(false);
                 callBack.onDeleteFavourite(exercise.getName());
             }else{
-                Picasso.get()
+                Glide.with(activity)
                         .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                        .fit()
                         .centerCrop()
                         .into(favourite);//меняем на закрашеное сердцо
                 exercise.setFavourites(true);
@@ -261,23 +232,29 @@ public  class UIController {
             }
         });
     }
+    @SuppressLint("SetTextI18n")
     public void profile(ProfileResponse response){
+        errorService(response.toString());
         editTexts.forEach(e->{
+            Glide.with(activity).load(response.getAvatar()).circleCrop().into((ImageView)activity.findViewById(R.id.imgAvatar));
             switch (e.getTag().toString()){
-                case "avatar":
-                    e.setText(response.getAvatar());
                 case "login":
                     e.setText(response.getLogin());
+                    break;
                 case "experts":
                     if(response.getExperts()==null){
                         e.setText("уровень ещё неуказано");
+                        break;
                     }else {
                         e.setText(response.getExperts());
+                        break;
                     }
                 case "activity":
                     e.setText(response.getActivity().toString());
+                    break;
                 case "top":
-                    e.setText(response.getTop());
+                    e.setText(response.getTop().toString());
+                    break;
             }
         });
     }

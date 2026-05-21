@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
-import com.example.sportlife.AndroidBackGround.Security.SecurityContext;
 import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.AuthService;
@@ -40,7 +39,6 @@ public class MainActivity extends CreateActivity {
         editTexts.add(editTextName);
         UIController uiController=new UIController(this,editTexts);
         ErrorController errorController=new ErrorController();
-        SecurityContext context=new SecurityContext();
         SessionManager session=new SessionManager(getApplicationContext());
         AuthService authService =new AuthService(session);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);

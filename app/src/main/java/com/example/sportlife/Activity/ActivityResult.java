@@ -58,17 +58,29 @@ public class ActivityResult extends CreateActivity {
             if(pageint==SearchService.getTotalPage()){
                 next.setVisibility(TextView.GONE);
             }
+            if(pageint!=1){
+                prev.setVisibility(TextView.VISIBLE);
+            }
+            if(pageint==1){
+                prev.setVisibility(TextView.GONE);
+            }
         });
         prev.setOnClickListener(v->{
             int pageint=Integer.parseInt(tvPage.getText().toString());
-            if(pageint!=0){
+            if(pageint!=1){
                 pageint=pageint-1;
                 tvPage.setText(Integer.toString(pageint));
                 prev.setVisibility(TextView.VISIBLE);
                 SearchService.search(callBack,pageint-1);
             }
-            if(pageint==0){
+            if(pageint==1){
                 prev.setVisibility(TextView.GONE);
+            }
+            if(pageint<SearchService.getTotalPage()){
+                next.setVisibility(TextView.VISIBLE);
+            }
+            if(pageint==SearchService.getTotalPage()){
+                next.setVisibility(TextView.GONE);
             }
 
         });

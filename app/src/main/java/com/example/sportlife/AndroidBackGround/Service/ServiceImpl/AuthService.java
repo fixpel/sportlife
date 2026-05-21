@@ -2,13 +2,10 @@ package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
 import com.example.sportlife.Activity.ActivityHome;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
-import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Dto.Request.AuthRequest;
-import com.example.sportlife.AndroidBackGround.Security.SecurityContext;
 import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
-import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
 
 import lombok.RequiredArgsConstructor;
@@ -25,13 +22,10 @@ public class AuthService {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools("rererer");
                     String tokenAccess = response.body().getAccessToken();
                     String tokenRefresh = response.body().getRefreshToken();
-                    SecurityContext.createContext();
-                    SecurityContext.setName(name);
+                    session.saveName(name);
                     session.saveToken(tokenAccess, tokenRefresh);
-                    callBack.onTools("auth");
                     callBack.onSuccess(ActivityHome.class);
                 }else{
                     callBack.onError(response);

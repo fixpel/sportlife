@@ -30,7 +30,6 @@ public class SearchService {
     public static void search(CallBackHandler callBack, int page){
         SearchRequest request=new SearchRequest(muscles,items);
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
-        callBack.onTools(items.toString());
         apiRepository.search(request,10,page).enqueue(new Callback<ExerciseCardResponse>() {
             @Override
             public void onResponse(@NonNull Call<ExerciseCardResponse> call, @NonNull Response<ExerciseCardResponse> response) {
