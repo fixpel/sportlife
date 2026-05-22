@@ -77,6 +77,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_registration_title" />
 
     <!-- Поле ввода: Password -->
+
+    <!-- Кнопка: Зарегистрироваться -->
+
+    <!-- Текст: Есть аккаунт? -->
+
     <EditText
         android:id="@+id/et_password"
         android:layout_width="0dp"
@@ -86,22 +91,23 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_background"
         android:hint="Password:"
-        android:textColorHint="#000000"
-        android:textColor="#000000"
         android:inputType="textPassword"
         android:padding="12dp"
         android:tag="password"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintTop_toBottomOf="@+id/errorName" />
 
-    <!-- Кнопка: Зарегистрироваться -->
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_green_rounded"
         android:text="Регистрация"
@@ -109,12 +115,11 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_have_account"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintTop_toBottomOf="@+id/errorPassword" />
 
-    <!-- Текст: Есть аккаунт? -->
     <TextView
         android:id="@+id/tv_have_account"
         android:layout_width="wrap_content"
@@ -126,6 +131,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <TextView
+        android:id="@+id/errorPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:tag="password"
+        android:text=""
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <TextView
+        android:id="@+id/errorName"
+        android:layout_width="0dp"
+        android:tag="login"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:text=""
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
