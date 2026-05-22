@@ -12,14 +12,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
+
 
         <!-- 1. Фото упражнения -->
         <ImageView
             android:id="@+id/imgExercise"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            />
 
         <!-- 2. Текст (Центр) -->
         <LinearLayout
@@ -28,7 +31,8 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="12dp"
+            >
 
             <TextView
                 android:id="@+id/tvName"
