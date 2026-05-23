@@ -1,5 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import android.util.Log;
+
 import com.example.sportlife.Activity.ActivityHome;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
@@ -30,6 +32,7 @@ public class RegistrationService {
                     session.saveToken(tokenAccess,tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);
                 }else{
+                    Log.d("error","authththt");
                     callBack.onError(response);
                 }
             }

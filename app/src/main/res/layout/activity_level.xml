@@ -5,22 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/activityLevel"
-    android:background="#1A1A1A"> <!-- Общий фон экрана (за пределами карточки) -->
-
-    <!-- Шапка (Цвет #3F3F3F) -->
+    android:background="#333333">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:gravity="center"
         android:background="#3F3F3F">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sport - "
             android:textColor="#FFFFFF"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,12 +25,9 @@
             android:layout_height="wrap_content"
             android:text="life"
             android:textColor="#00B7B7"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <!-- Основная область (Цвет #333333) -->
-    <!-- Используем layout_weight="1", чтобы она заняла всё свободное место -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -49,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Поиск:"
-            android:textSize="30sp"
+            android:textSize="22dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="4dp"/>
@@ -57,10 +51,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
             android:text="Подготовка"
-            android:textSize="18sp"
             android:textColor="#B0B0B0"
-            android:layout_marginBottom="32dp"/>
+            android:textSize="22dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,11 +62,9 @@
             android:text="Как вы себя оцениваете?"
             android:tag="experts"
             android:id="@+id/expert"
-            android:textSize="18sp"
+            android:textSize="20dp"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="24dp"/>
-
-        <!-- Кнопка: Новичок -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNovice"
             android:layout_width="match_parent"
@@ -80,13 +72,11 @@
             android:layout_marginBottom="16dp"
             android:text="новичок"
             android:textColor="#000000"
-            android:textSize="25sp"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:background="@drawable/level_button_selector"
             app:backgroundTint="@null"
             app:cornerRadius="30dp" />
-
-        <!-- Кнопка: Опытный -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnExperienced"
             android:layout_width="match_parent"
@@ -99,8 +89,6 @@
             android:background="@drawable/level_button_selector"
             app:backgroundTint="@null"
             app:cornerRadius="30dp" />
-
-        <!-- Кнопка: Профи -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPro"
             android:layout_width="match_parent"
@@ -113,8 +101,6 @@
             app:backgroundTint="@null"
             app:cornerRadius="30dp" />
     </LinearLayout>
-
-    <!-- Нижняя область (Цвет #3F3F3F) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -131,6 +117,7 @@
             android:layout_marginEnd="10dp"
             android:text="Назад"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
 
@@ -142,6 +129,7 @@
             android:layout_marginStart="10dp"
             android:text="Сохранить"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#00ACC1"
             app:cornerRadius="24dp" />
 

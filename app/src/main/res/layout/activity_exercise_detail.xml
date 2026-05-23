@@ -8,7 +8,6 @@
     android:background="#333333"
     android:id="@+id/activityExerciseDetail">
 
-    <!-- Шапка -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Sport - "
             android:textColor="#FFFFFF"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,11 +28,10 @@
             android:layout_height="wrap_content"
             android:text="life"
             android:textColor="#00B7B7"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Контент -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -46,19 +44,17 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Название упражнения -->
             <TextView
                 android:id="@+id/tvExerciseTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Подтягивания"
-                android:textSize="28sp"
+                android:textSize="22dp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Секция: Техника -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,18 +74,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Техника:"
-                        android:textSize="20sp"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"/>
 
-                    <!-- Сердечко (избранное) -->
                     <ImageView
                         android:id="@+id/chkFavorite"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:button="@null"
                         android:background="@null"
-
                         android:clickable="true"
                         android:focusable="true"/>
                 </LinearLayout>
@@ -102,10 +96,9 @@
                     android:lineSpacingExtra="4dp"
                     android:text="1. Хват: Возьмитесь за перекладину хватом чуть шире плеч, ладони направлены от себя.\n\n2. Вис: Полностью выпрямите руки, расслабьте плечи, но сохраняйте активное напряжение в лопатках.\n\n3. Подъем: На выдохе плавно подтянитесь вверх, сводя лопатки и стремясь коснуться перекладины верхней частью груди. Локти должны двигаться вниз к корпусу.\n\n4. Пик: В верхней точке задержитесь на секунду, подбородок должен оказаться выше перекладины.\n\n5. Спуск: Подконтрольно опуститесь вниз до полного выпрямления рук."
                     android:textColor="#E0E0E0"
-                    android:textSize="15sp" />
+                    android:textSize="16dp" />
             </LinearLayout>
 
-            <!-- Секция: Видео -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,12 +111,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Видео:"
-                    android:textSize="20sp"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:layout_marginBottom="12dp"/>
 
-                <!-- Placeholder для видео -->
                 <WebView
                     android:id="@+id/videoContainer"
                     android:layout_width="match_parent"
@@ -133,7 +125,6 @@
                 </WebView>
             </LinearLayout>
 
-            <!-- Секция: Инвентарь -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Инвентарь:"
-                    android:textSize="20sp"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:layout_marginBottom="12dp"/>
@@ -157,10 +148,9 @@
                     android:layout_height="wrap_content"
                     android:text="Турник"
                     android:textColor="#E0E0E0"
-                    android:textSize="16sp"/>
+                    android:textSize="16dp"/>
             </LinearLayout>
 
-            <!-- Секция: Группы мышц -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Группы мышц:"
-                    android:textSize="20sp"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:layout_marginBottom="12dp"/>
@@ -184,13 +174,12 @@
                     android:layout_height="wrap_content"
                     android:text="Дельты"
                     android:textColor="#E0E0E0"
-                    android:textSize="16sp"/>
+                    android:textSize="16dp"/>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Подвал -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -205,6 +194,7 @@
             android:layout_height="48dp"
             android:text="Назад"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
     </LinearLayout>

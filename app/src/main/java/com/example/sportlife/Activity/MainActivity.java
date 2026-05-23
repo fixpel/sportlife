@@ -33,10 +33,12 @@ public class MainActivity extends CreateActivity {
         Button appCompatButton = findViewById(R.id.btn_login);
         EditText editTextName = findViewById(R.id.et_name);
         EditText editTextPassword = findViewById(R.id.et_password);
+        TextView errorName = findViewById(R.id.errorName);
+        TextView errorPassword = findViewById(R.id.errorPassword);
         TextView noneAcount = findViewById(R.id.none_account);
         List<TextView> editTexts=new ArrayList<>();
-        editTexts.add(editTextPassword);
-        editTexts.add(editTextName);
+        editTexts.add(errorName);
+        editTexts.add(errorPassword);
         UIController uiController=new UIController(this,editTexts);
         ErrorController errorController=new ErrorController();
         SessionManager session=new SessionManager(getApplicationContext());

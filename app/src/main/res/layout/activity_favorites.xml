@@ -7,7 +7,6 @@
     android:background="#333333"
     android:id="@+id/activityFavorites">
 
-    <!-- Шапка -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Sport - "
             android:textColor="#FFFFFF"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,18 +27,17 @@
             android:layout_height="wrap_content"
             android:text="life"
             android:textColor="#00B7B7"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Заголовок -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Избранное"
         android:id="@+id/favorites"
         android:tag="favourites"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:padding="16dp"
@@ -49,15 +47,16 @@
         android:id="@+id/errorFavorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:tag="favorites"
+        android:tag="favourites"
         android:text=""
+        android:gravity="center"
         android:textColor="#FF0000"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
-    <!-- Список карточек -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewResults"
         android:layout_width="match_parent"
@@ -68,7 +67,6 @@
         android:paddingBottom="8dp"
         android:background="#333333"/>
 
-    <!-- Навигация (Стрелки) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,7 +100,6 @@
             android:contentDescription="Next"/>
     </LinearLayout>
 
-    <!-- Подвал -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -117,6 +114,7 @@
             android:layout_height="48dp"
             android:text="Назад"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
     </LinearLayout>

@@ -35,16 +35,23 @@ public class ActivityMuscle extends CreateActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         UIController uiController=new UIController(this,null);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
-
-
-        findViewById(R.id.btnPrev).setOnClickListener(v -> switchPage(-1));
-        findViewById(R.id.btnNext).setOnClickListener(v -> switchPage(1));
+        ImageView next=findViewById(R.id.btnNext);
+        ImageView prev=findViewById(R.id.btnPrev);
+        prev.setVisibility(View.GONE);
+        prev.setOnClickListener(v ->{
+            switchPage(-1);
+            prev.setVisibility(View.GONE);
+            next.setVisibility(View.VISIBLE);
+        });
+        next.setOnClickListener(v ->{
+            next.setVisibility(View.GONE);
+            prev.setVisibility(View.VISIBLE);
+            switchPage(1);
+        });
 
 
         Button back=findViewById(R.id.btnBack);
@@ -52,7 +59,7 @@ public class ActivityMuscle extends CreateActivity {
 
         back.setOnClickListener(v->{
             SearchService.getMuscles().clear();
-            callBack.onSuccess(ActivityLevel.class);//назад
+            callBack.onSuccess(ActivityLevel.class);
         });
         save.setOnClickListener(v->{
             if(SearchService.setMuscles(muscles, callBack)){
@@ -65,7 +72,6 @@ public class ActivityMuscle extends CreateActivity {
 
 
     private void setupZoneButtons() {
-        // Кнопки для передней части (стр. 1)
         setupZoneButton(R.id.zoneBiceps);
         setupZoneButton(R.id.zoneDeltaFront);
         setupZoneButton(R.id.zoneGrud);
@@ -77,9 +83,7 @@ public class ActivityMuscle extends CreateActivity {
         setupZoneButton(R.id.zonePlech);
         setupZoneButton(R.id.zoneKardio);
 
-        // Кнопки для задней части (стр. 2)
         setupZoneButton(R.id.zoneTrapezius);
-
         setupZoneButton(R.id.zoneTriceps);
         setupZoneButton(R.id.zoneJagodichnye);
         setupZoneButton(R.id.zone4glav);
@@ -95,7 +99,6 @@ public class ActivityMuscle extends CreateActivity {
         Button zoneButton = findViewById(buttonId);
         if (zoneButton != null) {
             zoneButton.setOnClickListener(v -> {
-                // Переключаем состояние кнопки
                 boolean isSelected = !zoneButton.isSelected();
                 if(isSelected){
                     muscles.add(zoneButton.getText().toString());
@@ -103,9 +106,6 @@ public class ActivityMuscle extends CreateActivity {
                     muscles.remove(zoneButton.getText().toString());
                 }
                 zoneButton.setSelected(isSelected);
-
-                // Можно добавить логирование или сохранение
-                // Например: selectedMuscles.put(getMuscleName(buttonId), isSelected);
             });
         }
     }
@@ -124,19 +124,16 @@ public class ActivityMuscle extends CreateActivity {
         if (currentPage == 1) {
             imgFront.setVisibility(View.VISIBLE);
             imgBack.setVisibility(View.GONE);
-
             showZonesForPage(1);
         } else {
             imgFront.setVisibility(View.GONE);
             imgBack.setVisibility(View.VISIBLE);
-
             showZonesForPage(2);
         }
     }
 
 
     private void showZonesForPage(int page) {
-        // Зоны ПЕРЕДНЕЙ части
         findViewById(R.id.zoneBiceps).setVisibility(page == 1 ? View.VISIBLE : View.GONE);
         findViewById(R.id.zoneDeltaFront).setVisibility(page == 1 ? View.VISIBLE : View.GONE);
         findViewById(R.id.zoneGrud).setVisibility(page == 1 ? View.VISIBLE : View.GONE);
@@ -148,7 +145,6 @@ public class ActivityMuscle extends CreateActivity {
         findViewById(R.id.zoneKardio).setVisibility(page == 1 ? View.VISIBLE : View.GONE);
         findViewById(R.id.zoneBrah).setVisibility(page == 1 ? View.VISIBLE : View.GONE);
 
-        // Зоны ЗАДНЕЙ части
         findViewById(R.id.zoneTrapezius).setVisibility(page == 2 ? View.VISIBLE : View.GONE);
         findViewById(R.id.zoneTriceps).setVisibility(page == 2 ? View.VISIBLE : View.GONE);
         findViewById(R.id.zoneJagodichnye).setVisibility(page == 2 ? View.VISIBLE : View.GONE);

@@ -48,7 +48,7 @@ public class ActivityProfile extends CreateActivity {
         back.setOnClickListener(v -> {
             callBack.onSuccess(ActivityHome.class);//назад
         });
-        edit.setOnClickListener(v->callBack.onSuccess(ActivityEdit.class));
+        edit.setOnClickListener(v->callBack.onSuccess(ActivityEditName.class));
         editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));
     }
 

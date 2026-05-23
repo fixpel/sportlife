@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="Sport - "
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <TextView
@@ -41,11 +41,10 @@
             android:layout_height="wrap_content"
             android:text="life"
             android:textColor="#00B7B7"
-            android:textSize="24sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Заголовок: Регистрация -->
     <TextView
         android:id="@+id/tv_login_title"
         android:layout_width="wrap_content"
@@ -53,12 +52,11 @@
         android:layout_marginTop="48dp"
         android:text="Вход"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_logo" />
 
-    <!-- Поле ввода: Name -->
     <EditText
         android:id="@+id/et_name"
         android:layout_width="0dp"
@@ -67,6 +65,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:hint="Name:"
+        android:textSize="15dp"
         android:textColorHint="#000000"
         android:textColor="#000000"
         android:background="@drawable/edit_text_background"
@@ -74,10 +73,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />
-
-    <!-- Поле ввода: Password -->
-
-    <!-- Кнопка: Зарегистрироваться -->
 
     <EditText
         android:id="@+id/et_password"
@@ -88,6 +83,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text_background"
         android:hint="Password:"
+        android:textSize="15dp"
         android:inputType="textPassword"
         android:padding="12dp"
         android:textColor="#000000"
@@ -110,7 +106,7 @@
         android:text="Войти"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -124,12 +120,12 @@
         android:layout_marginBottom="32dp"
         android:text="Нет аккаунта?"
         android:textColor="#B0B0B0"
-        android:textSize="16sp"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.183" />
 
     <TextView
         android:id="@+id/errorPassword"
@@ -140,6 +136,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:text=""
+        android:textSize="12dp"
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -155,6 +152,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:text=""
+        android:textSize="12dp"
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

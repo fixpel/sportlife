@@ -42,10 +42,12 @@ public class ActivityLogin extends CreateActivity {
         TextView tv_have_account = findViewById(R.id.tv_have_account);
         EditText editTextName=findViewById(R.id.et_name);
         EditText editTextPassword=findViewById(R.id.et_password);
+        TextView errorName = findViewById(R.id.errorName);
+        TextView errorPassword = findViewById(R.id.errorPassword);
         AppCompatButton appCompatButton = findViewById(R.id.btn_register);
         List<TextView> editTexts=new ArrayList<>();
-        editTexts.add(editTextName);
-        editTexts.add(editTextPassword);
+        editTexts.add(errorName);
+        editTexts.add(errorPassword);
         UIController uiController=new UIController(this,editTexts);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);

@@ -7,7 +7,6 @@
     android:background="#333333"
     android:id="@+id/activityProfile">
 
-    <!-- Шапка -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Sport - "
             android:textColor="#FFFFFF"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,11 +27,10 @@
             android:layout_height="wrap_content"
             android:text="life"
             android:textColor="#00B7B7"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Контент -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -45,7 +43,6 @@
             android:padding="24dp"
             android:background="#333333">
 
-            <!-- Аватарка -->
             <FrameLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -71,14 +68,12 @@
 
             </FrameLayout>
 
-            <!-- Единый стиль для всех полей -->
-            <!-- Поле: Имя -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Имя"
                 android:textColor="#B0B0B0"
-                android:textSize="14sp"
+                android:textSize="12dp"
                 android:layout_marginBottom="8dp"/>
 
             <FrameLayout
@@ -91,7 +86,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:tag="login"
-
                     android:background="@drawable/profile_field_bg"
                     android:clickable="true"
                     android:focusable="true"
@@ -99,7 +93,7 @@
                     android:padding="12dp"
                     android:text="Name"
                     android:textColor="#FFFFFF"
-                    android:textSize="16sp" />
+                    android:textSize="15dp" />
 
                 <ImageButton
                     android:id="@+id/imageButton"
@@ -112,13 +106,12 @@
 
             </FrameLayout>
 
-            <!-- Поле: Экспертность -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Экспертность"
                 android:textColor="#B0B0B0"
-                android:textSize="14sp"
+                android:textSize="12dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp"
                 />
@@ -133,19 +126,18 @@
                 android:background="@drawable/profile_field_bg"
                 android:text="None"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textSize="15dp"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Поле: Активность -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Активность"
                 android:textColor="#B0B0B0"
-                android:textSize="14sp"
+                android:textSize="12dp"
                 android:layout_marginBottom="8dp"/>
 
             <TextView
@@ -157,19 +149,18 @@
                 android:background="@drawable/profile_field_bg"
                 android:text="00"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textSize="15dp"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_marginBottom="24dp"/>
 
-            <!-- Поле: Рейтинг -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Мой рейтинг"
                 android:textColor="#B0B0B0"
-                android:textSize="14sp"
+                android:textSize="12dp"
                 android:layout_marginBottom="8dp"/>
 
             <TextView
@@ -181,7 +172,7 @@
                 android:background="@drawable/profile_field_bg"
                 android:text="0"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textSize="15dp"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
@@ -191,7 +182,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Подвал -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -208,6 +198,7 @@
             android:layout_marginEnd="10dp"
             android:text="Назад"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
 
@@ -219,6 +210,7 @@
             android:layout_marginStart="10dp"
             android:text="Расписание"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#00ACC1"
             app:cornerRadius="24dp" />
     </LinearLayout>

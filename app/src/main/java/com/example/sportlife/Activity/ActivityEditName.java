@@ -18,7 +18,7 @@ import com.example.sportlife.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityEdit extends CreateActivity{
+public class ActivityEditName extends CreateActivity{
     @Override
     protected int getIdLayout() {
         return R.layout.edit_dialog;
@@ -36,8 +36,9 @@ public class ActivityEdit extends CreateActivity{
         Button no=dialog.findViewById(R.id.btnNo);
         Button yes=dialog.findViewById(R.id.btnYes);
         EditText name=dialog.findViewById(R.id.tvName);
+        TextView errorName=dialog.findViewById(R.id.errorName);
         List<TextView> textViews =new ArrayList<>();
-        textViews.add(name);
+        textViews.add(errorName);
         UIController uiController=new UIController(this,textViews);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);

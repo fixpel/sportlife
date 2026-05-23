@@ -38,11 +38,12 @@ public class SecurityInterceptor implements Interceptor {
         String path = request.url().encodedPath();
         if (path.contains("/auth")
                 || path.contains("/refresh")
-                || path.contains("/register")
+                || path.contains("/create")
                 || path.contains("/top")
                 || path.contains("/splash")) {
             return chain.proceed(request);
         }
+        Log.d("dfdf",":int");
         SessionManager session = new SessionManager(context);
 
         String token = session.getAccessToken();

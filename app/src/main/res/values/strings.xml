@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Sport Life</string>
-    <string name="sport___life">Sport - life</string>
-    <string name="password_">Password:</string>
-    <string name="name_">Name:</string>
-    <string name="__________________">Зарегистрироваться</string>
-    <string name="___________">Регистрация</string>
-    <string name="_____________">Есть аккаунт?</string>
-</resources>

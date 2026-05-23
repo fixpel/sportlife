@@ -29,8 +29,8 @@ public class ActivityHome extends CreateActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TextView name=findViewById(R.id.welcome);
-        SessionManager sesssion=new SessionManager(getApplicationContext());
-        name.setText("Добро пожаловать "+sesssion.getName());
+        SessionManager session=new SessionManager(getApplicationContext());
+        name.setText("Добро пожаловать "+session.getName());
         FindTopService findTopService=new FindTopService();
         UIController uiController=new UIController(this,null);
         ErrorController errorController=new ErrorController();

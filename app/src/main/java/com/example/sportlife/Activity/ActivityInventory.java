@@ -47,37 +47,34 @@ public  class ActivityInventory extends CreateActivity {
         TextView page=findViewById(R.id.tvPageNumber);
         page.setText(Integer.toString(numberPage+1));
         service.findInventory(numberPage,callBack);
-        if(numberPage+1==service.getTotalPage()){
-            next.setVisibility(TextView.GONE);;
-        }
         next.setOnClickListener(v->{
             int pageInt=Integer.parseInt(page.getText().toString());
-            if(pageInt==service.getTotalPage()){
-                next.setVisibility(TextView.GONE);
-            }
-            if(pageInt<service.getTotalPage()){
+            if(pageInt< FindInventoryService.getTotalPage()){
                 pageInt=pageInt+1;
                 page.setText(Integer.toString(pageInt));
                 prev.setVisibility(TextView.VISIBLE);
                 service.findInventory(pageInt-1,callBack);
             }
+            if(pageInt== FindInventoryService.getTotalPage()){
+                next.setVisibility(TextView.GONE);
+            }
 
         });
         prev.setOnClickListener(v->{
             int pageint=Integer.parseInt(page.getText().toString());
-            if(pageint==1){
-                prev.setVisibility(TextView.GONE);
-            }
             if(pageint!=1){
                 pageint=pageint-1;
                 page.setText(Integer.toString(pageint));
                 next.setVisibility(TextView.VISIBLE);
                 service.findInventory(pageint-1,callBack);
             }
+            if(pageint==1){
+                prev.setVisibility(TextView.GONE);
+            }
         });
         back.setOnClickListener(v->{
             SearchService.getMuscles().clear();
-            callBack.onSuccess(ActivityMuscle.class);//назад
+            callBack.onSuccess(ActivityMuscle.class);
         });
         save.setOnClickListener(v->{
             if(SearchService.setItems(SearchService.getItems(),callBack)){

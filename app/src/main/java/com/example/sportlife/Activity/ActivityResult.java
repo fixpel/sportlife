@@ -37,7 +37,7 @@ public class ActivityResult extends CreateActivity {
         super.onCreate(savedInstanceState);
         List<TextView> textViews=new ArrayList<>();
         int page=0;
-        textViews.add(findViewById(R.id.result));
+        textViews.add(findViewById(R.id.errorResult));
         UIController uiController = new UIController(this, textViews);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);

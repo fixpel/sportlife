@@ -7,7 +7,6 @@
     android:background="#333333"
     android:id="@+id/activityEquipment">
 
-    <!-- Шапка -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +31,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Контент -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -60,8 +58,6 @@
             android:layout_height="match_parent" />
 
     </LinearLayout>
-
-    <!-- Подвал -->
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -101,19 +97,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:background="#3F3F3F"
         android:gravity="center"
-        android:background="#3F3F3F">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1"
             android:text="Назад"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
 
@@ -121,10 +118,11 @@
             android:id="@+id/btnSave"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1"
             android:layout_marginStart="10dp"
+            android:layout_weight="1"
             android:text="Сохранить"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#00ACC1"
             app:cornerRadius="24dp" />
 

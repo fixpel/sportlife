@@ -39,7 +39,7 @@ public class ActivityFavorites extends CreateActivity {
         super.onCreate(savedInstanceState);
         int page=0;
         List<TextView> textViews=new ArrayList<>();
-        textViews.add(findViewById(R.id.favorites));
+        textViews.add(findViewById(R.id.errorFavorites));
         UIController uiController = new UIController(this,textViews);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);

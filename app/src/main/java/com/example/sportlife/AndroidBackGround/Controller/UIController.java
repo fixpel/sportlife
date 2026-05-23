@@ -52,14 +52,17 @@ public  class UIController {
         activity.finish();
     }
     public void ErrorAdvice(ErrorResponse error){
-        editTexts.forEach(e->e.setError(null));
+        editTexts.forEach(e->e.setText(null));
         editTexts.forEach(e->{
             if(error.getErrors().containsKey(e.getTag().toString())){
-                e.setError(error.getErrors().get(e.getTag().toString()).toString());
+                e.setText(error.getErrors().get(e.getTag().toString()).toString());
             }
         });
     }
     public void errorService(String message){
+        if(message.startsWith("Too many follow-up request")){
+            message="хммм, какие то не поладки, пожалуйста вернитесь на прошлый экран и попробуйте снова";
+        }
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
     public void findTop(FindTopResponse response){
@@ -107,12 +110,13 @@ public  class UIController {
                 ImageView photo = holder.itemView.findViewById(R.id.imgEquipment);
                 TextView name = holder.itemView.findViewById(R.id.tvEquipmentName);
                 name.setText(inventory.getName());
+                holder.itemView.setSelected(SearchService.getItems().contains(name.getText().toString()));
                 Glide.with(holder.itemView.getContext())
                         .load(inventory.getPhoto())
-                        .centerCrop()
+                        .circleCrop()
                         .into(photo);
                 holder.itemView.setOnClickListener(v->{
-                    boolean isSelected = !v.isSelected();
+                    boolean isSelected=!SearchService.getItems().contains(name.getText().toString());
                     if(isSelected){
                         SearchService.getItems().add(name.getText().toString());
                     }else{
@@ -267,34 +271,42 @@ public  class UIController {
         });
     }
     public void findAvatars(FindAvatarResponse response, AlertDialog dialog){
-        RecyclerView recyclerView=dialog.findViewById(R.id.recylerAvatar);
-        recyclerView.setLayoutManager(new GridLayoutManager(dialog.getContext(),2));
-        recyclerView.setAdapter(new RecyclerView.Adapter() {
+        RecyclerView recyclerView = dialog.findViewById(R.id.recylerAvatar);
+        recyclerView.setLayoutManager(new GridLayoutManager(dialog.getContext(), 2));
+        final int[] selectedPosition = {-1};
+        recyclerView.setAdapter(new RecyclerView.Adapter<>() {
             @NonNull
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view=dialog.getLayoutInflater().inflate(R.layout.avatar_item,parent,false);
+                View view = dialog.getLayoutInflater()
+                        .inflate(R.layout.avatar_item, parent, false);
                 return new RecyclerView.ViewHolder(view){};
             }
 
             @Override
-            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+            public void onBindViewHolder(
+                    @NonNull RecyclerView.ViewHolder holder,
+                    int position
+            ) {
                 String name = response.getNames().get(position);
-                View view = holder.itemView;
-                ImageView avatar = view.findViewById(R.id.imgAvatarItem);
+                ImageView avatar = holder.itemView.findViewById(R.id.imgAvatarItem);
+                MaterialButton button = holder.itemView.findViewById(R.id.button);
                 Glide.with(holder.itemView.getContext())
                         .load(name)
                         .circleCrop()
                         .into(avatar);
-                MaterialButton button=view.findViewById(R.id.button);
-                avatar.setOnClickListener(v->{
-                    if(button.isSelected()){
+                button.setSelected(position == selectedPosition[0]);
+                button.setOnClickListener(v -> {
+                    int oldPosition = selectedPosition[0];
+                    if(selectedPosition[0] == position){
+                        selectedPosition[0] = -1;
                         ActivityEditAvatar.setNameAvatar(null);
-                        button.setSelected(false);
-                    }else{
+                    } else{
+                        selectedPosition[0] = position;
                         ActivityEditAvatar.setNameAvatar(name);
-                        button.setSelected(true);
                     }
+                    notifyItemChanged(oldPosition);
+                    notifyItemChanged(selectedPosition[0]);
                 });
             }
             @Override

@@ -14,7 +14,6 @@ import com.example.sportlife.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Getter;
 import lombok.Setter;
 
 public class ActivityFavouriteDetails extends CreateActivity{

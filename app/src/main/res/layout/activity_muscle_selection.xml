@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#1A1A1A"
+    android:background="#333333"
     android:id="@+id/activityMusc">
-
-    <!-- Шапка -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Sport - "
             android:textColor="#FFFFFF"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,11 +27,9 @@
             android:layout_height="wrap_content"
             android:text="life"
             android:textColor="#00B7B7"
-            android:textSize="35sp"
+            android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <!-- Контент -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -47,20 +43,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Поиск: выбор мышц"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="16dp"/>
-
-        <!-- Контейнер для картинки и кнопок -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="#333333"
             android:layout_marginBottom="16dp">
-
-
             <ImageView
                 android:id="@+id/imgFront"
                 android:layout_width="0dp"
@@ -102,7 +94,7 @@
                 android:padding="4dp"
                 android:text="дельты"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -121,7 +113,7 @@
                 android:padding="4dp"
                 android:text="кардио"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -139,7 +131,7 @@
                 android:padding="4dp"
                 android:text="бицепс"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -160,7 +152,7 @@
                 android:padding="4dp"
                 android:text="брахиалис"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -180,7 +172,7 @@
                 android:padding="4dp"
                 android:text="плечевая мышца"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -200,7 +192,7 @@
                 android:padding="4dp"
                 android:text="грудные мышцы"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -221,7 +213,7 @@
                 android:padding="4dp"
                 android:text="пресс"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -239,7 +231,7 @@
                 android:padding="4dp"
                 android:text="квадрицепс"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -260,7 +252,7 @@
                 android:padding="4dp"
                 android:text="прямая мышца"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="visible"
                 app:backgroundTint="@null"
@@ -280,7 +272,7 @@
                 android:padding="4dp"
                 android:text="наружная косая"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
 
                 android:visibility="visible"
@@ -302,7 +294,7 @@
                 android:padding="4dp"
                 android:text="трапеция"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
@@ -323,7 +315,7 @@
                 android:padding="4dp"
                 android:text="трицепс"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@null"
@@ -343,7 +335,7 @@
                 android:padding="4dp"
                 android:text="широчайшие"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@null"
@@ -362,7 +354,7 @@
                 android:padding="4dp"
                 android:text="ягодичные"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@null"
@@ -381,7 +373,7 @@
                 android:padding="4dp"
                 android:text="бицепс бедра"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@null"
@@ -400,7 +392,7 @@
                 android:padding="4dp"
                 android:text="четырёхглавая"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@null"
@@ -418,7 +410,7 @@
                 android:padding="4dp"
                 android:text="икры"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="10dp"
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@null"
@@ -429,8 +421,6 @@
                 app:layout_constraintWidth_percent="0.12" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Переключатель страниц -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -442,8 +432,8 @@
                 android:id="@+id/btnPrev"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@android:drawable/ic_media_previous"
-                android:contentDescription="Previous"/>
+                android:contentDescription="Previous"
+                android:src="@android:drawable/ic_media_previous" />
 
             <TextView
                 android:id="@+id/tvPageNumber"
@@ -463,8 +453,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <!-- Подвал -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -480,6 +468,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             android:text="Назад"
+            android:textSize="14dp"
             android:textColor="#FFFFFF"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
@@ -491,6 +480,7 @@
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:text="Сохранить"
+            android:textSize="14dp"
             android:textColor="#FFFFFF"
             app:backgroundTint="#00ACC1"
             app:cornerRadius="24dp" />

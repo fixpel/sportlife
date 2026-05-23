@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dp_14">14dp</dimen>
-    <dimen name="dp_15">15dp</dimen>
-    <dimen name="dp_17">17dp</dimen>
-    <dimen name="dp_18">18dp</dimen>
-    <dimen name="dp_20">20dp</dimen>
-    <dimen name="dp_24">24dp</dimen>
-    <dimen name="dp_25">25dp</dimen>
-    <dimen name="dp_30">30dp</dimen>
-    <dimen name="dp_35">35dp</dimen>
-    <dimen name="dp_42">42dp</dimen>
-    <dimen name="dp_43">43dp</dimen>
-    <dimen name="dp_52">52dp</dimen>
-    <dimen name="dp_58">58dp</dimen>
-    <dimen name="dp_68">68dp</dimen>
-    <dimen name="dp_103">103dp</dimen>
-    <dimen name="dp_153">153dp</dimen>
-    <dimen name="dp_158">158dp</dimen>
-    <dimen name="dp_213">213dp</dimen>
-    <dimen name="dp_215">215dp</dimen>
-    <dimen name="dp_263">263dp</dimen>
-    <dimen name="dp_412">412dp</dimen>
-    <dimen name="dp_917">917dp</dimen>
-</resources>
+    <dimen name="Title">35dp</dimen>
+    <dimen name="SecondTitle">22dp</dimen>
+    <dimen name="subTitle">20dp</dimen>
+    <dimen name="buttonText">18dp</dimen>
+    <dimen name="Text">16dp</dimen>
+    <dimen name="subText">12dp</dimen>
+    <dimen name="editText">15dp</dimen>
+    <dimen name="levelText">25dp</dimen>
+    <dimen name="navigationButton">14dp</dimen>
+    <dimen name="muscleName">10dp</dimen>
+</resources>    
