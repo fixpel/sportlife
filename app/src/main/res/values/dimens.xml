@@ -10,5 +10,6 @@
     <dimen name="levelText">25dp</dimen>
     <dimen name="navigationButton">14dp</dimen>
     <dimen name="muscleName">10dp</dimen>
-    <dimen name="Radius">50dp</dimen>
+    <dimen name="Radius">30dp</dimen>
+    <dimen name="navigationRadius">16dp</dimen>
 </resources>    

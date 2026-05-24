@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Состояние "Выбрано" -->
     <item android:state_selected="true">
         <shape android:shape="rectangle">
             <stroke
                 android:width="3dp"
-                android:color="#00ACC1"/> <!-- Бирюзовая рамка -->
+                android:color="#00ACC1"/>
             <corners android:radius="8dp"/>
-            <solid android:color="#4000ACC1"/> <!-- Полупрозрачный бирюзовый фон -->
+            <solid android:color="#4000ACC1"/>
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <stroke
                 android:width="2dp"
-                android:color="#80DEEA"/> <!-- Светло-голубая рамка -->
+                android:color="#80DEEA"/>
             <corners android:radius="8dp"/>
-            <solid android:color="#00000000"/> <!-- Прозрачный -->
+            <solid android:color="#00000000"/>
         </shape>
     </item>
 </selector>
