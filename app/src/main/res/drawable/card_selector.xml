@@ -3,21 +3,11 @@
     <!-- Выбрано -->
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="#E0F7FA"/> <!-- Светло-голубой фон -->
+            <solid android:color="#00ACC1"/>
             <corners android:radius="12dp"/>
-            <stroke android:width="3dp" android:color="#00ACC1"/> <!-- Рамка в цвет кнопки "Сохранить" -->
+            <stroke android:width="3dp" android:color="#00ACC1"/>
         </shape>
     </item>
-
-    <!-- При нажатии (эффект касания) -->
-    <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#B2EBF2"/>
-            <corners android:radius="12dp"/>
-        </shape>
-    </item>
-
-    <!-- Обычное состояние -->
     <item>
         <shape android:shape="rectangle">
             <solid android:color="#FFFFFF"/>

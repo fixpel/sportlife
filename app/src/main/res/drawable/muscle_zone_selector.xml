@@ -10,7 +10,6 @@
             <solid android:color="#4000ACC1"/> <!-- Полупрозрачный бирюзовый фон -->
         </shape>
     </item>
-    <!-- Состояние "Обычное" -->
     <item>
         <shape android:shape="rectangle">
             <stroke
