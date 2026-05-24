@@ -2,15 +2,17 @@
 <resources>
     <color name="black">#000000</color>
     <color name="blue">#00B7B7</color>
-    <color name="whitedBlue">#00ACC1</color>
+    <color name="blackedBlue">#00ACC1</color>
     <color name="gray">#333333</color>
     <color name="white">#FFFFFF</color>
-    <color name="GrayWhite">#E0E0E0</color>
+    <color name="grayWhite">#E0E0E0</color>
     <color name="blackedWhite">#E5E5E5</color>
     <color name="whitedGray">#B0B0B0</color>
     <color name="red">#FF0000</color>
     <color name="graySecond">#666666</color>
     <color name="grayHead">#3F3F3F</color>
     <color name="grayBack">#757575</color>
-    <color name="green">#009D18</color>
+    <color name="whitedBlue">#80DEEA</color>
+    <color name="Transparent">#00000000</color>
+    <color name="TransparentBlue">#4000ACC1</color>
 </resources>
