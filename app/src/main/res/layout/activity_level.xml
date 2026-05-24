@@ -28,6 +28,34 @@
             android:textSize="35dp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_gravity="center"
+        android:text="Поиск: подготовка"
+        android:textColor="#FFFFFF"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/expert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="center"
+        android:tag="experts"
+        android:text="Как вы себя оцениваете?"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,32 +67,6 @@
         android:paddingBottom="20dp"
         android:background="#333333">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="Поиск:"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="Подготовка"
-            android:textColor="#B0B0B0"
-            android:textSize="22dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Как вы себя оцениваете?"
-            android:tag="experts"
-            android:id="@+id/expert"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="24dp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNovice"
             android:layout_width="match_parent"
@@ -77,23 +79,24 @@
             android:background="@drawable/level_button_selector"
             app:backgroundTint="@null"
             app:cornerRadius="30dp" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnExperienced"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginBottom="16dp"
+            android:background="@drawable/level_button_selector"
             android:text="опытный"
             android:textColor="#000000"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:background="@drawable/level_button_selector"
             app:backgroundTint="@null"
             app:cornerRadius="30dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPro"
             android:layout_width="match_parent"
-            android:layout_height="81dp"
+            android:layout_height="80dp"
             android:background="@drawable/level_button_selector"
             android:text="профи"
             android:textColor="#000000"
@@ -102,12 +105,12 @@
             app:backgroundTint="@null"
             app:cornerRadius="30dp" />
     </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="20dp"
-        android:gravity="center"
         android:background="#3F3F3F">
 
         <com.google.android.material.button.MaterialButton
