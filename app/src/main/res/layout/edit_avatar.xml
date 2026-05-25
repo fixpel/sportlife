@@ -27,9 +27,7 @@
             android:layout_marginBottom="25dp"
             android:text="Смена Аватара"
             android:textAlignment="center"
-            android:textColor="#00ACC1"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/secondTitle"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -53,11 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Нет"
-                android:textColor="#FFFFFF"
-                android:textSize="14dp"
-                app:backgroundTint="#757575"
-                app:cornerRadius="24dp" />
+                style="@style/buttonBack"/>
 
             <Button
                 android:id="@+id/btnYes"
@@ -65,11 +59,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1"
-                android:text="Да"
-                android:textColor="#FFFFFF"
-                android:textSize="14dp"
-                app:backgroundTint="#00ACC1"
-                app:cornerRadius="24dp" />
+                android:text="Сохранить"
+                style="@style/ButtonNavigation"/>
         </LinearLayout>
 
 
