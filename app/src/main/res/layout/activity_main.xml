@@ -9,13 +9,10 @@
     android:background="#333333"
     tools:context=".Activity.MainActivity">
 
-
-    <!-- Логотип: Sport - life -->
     <LinearLayout
         android:id="@+id/layout_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,18 +22,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sport - "
-            android:textColor="#FFFFFF"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="life"
-            android:textColor="#00B7B7"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight"/>
     </LinearLayout>
 
 
@@ -55,32 +46,24 @@
             android:id="@+id/tv_login_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-
+            style="@style/secondTitle"
             android:text="Вход"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_logo" />
 
+
         <EditText
             android:id="@+id/et_name"
+            style="@style/EditName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Name:"
-            android:padding="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />
-
 
         <TextView
             android:id="@+id/errorName"
@@ -90,9 +73,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
             android:tag="login"
-            android:text=""
-            android:textColor="#FF0000"
-            android:textSize="12dp"
+            style="@style/errorText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,18 +81,12 @@
 
         <EditText
             android:id="@+id/et_password"
+            style="@style/EditPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Password:"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -125,31 +100,24 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="32dp"
             android:tag="password"
-            android:text=""
-            android:textColor="#FF0000"
-            android:textSize="12dp"
+            style="@style/errorText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
-        <!-- Текст: Нет аккаунт? -->
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:layout_weight="1"
-            android:background="@drawable/button_green_rounded"
-            android:text="Вход"
+            style="@style/buttonMain"
+            android:text="Войти"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -158,11 +126,9 @@
             android:id="@+id/none_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginBottom="32dp"
             android:text="Нет аккаунта?"
-            android:textColor="#B0B0B0"
-            android:textSize="16dp"
+            style="@style/subNavigation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,38 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SportLife" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="BaseTheme" parent="Theme.Material3.DayNight.NoActionBar">
+            <item name="HintColor">@color/black</item>
+            <item name="mainBlue">@color/blue</item>
+            <item name="SelectedBlue">@color/blackedBlue</item>
+            <item name="MainBackground">@color/gray</item>
+            <item name="colorPrimary">@color/white</item>
+            <item name="secondText">@color/grayWhite</item>
+            <item name="CardBackground">@color/blackedWhite</item>
+            <item name="SubNavigationColor">@color/whitedGray</item>
+            <item name="errorColor">@color/red</item>
+            <item name="subTextColor">@color/graySecond</item>
+            <item name="SubBackground">@color/grayHead</item>
+            <item name="BackButtonColor">@color/grayBack</item>
+            <item name="StrokeMuscle">@color/whitedBlue</item>
+            <item name="BaseMuscle">@color/Transparent</item>
+            <item name="SelectedMuscle">@color/TransparentBlue</item>
     </style>
-
-    <style name="Theme.SportLife" parent="Base.Theme.SportLife" />
-
-
-
-    <style name="Theme.SportLife." parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/white</item>
-    </style>
-
-
-    <style name="Theme_SportLife_Splash" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:navigationBarColor">@color/white</item>
-        <item name="android:windowFullscreen">true</item>
-    </style>
-    <color name="HintColor">@color/black</color>
-    <color name="mainBlue">@color/blue</color>
-    <color name="SelectedBlue">@color/blackedBlue</color>
-    <color name="MainBackground">@color/gray</color>
-    <color name="colorPrimary">@color/white</color>
-    <color name="secondText">@color/grayWhite</color>
-    <color name="CardBackground">@color/blackedWhite</color>
-    <color name="SubNavigationColor">@color/whitedGray</color>
-    <color name="errorColor">@color/red</color>
-    <color name="subTextColor">@color/graySecond</color>
-    <color name="SubBackground">@color/grayHead</color>
-    <color name="BackButtonColor">@color/grayBack</color>
-    <color name="whitedBlu">#80DEEA</color>
-    <color name="BaseMuscle">#00000000</color>
-    <color name="SelectedMuscle">#4000ACC1</color>
 </resources>

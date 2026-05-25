@@ -74,27 +74,14 @@
         android:padding="16dp"
         android:gravity="center"
         android:background="#3F3F3F">
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="10dp"
             android:text="Назад"
             android:textColor="#FFFFFF"
+            android:textSize="14dp"
             app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:text="Расписание"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#00ACC1"
             app:cornerRadius="24dp" />
     </LinearLayout>
 

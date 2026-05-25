@@ -12,11 +12,11 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="Sport-life"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SportLife">
+        android:theme="@style/BaseTheme">
 
 
 
@@ -24,8 +24,7 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".Activity.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme_SportLife_Splash">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
