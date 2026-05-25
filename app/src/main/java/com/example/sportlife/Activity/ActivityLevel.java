@@ -55,17 +55,15 @@ public class ActivityLevel extends CreateActivity {
         CallBackHandler callBack = new CallBackHandlerImpl(uiController, errorController);
         UpdateExpertsService service = new UpdateExpertsService();
 
-        // Обработчик для всех кнопок
+
         View.OnClickListener levelClickListener = v -> {
-            // Снимаем выделение со всех кнопок
+
             btnNovice.setSelected(false);
             btnExperienced.setSelected(false);
             btnPro.setSelected(false);
 
-            // Выделяем нажатую кнопку
             v.setSelected(true);
 
-            // Запоминаем выбор
             if (v.getId() == R.id.btnNovice) {
                 experts = btnNovice.getText().toString();
             } else if (v.getId() == R.id.btnExperienced) {
@@ -80,7 +78,7 @@ public class ActivityLevel extends CreateActivity {
         btnPro.setOnClickListener(levelClickListener);
 
         back.setOnClickListener(v -> {
-            callBack.onSuccess(ActivityHome.class); // назад
+            callBack.onSuccess(ActivityHome.class);
         });
 
         save.setOnClickListener(v -> {

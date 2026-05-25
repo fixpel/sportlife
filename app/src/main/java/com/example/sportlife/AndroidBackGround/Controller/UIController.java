@@ -154,13 +154,13 @@ public  class UIController {
                 ImageView favourites=view.findViewById(R.id.chkFavorite);
                 if(exercise.getFavourites()){
                     Glide.with(holder.itemView.getContext())
-                            .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                            .centerCrop()
+                            .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                            .circleCrop()
                             .into(favourites);//закрашенное сердечко
                 }else{
                     Glide.with(holder.itemView.getContext())
-                            .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                            .centerCrop()
+                            .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                            .circleCrop()
                             .into(favourites);//не закрашенне сердечко
                 }
                 experts.setText(exercise.getExperts());
@@ -168,15 +168,15 @@ public  class UIController {
                 favourites.setOnClickListener(v->{
                     if(exercise.getFavourites()) {
                         Glide.with(activity)
-                                .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                                .centerCrop()
+                                .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                                .circleCrop()
                                 .into(favourites);//меняем на незакрашенное сердце
                         exercise.setFavourites(false);
                         callBack.onDeleteFavourite(exercise.getName());
                     }else{
                         Glide.with(activity)
-                                .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                                .centerCrop()
+                                .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                                .circleCrop()
                                 .into(favourites);//меняем на закрашеное сердцо
                         exercise.setFavourites(true);
                         callBack.onCreateFavourite(exercise.getName());
@@ -218,27 +218,27 @@ public  class UIController {
         video.loadUrl(exercise.getVideo());
         if(exercise.getFavourites()){
             Glide.with(activity)
-                    .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                    .centerCrop()
+                    .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                    .circleCrop()
                     .into(favourite);
         } else{
             Glide.with(activity)
-                    .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
-                    .centerCrop()
+                    .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                    .circleCrop()
                     .into(favourite);//меняем на незакрашенное сердце
         }
         favourite.setOnClickListener(v->{
             if(exercise.getFavourites()) {
                 Glide.with(activity)
-                        .load("https://img.icons8.com/ios7/600w/228BE6/like.png")
+                        .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
                         .centerCrop()
                         .into(favourite);//меняем на незакрашенное сердце
                 exercise.setFavourites(false);
                 callBack.onDeleteFavourite(exercise.getName());
             }else{
                 Glide.with(activity)
-                        .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBkdHJWiVPQwlcYkiakIzlEFm_9sJQlX53Q&s")
-                        .centerCrop()
+                        .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                        .circleCrop()
                         .into(favourite);//меняем на закрашеное сердцо
                 exercise.setFavourites(true);
                 callBack.onCreateFavourite(exercise.getName());

@@ -17,41 +17,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sport - "
-            android:textColor="#FFFFFF"
-            android:textSize="35dp"
-            android:textStyle="bold" />
-
+            style="@style/nameAppLeft"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="life"
-            android:textColor="#00B7B7"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Избранное"
         android:id="@+id/favorites"
-        android:tag="favourites"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:padding="16dp"
-        android:gravity="center"
-        android:background="#333333"/>
+        android:tag="favorites"
+        android:text="Избранное"
+        style="@style/secondTitle"/>
     <TextView
         android:id="@+id/errorFavorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:tag="favourites"
-        android:text=""
-        android:gravity="center"
-        android:textColor="#FF0000"
-        android:textSize="15dp"
+        android:tag="favorites"
+        style="@style/errorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,10 +72,7 @@
             android:id="@+id/tvPageNumber"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:textColor="#FFFFFF"
-            android:gravity="center"
-            android:layout_marginHorizontal="8dp"/>
+            style="@style/page"/>
 
         <ImageView
             android:id="@+id/btnNext"
@@ -103,18 +85,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center"
-        android:background="#3F3F3F">
+        style="@style/buttonBack">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="Назад"
-            android:textColor="#FFFFFF"
             android:textSize="14dp"
+            android:textColor="#FFFFFF"
             app:backgroundTint="#757575"
             app:cornerRadius="24dp" />
     </LinearLayout>

@@ -40,10 +40,10 @@ public class ActivityHome extends CreateActivity {
         Button history=findViewById(R.id.btnHistory);
         ImageView profile=findViewById(R.id.btnProfile);
         search.setOnClickListener(v->{
-            callBack.onSuccess(ActivityLevel.class);//активность поиска.
+            callBack.onSuccess(ActivityLevel.class);
         });
         history.setOnClickListener(v->{
-            callBack.onSuccess(ActivityFavorites.class);//активность истории
+            callBack.onSuccess(ActivityFavorites.class);
         });
         profile.setOnClickListener(v->callBack.onSuccess(ActivityProfile.class));
     }

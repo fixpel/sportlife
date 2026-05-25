@@ -8,7 +8,7 @@
     android:padding="16dp"
     android:elevation="10dp">
 
-    <!-- Заголовок дня -->
+
     <TextView
         android:id="@+id/popup_title"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:gravity="center"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Строка с временем и кнопками -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:gravity="center_vertical"
         android:layout_marginBottom="16dp">
 
-        <!-- Кнопка Карандаш (Редактировать) -->
+
         <ImageButton
             android:id="@+id/btn_edit"
             android:layout_width="48dp"
@@ -39,7 +39,7 @@
             app:tint="#FFFFFF"
             android:padding="12dp"/>
 
-        <!-- Время -->
+
         <EditText
             android:id="@+id/tv_time"
             android:layout_width="0dp"
@@ -50,7 +50,6 @@
             android:textSize="18sp"
             android:gravity="center"/>
 
-        <!-- Кнопка Корзина (Удалить) -->
         <ImageButton
             android:id="@+id/btn_delete"
             android:layout_width="48dp"
@@ -62,7 +61,7 @@
             android:padding="12dp"/>
     </LinearLayout>
 
-    <!-- Кнопка плюса (Добавить тренировку) -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/popup_add"
         android:layout_width="match_parent"

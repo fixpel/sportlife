@@ -86,7 +86,7 @@ public class ActivityResult extends CreateActivity {
         });
         back.setOnClickListener(v -> {
             SearchService.getItems().clear();
-            callBack.onSuccess(ActivityInventory.class);//назад
+            callBack.onSuccess(ActivityInventory.class);
         });
     }
 

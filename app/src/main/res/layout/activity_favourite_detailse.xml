@@ -18,18 +18,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sport - "
-            android:textColor="#FFFFFF"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="life"
-            android:textColor="#00B7B7"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight"/>
     </LinearLayout>
 
     <ScrollView
@@ -48,11 +42,7 @@
                 android:id="@+id/tvExerciseTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Подтягивания"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
+                style="@style/secondTitle"
                 android:layout_marginBottom="24dp"/>
 
             <LinearLayout
@@ -73,10 +63,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Техника:"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF"/>
+                        android:text="Техника"
+                        style="@style/subTitle"/>
 
                     <ImageView
                         android:id="@+id/chkFavorite"
@@ -84,7 +72,6 @@
                         android:layout_height="40dp"
                         android:button="@null"
                         android:background="@null"
-
                         android:clickable="true"
                         android:focusable="true"/>
                 </LinearLayout>
@@ -96,8 +83,7 @@
                     android:layout_marginTop="12dp"
                     android:lineSpacingExtra="4dp"
                     android:text="1. Хват: Возьмитесь за перекладину хватом чуть шире плеч, ладони направлены от себя.\n\n2. Вис: Полностью выпрямите руки, расслабьте плечи, но сохраняйте активное напряжение в лопатках.\n\n3. Подъем: На выдохе плавно подтянитесь вверх, сводя лопатки и стремясь коснуться перекладины верхней частью груди. Локти должны двигаться вниз к корпусу.\n\n4. Пик: В верхней точке задержитесь на секунду, подбородок должен оказаться выше перекладины.\n\n5. Спуск: Подконтрольно опуститесь вниз до полного выпрямления рук."
-                    android:textColor="#E0E0E0"
-                    android:textSize="16dp" />
+                    style="@style/exerciseText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -111,16 +97,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Видео:"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF"
+                    android:text="Видео"
+                    style="@style/subTitle"
                     android:layout_marginBottom="12dp"/>
 
                 <WebView
                     android:id="@+id/videoContainer"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:background="#555555"
                     tools:ignore="WebViewLayout">
                 </WebView>
             </LinearLayout>
@@ -136,19 +121,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Инвентарь:"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF"
+                    android:text="Инвентарь"
+                    style="@style/subTitle"
                     android:layout_marginBottom="12dp"/>
 
                 <TextView
                     android:id="@+id/tvEquipment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Турник"
-                    android:textColor="#E0E0E0"
-                    android:textSize="16dp"/>
+                    android:text=""
+                    style="@style/exerciseText"/>
             </LinearLayout>
 
             <LinearLayout
@@ -162,19 +144,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Группы мышц:"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF"
+                    android:text="Группы мышц"
+                    style="@style/subTitle"
                     android:layout_marginBottom="12dp"/>
 
                 <TextView
                     android:id="@+id/tvMuscle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Дельты"
-                    android:textColor="#E0E0E0"
-                    android:textSize="16dp"/>
+                    android:text=""
+                    style="@style/exerciseText"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -192,11 +171,7 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Назад"
-            android:textColor="#FFFFFF"
-            android:textSize="14dp"
-            app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
+            style="@style/buttonBack"/>
     </LinearLayout>
 
 </LinearLayout>

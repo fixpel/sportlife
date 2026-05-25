@@ -35,7 +35,7 @@ public class ActivityExerciseDetail extends CreateActivity {
         SearchService.findExercise(callBack,nameExercise);
         Button back = this.findViewById(R.id.btnBack);
         back.setOnClickListener(v -> {
-            callBack.onSuccess(ActivityResult.class);//назад
+            callBack.onSuccess(ActivityResult.class);
         });
 
     }
