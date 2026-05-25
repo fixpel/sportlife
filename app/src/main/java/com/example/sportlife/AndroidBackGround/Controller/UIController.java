@@ -63,6 +63,9 @@ public  class UIController {
         if(message.startsWith("Too many follow-up request")){
             message="хммм, какие то не поладки, пожалуйста вернитесь на прошлый экран и попробуйте снова";
         }
+        if(message.startsWith("Failed to connect to")){
+            message="ошибка сети проверьте сеть";
+        }
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
     public void findTop(FindTopResponse response){

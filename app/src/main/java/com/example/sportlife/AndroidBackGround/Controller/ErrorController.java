@@ -18,7 +18,6 @@ public class ErrorController {
                 return null;
             }
             String json = response.errorBody().string();
-            Log.d("Auth",json);
             Gson gson = new Gson();
             return gson.fromJson(json, ErrorResponse.class);
         } catch (Exception e) {
