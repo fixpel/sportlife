@@ -66,8 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Имя"
-                android:textColor="#B0B0B0"
-                android:textSize="12dp"
+                style="@style/subText"
                 android:layout_marginBottom="8dp"/>
 
             <FrameLayout
@@ -100,8 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Экспертность"
-                android:textColor="#B0B0B0"
-                android:textSize="12dp"
+                style="@style/subText"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp"
                 />
@@ -112,11 +110,8 @@
                 android:tag="experts"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="12dp"
-                android:background="@drawable/profile_field_bg"
+                style="@style/EditName"
                 android:text="None"
-                android:textColor="#000000"
-                android:textSize="15dp"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
@@ -126,8 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Активность"
-                android:textColor="#B0B0B0"
-                android:textSize="12dp"
+                style="@style/subText"
                 android:layout_marginBottom="8dp"/>
 
             <TextView
@@ -135,11 +129,8 @@
                 android:tag="activity"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="12dp"
-                android:background="@drawable/profile_field_bg"
+                style="@style/EditName"
                 android:text="00"
-                android:textColor="#000000"
-                android:textSize="15dp"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
@@ -149,8 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Мой рейтинг"
-                android:textColor="#B0B0B0"
-                android:textSize="12dp"
+                style="@style/subText"
                 android:layout_marginBottom="8dp"/>
 
             <TextView
@@ -158,11 +148,9 @@
                 android:tag="top"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="12dp"
-                android:background="@drawable/profile_field_bg"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="15dp"
+
+                style="@style/EditName"
+                android:text="00"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
@@ -186,11 +174,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
-            android:text="Назад"
-            android:textColor="#FFFFFF"
-            android:textSize="14dp"
-            app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
+            style="@style/buttonBack"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
@@ -199,10 +183,7 @@
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:text="Расписание"
-            android:textColor="#FFFFFF"
-            android:textSize="14dp"
-            app:backgroundTint="#00ACC1"
-            app:cornerRadius="24dp" />
+            style="@style/ButtonNavigation"/>
     </LinearLayout>
 
 </LinearLayout>

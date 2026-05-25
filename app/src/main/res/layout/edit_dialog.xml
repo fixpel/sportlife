@@ -26,9 +26,7 @@
             android:layout_marginBottom="25dp"
             android:text="Смена имени"
             android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/secondTitle"/>
 
         <EditText
             android:id="@+id/tvName"
@@ -37,15 +35,9 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/profile_field_bg"
+            style="@style/EditName"
             android:clickable="true"
-            android:focusable="true"
-            android:gravity="center_vertical"
-            android:hint="Name:"
-            android:padding="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="15dp" />
+            android:focusable="true" />
 
         <TextView
             android:id="@+id/errorName"
@@ -74,11 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Нет"
-                android:textColor="#FFFFFF"
-                app:backgroundTint="#757575"
-                android:textSize="14dp"
-                app:cornerRadius="24dp" />
+                style="@style/buttonBack"/>
 
             <Button
                 android:id="@+id/btnYes"
@@ -87,10 +75,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="Да"
-                android:textColor="#FFFFFF"
-                android:textSize="14dp"
-                app:backgroundTint="@color/blue"
-                app:cornerRadius="24dp" />
+            style="@style/ButtonNavigation" />
         </LinearLayout>
 
 
