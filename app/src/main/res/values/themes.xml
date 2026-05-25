@@ -20,4 +20,19 @@
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+    <color name="HintColor">@color/black</color>
+    <color name="mainBlue">@color/blue</color>
+    <color name="SelectedBlue">@color/blackedBlue</color>
+    <color name="MainBackground">@color/gray</color>
+    <color name="colorPrimary">@color/white</color>
+    <color name="secondText">@color/grayWhite</color>
+    <color name="CardBackground">@color/blackedWhite</color>
+    <color name="SubNavigationColor">@color/whitedGray</color>
+    <color name="errorColor">@color/red</color>
+    <color name="subTextColor">@color/graySecond</color>
+    <color name="SubBackground">@color/grayHead</color>
+    <color name="BackButtonColor">@color/grayBack</color>
+    <color name="whitedBlu">#80DEEA</color>
+    <color name="BaseMuscle">#00000000</color>
+    <color name="SelectedMuscle">#4000ACC1</color>
 </resources>

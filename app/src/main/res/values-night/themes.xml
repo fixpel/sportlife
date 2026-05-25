@@ -1,6 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SportLife" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:textColor">#FFFFFF</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.SportLife" parent="Base.Theme.SportLife" />
+
+
+
+    <style name="Theme.SportLife." parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
+
+    <style name="Theme_SportLife_Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 </resources>
