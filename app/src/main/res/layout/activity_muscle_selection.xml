@@ -17,18 +17,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sport - "
-            android:textColor="#FFFFFF"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="life"
-            android:textColor="#00B7B7"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,9 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Поиск: выбор мышц"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            style="@style/subTitle"
             android:layout_marginBottom="16dp"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -83,59 +75,37 @@
                 app:layout_constraintVertical_bias="1.0" />
 
 
-
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneDeltaFront"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="0sp"
-                android:layout_height="45sp"
-                android:layout_marginStart="40sp"
-                android:layout_marginTop="20sp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
                 android:text="дельты"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneKardio"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="0sp"
-                android:layout_height="45sp"
-                android:layout_marginStart="40sp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                style="@style/muscle"
                 android:text="кардио"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneDeltaFront"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneBiceps"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="77dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="бицепс"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
+                style="@style/muscle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.824"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,278 +113,183 @@
                 app:layout_constraintWidth_percent="0.15" />
 
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneBrah"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="77dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="брахиалис"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.824"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneBiceps"
                 app:layout_constraintWidth_percent="0.15" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zonePlech"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="76dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="плечевая мышца"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.826"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imgFront"
                 app:layout_constraintWidth_percent="0.12" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneGrud"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="76dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="грудные мышцы"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="@+id/imgFront"
                 app:layout_constraintHorizontal_bias="0.821"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneBrah"
                 app:layout_constraintWidth_percent="0.12" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zonePress"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="63dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="пресс"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneKardio"
                 app:layout_constraintWidth_percent="0.12" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneQuadriceps"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="86dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="48dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="квадрицепс"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.853"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneKosaya"
                 app:layout_constraintWidth_percent="0.12" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zonePramayaZhivota"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="76dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="прямая мышца"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                app:backgroundTint="@null"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zonePress"
                 app:layout_constraintWidth_percent="0.12" />
 
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneKosaya"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="136dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="наружная косая"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
-
-                android:visibility="visible"
-
-                app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.823"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneGrud"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneTrapezius"
                 android:layout_width="91dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
+                style="@style/muscle"
                 android:text="трапеция"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15"
-                app:backgroundTint="@null"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+                app:layout_constraintWidth_percent="0.15"/>
 
-
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneTriceps"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="97dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="264dp"
                 android:layout_marginTop="48dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="трицепс"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
+                style="@style/muscle"
                 android:visibility="gone"
-                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.15"
                 tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneShiro"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="137dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
+                style="@style/muscle"
                 android:text="широчайшие"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
                 android:visibility="gone"
-                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneTrapezius"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneJagodichnye"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="122dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="128dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="ягодичные"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
+                style="@style/muscle"
                 android:visibility="gone"
-                app:backgroundTint="@null"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneShiro"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneBricepsBedra"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="120dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="256dp"
                 android:layout_marginTop="176dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="бицепс бедра"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
                 android:visibility="gone"
-                app:backgroundTint="@null"
+                style="@style/muscle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneTriceps"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zone4glav"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="137dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginBottom="28dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
+                style="@style/muscle"
                 android:text="четырёхглавая"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
                 android:visibility="gone"
-                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_percent="0.18" />
 
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/zoneIkry"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/muscle"
                 android:layout_width="81dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="264dp"
-                android:background="@drawable/muscle_zone_selector"
-                android:padding="4dp"
                 android:text="икры"
-                android:textColor="#FFFFFF"
-                android:textSize="10dp"
-                android:textStyle="bold"
                 android:visibility="gone"
-                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/zoneBricepsBedra"
@@ -440,10 +315,7 @@
                 android:id="@+id/tvPageNumber"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="1"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_marginHorizontal="8dp"/>
+                style="@style/page"/>
 
             <ImageView
                 android:id="@+id/btnNext"
@@ -460,7 +332,7 @@
         android:orientation="horizontal"
         android:padding="16dp"
         android:gravity="center"
-        android:background="#3F3F3F">
+        android:background="?attr/SubBackground">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
@@ -468,11 +340,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
-            android:text="Назад"
-            android:textSize="14dp"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
+            style="@style/buttonBack"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
@@ -481,10 +349,7 @@
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:text="Сохранить"
-            android:textSize="14dp"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#00ACC1"
-            app:cornerRadius="24dp" />
+            style="@style/ButtonNavigation"/>
     </LinearLayout>
 
 </LinearLayout>

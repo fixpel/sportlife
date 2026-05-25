@@ -10,8 +10,7 @@
         android:layout_height="match_parent"
         android:id="@+id/button"
         android:background="@drawable/avatar_background2"
-        app:backgroundTint="@null"
-        app:cornerRadius="40dp" />
+        app:backgroundTint="@null" />
 
     <ImageView
         android:layout_width="70dp"

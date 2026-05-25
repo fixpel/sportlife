@@ -9,8 +9,6 @@
     android:id="@+id/activityTop"
     tools:context=".Activity.ActivityHome">
 
-    <!-- Основной контейнер "карточки" как на скриншоте -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,8 +16,6 @@
         android:gravity="fill_horizontal"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent">
-
-        <!-- HEADER -->
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -41,30 +37,22 @@
 
             <TextView
                 android:id="@+id/textView2"
+                style="@style/nameAppLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-
-                android:layout_toEndOf="@+id/btnSettings"
-                android:text="Sport -"
-                android:textColor="#FFFFFF"
-                android:textSize="35dp"
-                android:textStyle="bold" />
+                android:layout_toEndOf="@+id/btnSettings" />
 
             <TextView
+                style="@style/nameAppRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="5dp"
-
                 android:layout_toStartOf="@+id/btnProfile"
-                android:layout_toEndOf="@+id/textView2"
-                android:text="life"
-                android:textColor="#00B7B7"
-                android:textSize="35dp"
-                android:textStyle="bold" />
+                android:layout_toEndOf="@+id/textView2" />
 
             <ImageView
                 android:id="@+id/btnProfile"
@@ -80,29 +68,20 @@
 
         </LinearLayout>
 
-        <!-- BODY -->
-
         <TextView
             android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:layout_gravity="center"
-            android:background="#333333"
-            android:text=""
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp"
-            android:textStyle="bold" />
+            style="@style/secondTitle"
+            android:text="" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginBottom="16dp"
             android:text="Топ 10"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            style="@style/subTitle"
+            />
 
 
         <LinearLayout
@@ -118,7 +97,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewTop"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:nestedScrollingEnabled="true" />
 
         </LinearLayout>
@@ -134,16 +113,13 @@
 
             <Button
                 android:id="@+id/btnSearch"
-                android:layout_width="0dp"
+                android:layout_width="16dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="#00B7B7"
                 android:text="Поиск"
-                android:textColor="#FFFFFF"
-                android:textSize="14dp"
-                app:icon="@drawable/lupa"
-                app:iconGravity="textStart" />
+                style="@style/ButtonNavigation"
+                app:icon="@drawable/lupa" />
 
             <Button
                 android:id="@+id/btnHistory"
@@ -151,12 +127,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="#00B7B7"
-                android:text="История"
-                android:textColor="#FFFFFF"
-                android:textSize="14dp"
-                app:icon="@drawable/history"
-                app:iconGravity="textStart" />
+                android:text="Избранное"
+                style="@style/ButtonNavigation"
+                app:icon="@drawable/history" />
 
 
         </LinearLayout>

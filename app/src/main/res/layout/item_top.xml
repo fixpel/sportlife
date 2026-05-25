@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="4dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="0dp">
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    >
 
     <LinearLayout
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E5E5E5"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="12dp">
+        style="@style/cardView">
+
         <ImageView
             android:id="@+id/avatarIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:contentDescription="Avatar"
             android:scaleType="centerCrop" />
+
         <LinearLayout
             android:layout_width="293dp"
             android:layout_height="wrap_content"
@@ -32,25 +31,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Имя"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                style="@style/mainText"
+                />
+
             <TextView
                 android:id="@+id/userRank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Экспертность"
-                android:textColor="#666666"
-                android:textSize="12dp" />
+                style="@style/subText"
+                />
         </LinearLayout>
+
         <TextView
             android:id="@+id/userScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            style="@style/mainText"
+            />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

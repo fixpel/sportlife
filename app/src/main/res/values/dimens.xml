@@ -12,4 +12,8 @@
     <dimen name="muscleName">10dp</dimen>
     <dimen name="Radius">30dp</dimen>
     <dimen name="navigationRadius">16dp</dimen>
+    <dimen name="ViewRadius">8dp</dimen>
+    <dimen name="CardRadius">12dp</dimen>
+    <dimen name="padding">12dp</dimen>
+    <dimen name="musclePadding">4dp</dimen>
 </resources>    

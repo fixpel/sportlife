@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/android_splash"
-    android:background="@color/white">
+    android:background="@color/gray">
 
     <ImageView
         android:id="@+id/splashLogo"
@@ -11,7 +11,7 @@
         android:layout_height="252dp"
         android:layout_gravity="center"
         android:contentDescription="Sport-life"
-        android:src="@drawable/zvezda" />
+        />
 
     <ProgressBar
         android:id="@+id/loadingIndicator"
