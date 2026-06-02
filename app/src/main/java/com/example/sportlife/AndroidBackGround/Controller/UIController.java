@@ -249,7 +249,6 @@ public  class UIController {
         });
     }
     public void profile(ProfileResponse response){
-        errorService(response.toString());
         editTexts.forEach(e->{
             Glide.with(activity).load(response.getAvatar()).circleCrop().into((ImageView)activity.findViewById(R.id.imgAvatar));
             switch (e.getTag().toString()){

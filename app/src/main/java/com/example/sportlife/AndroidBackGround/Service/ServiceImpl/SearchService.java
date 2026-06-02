@@ -50,7 +50,7 @@ public class SearchService {
     }
     public static Boolean setMuscles(List<String> muscles, CallBackHandler callBack){
         if(muscles.isEmpty()){
-            callBack.onTools("");
+            callBack.onTools("ВЫберете хотя бы одн мышцу");
             return false;
         }else {
             SearchService.muscles = muscles;
@@ -59,7 +59,7 @@ public class SearchService {
     }
     public static Boolean setItems(List<String> items, CallBackHandler callBack){
         if(items.isEmpty()){
-            callBack.onTools("");
+            callBack.onTools("Вфберете хотя бы один инвентарь");
             return false;
         }else {
             return true;
