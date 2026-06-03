@@ -30,7 +30,7 @@ public class ActivityMuscle extends CreateActivity {
 
     @Override
     protected int getIdView() {
-        return R.id.activityMusc;
+        return R.id.activityMuscle;
     }
 
     @Override

@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#333333"
-    android:id="@+id/activityMusc">
+    android:background="?attr/MainBackground"
+    android:id="@+id/activityMuscle">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         android:gravity="center"
-        android:background="#3F3F3F">
+        android:background="?attr/SubBackground">
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,30 +27,23 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:background="#333333"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Поиск: выбор мышц"
-            style="@style/subTitle"
-            android:layout_marginBottom="16dp"/>
+            style="@style/subTitle"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#333333"
-            android:layout_marginBottom="16dp">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
             <ImageView
                 android:id="@+id/imgFront"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/fr_musc2"
-
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -302,6 +294,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp">
 
             <ImageView

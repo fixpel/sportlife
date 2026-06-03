@@ -64,8 +64,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:contentDescription="Previous"
-            android:src="@android:drawable/ic_media_previous"
-            app:tint="#FFFFFF" />
+            android:src="@android:drawable/ic_media_previous" />
 
         <TextView
             android:id="@+id/tvPageNumber"
@@ -78,8 +77,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:contentDescription="Next"
-            android:src="@android:drawable/ic_media_next"
-            app:tint="#FFFFFF" />
+            android:src="@android:drawable/ic_media_next"/>
     </LinearLayout>
 
     <LinearLayout
