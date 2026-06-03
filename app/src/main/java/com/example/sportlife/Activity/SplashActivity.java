@@ -32,7 +32,7 @@ public class SplashActivity extends CreateActivity {
         CallBackHandlerImpl callBack=new CallBackHandlerImpl(uiController,errorController);
         ImageView zvezda=findViewById(R.id.splashLogo);
         Glide.with(this)
-                .load(R.drawable.zvezda)
+                .load(R.drawable.logo)
                 .circleCrop()
                 .into(zvezda);
         SplashService service=new SplashService();

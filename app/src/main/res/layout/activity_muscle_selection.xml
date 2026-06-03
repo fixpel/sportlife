@@ -22,303 +22,314 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/nameAppRight"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Поиск: выбор мышц"
-            style="@style/subTitle"/>
-        <androidx.constraintlayout.widget.ConstraintLayout
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/imgFront"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/fr_musc2"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/bc_musc2"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneDeltaFront"
-                style="@style/muscle"
-                android:layout_width="0sp"
-                android:layout_height="45dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:text="дельты"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneKardio"
-                android:layout_width="0sp"
-                android:layout_height="45dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                style="@style/muscle"
-                android:text="кардио"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneDeltaFront"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneBiceps"
-                android:layout_width="77dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="20dp"
-                android:text="бицепс"
-                style="@style/muscle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.824"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zonePlech"
-                app:layout_constraintWidth_percent="0.15" />
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneBrah"
-                style="@style/muscle"
-                android:layout_width="77dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="12dp"
-                android:text="брахиалис"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.824"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneBiceps"
-                app:layout_constraintWidth_percent="0.15" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zonePlech"
-                style="@style/muscle"
-                android:layout_width="76dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="20dp"
-                android:text="плечевая мышца"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.826"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imgFront"
-                app:layout_constraintWidth_percent="0.12" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneGrud"
-                style="@style/muscle"
-                android:layout_width="76dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="8dp"
-                android:text="грудные мышцы"
-                app:layout_constraintEnd_toEndOf="@+id/imgFront"
-                app:layout_constraintHorizontal_bias="0.821"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneBrah"
-                app:layout_constraintWidth_percent="0.12" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zonePress"
-                style="@style/muscle"
-                android:layout_width="63dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="16dp"
-                android:text="пресс"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneKardio"
-                app:layout_constraintWidth_percent="0.12" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneQuadriceps"
-                style="@style/muscle"
-                android:layout_width="86dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="48dp"
-                android:text="квадрицепс"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.853"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneKosaya"
-                app:layout_constraintWidth_percent="0.12" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zonePramayaZhivota"
-                style="@style/muscle"
-                android:layout_width="76dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="32dp"
-                android:text="прямая мышца"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zonePress"
-                app:layout_constraintWidth_percent="0.12" />
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneKosaya"
-                style="@style/muscle"
-                android:layout_width="136dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="40dp"
-                android:text="наружная косая"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.823"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneGrud"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneTrapezius"
-                android:layout_width="91dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
-                style="@style/muscle"
-                android:text="трапеция"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneTriceps"
-                android:layout_width="97dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="264dp"
-                android:layout_marginTop="48dp"
-                android:text="трицепс"
-                style="@style/muscle"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.15"
-                tools:ignore="MissingConstraints" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneShiro"
-                android:layout_width="137dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="24dp"
-                style="@style/muscle"
-                android:text="широчайшие"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneTrapezius"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneJagodichnye"
-                android:layout_width="122dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="128dp"
-                android:text="ягодичные"
-                style="@style/muscle"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneShiro"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneBricepsBedra"
-                android:layout_width="120dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="256dp"
-                android:layout_marginTop="176dp"
-                android:text="бицепс бедра"
-                android:visibility="gone"
-                style="@style/muscle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneTriceps"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zone4glav"
-                android:layout_width="137dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginBottom="28dp"
-                style="@style/muscle"
-                android:text="четырёхглавая"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintWidth_percent="0.18" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/zoneIkry"
-                style="@style/muscle"
-                android:layout_width="81dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="264dp"
-                android:text="икры"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/zoneBricepsBedra"
-                app:layout_constraintVertical_bias="0.322"
-                app:layout_constraintWidth_percent="0.12" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp">
-
-            <ImageView
-                android:id="@+id/btnPrev"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="Previous"
-                android:src="@android:drawable/ic_media_previous" />
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvPageNumber"
-                android:layout_width="30dp"
+                style="@style/subTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/page"/>
+                android:text="Поиск: выбор мышц" />
 
-            <ImageView
-                android:id="@+id/btnNext"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@android:drawable/ic_media_next"
-                android:contentDescription="Next"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Изображения (без изменений) -->
+                <ImageView
+                    android:id="@+id/imgFront"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/fr_musc2"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/bc_musc2"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- ================= ЛЕВАЯ КОЛОНКА ================= -->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneDeltaFront"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="дельты"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneKardio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneKardio"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="кардио"
+                    app:layout_constraintBottom_toTopOf="@+id/zonePress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneDeltaFront"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zonePress"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="пресс"
+                    app:layout_constraintBottom_toTopOf="@+id/zonePramayaZhivota"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneKardio"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zonePramayaZhivota"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="прямая мышца"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zonePress"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <!-- ================= ПРАВАЯ КОЛОНКА ================= -->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zonePlech"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="плечевая мышца"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneBiceps"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="spread"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneBiceps"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="бицепс"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneBrah"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zonePlech"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneBrah"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="брахиалис"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneGrud"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneBiceps"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneGrud"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="грудные мышцы"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneKosaya"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneBrah"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneKosaya"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="наружная косая"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneQuadriceps"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneGrud"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneQuadriceps"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="квадрицепс"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneKosaya"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <!-- ================= СКРЫТЫЕ КНОПКИ (Задняя сторона) ================= -->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneTrapezius"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="трапеция"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneShiro"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneShiro"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="широчайшие"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneJagodichnye"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneTrapezius"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneJagodichnye"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="ягодичные"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/zone4glav"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneShiro"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zone4glav"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="четырёхглавая"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneJagodichnye"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneTriceps"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="трицепс"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneBricepsBedra"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneBricepsBedra"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="бицепс бедра"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneIkry"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneTriceps"
+                    app:layout_constraintWidth_percent="0.22" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneIkry"
+                    style="@style/muscle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="икры"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneBricepsBedra"
+                    app:layout_constraintWidth_percent="0.22" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/btnPrev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Previous"
+                    android:src="@android:drawable/ic_media_previous" />
+
+                <TextView
+                    android:id="@+id/tvPageNumber"
+                    style="@style/page"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/btnNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Next"
+                    android:src="@android:drawable/ic_media_next" />
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
