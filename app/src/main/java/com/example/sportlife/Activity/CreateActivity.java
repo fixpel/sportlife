@@ -11,6 +11,7 @@ import androidx.core.text.util.LocalePreferences;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.R;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +23,12 @@ public abstract class CreateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle bundle) {
+        SessionManager session=new SessionManager(getApplicationContext());
+        if(session.getTheme().equals("Dark")){
+            setTheme(R.style.BaseTheme);
+        }else{
+            setTheme(R.style.LightTheme);
+        }
         super.onCreate(bundle);
         EdgeToEdge.enable(this);
         setContentView(getIdLayout());

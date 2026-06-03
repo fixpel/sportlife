@@ -36,6 +36,7 @@ public class ActivityHome extends CreateActivity {
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
         findTopService.findTop(callBack);
+        ImageView settings=findViewById(R.id.btnSettings);
         Button search=findViewById(R.id.btnSearch);
         Button history=findViewById(R.id.btnHistory);
         ImageView profile=findViewById(R.id.btnProfile);
@@ -46,5 +47,8 @@ public class ActivityHome extends CreateActivity {
             callBack.onSuccess(ActivityFavorites.class);
         });
         profile.setOnClickListener(v->callBack.onSuccess(ActivityProfile.class));
+        settings.setOnClickListener(v->{
+            callBack.onSuccess(ActivityEditTheme.class);
+        });
     }
 }

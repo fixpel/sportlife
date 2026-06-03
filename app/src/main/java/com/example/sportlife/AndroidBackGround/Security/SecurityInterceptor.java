@@ -47,7 +47,6 @@ public class SecurityInterceptor implements Interceptor {
         SessionManager session = new SessionManager(context);
 
         String token = session.getAccessToken();
-
         if (token == null || token.trim().isEmpty()) {
             return chain.proceed(request);
         }

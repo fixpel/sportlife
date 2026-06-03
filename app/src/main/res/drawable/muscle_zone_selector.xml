@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="3dp"
-                android:color="@color/whitedBlue"/>
+                android:color="?attr/StrokeMuscle"/>
             <corners android:radius="@dimen/ViewRadius"/>
             <solid android:color="@color/TransparentBlue"/>
         </shape>
@@ -13,7 +13,7 @@
         <shape android:shape="rectangle">
             <stroke
                 android:width="3dp"
-                android:color="@color/whitedBlue"/>
+                android:color="?attr/StrokeMuscle"/>
             <corners android:radius="@dimen/ViewRadius"/>
             <solid android:color="@color/Transparent"/>
         </shape>

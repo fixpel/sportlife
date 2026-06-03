@@ -3,7 +3,7 @@
     <style name="nameAppLeft" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/Title</item>
         <item name="android:text">Sport-</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="nameAppRight" parent="Widget.AppCompat.TextView">
@@ -15,7 +15,7 @@
     <style name="secondTitle" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/SecondTitle</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
     </style>
@@ -44,7 +44,7 @@
         <item name="android:gravity">center</item>
     </style>
     <style name="buttonMain" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="android:background">@drawable/button_green_rounded</item>
         <item name="backgroundTint">?attr/mainBlue</item>
         <item name="android:textStyle">bold</item>
@@ -60,24 +60,17 @@
     </style>
     <style name="subTitle" parent="Widget.AppCompat.TextView">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="android:textSize">@dimen/subTitle</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
     </style>
     <style name="ButtonNavigation" parent="Widget.Material3.Button">
         <item name="android:textSize">@dimen/navigationButton</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="backgroundTint">?attr/mainBlue</item>
         <item name="cornerRadius">@dimen/navigationRadius</item>
         <item name="android:textStyle">bold</item>
-    </style>
-    <style name="cardTop">
-        <item name="android:background">?attr/CardBackground</item>
-        <item name="cardCornerRadius">@dimen/CardRadius</item>
-        <item name="android:padding">@dimen/padding</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:orientation">horizontal</item>
     </style>
     <style name="mainText" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">?attr/HintColor</item>
@@ -93,29 +86,29 @@
         <item name="android:textSize">@dimen/levelText</item>
         <item name="android:textColor">?attr/HintColor</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:padding">20dp</item>
         <item name="android:backgroundTint">@null</item>
         <item name="android:background">@drawable/level_button_selector</item>
     </style>
     <style name="buttonBack" parent="Widget.Material3.Button">
         <item name="android:text">Назад</item>
         <item name="android:textSize">@dimen/navigationButton</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="backgroundTint">?attr/BackButtonColor</item>
         <item name="cornerRadius">@dimen/navigationRadius</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="muscle">
         <item name="elevation">0dp</item>
-        <item name="android:padding">@dimen/musclePadding</item>
         <item name="android:background">@drawable/muscle_zone_selector</item>
         <item name="android:backgroundTint">@null</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="android:textSize">@dimen/muscleName</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">visible</item>
     </style>
     <style name="page">
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/TextColor</item>
         <item name="android:text">1</item>
         <item name="android:gravity">center</item>
     </style>
@@ -123,7 +116,6 @@
         <item name="android:background">@drawable/level_button_selector</item>
         <item name="cardCornerRadius">@dimen/CardRadius</item>
         <item name="android:textColor">?attr/CardBackground</item>
-        <item name="android:padding">@dimen/padding</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">vertical</item>
     </style>

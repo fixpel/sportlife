@@ -26,4 +26,11 @@ public class SessionManager {
     public String getRefreshToken(){
         return preferences.getString("refresh",null);
     }
+
+    public String getTheme(){
+        return preferences.getString("Theme","Dark");
+    }
+    public void saveTheme(String theme){
+        preferences.edit().putString("Theme",theme).apply();
+    }
 }

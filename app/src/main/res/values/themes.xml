@@ -1,18 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="BaseTheme" parent="Theme.Material3.DayNight.NoActionBar">
             <item name="HintColor">@color/black</item>
-            <item name="mainBlue">@color/blue</item>
-            <item name="SelectedBlue">@color/blackedBlue</item>
-            <item name="MainBackground">@color/gray</item>
-            <item name="colorPrimary">@color/white</item>
-            <item name="secondText">@color/grayWhite</item>
-            <item name="CardBackground">@color/blackedWhite</item>
-            <item name="SubNavigationColor">@color/whitedGray</item>
+            <item name="mainBlue">@color/bluePrimary</item>
+            <item name="SelectedBlue">@color/bluePrimaryDark</item>
+            <item name="MainBackground">@color/gray900</item>
+            <item name="TextColor">@color/white</item>
+            <item name="LevelBackground">@color/white</item>
+            <item name="secondText">@color/gray050</item>
+            <item name="CardBackground">@color/gray025</item>
+            <item name="SubNavigationColor">@color/gray200</item>
             <item name="errorColor">@color/red</item>
-            <item name="subTextColor">@color/graySecond</item>
-            <item name="SubBackground">@color/grayHead</item>
-            <item name="BackButtonColor">@color/grayBack</item>
-            <item name="StrokeMuscle">@color/whitedBlue</item>
+            <item name="subTextColor">@color/gray500</item>
+            <item name="SubBackground">@color/gray700</item>
+            <item name="BackButtonColor">@color/gray400</item>
+            <item name="StrokeMuscle">@color/blueAccentLight</item>
             <item name="BaseMuscle">@color/Transparent</item>
             <item name="SelectedMuscle">@color/TransparentBlue</item>
     </style>

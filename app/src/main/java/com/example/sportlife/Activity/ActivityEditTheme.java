@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.annotation.UiContext;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
+import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.R;
 
 public class ActivityEditTheme extends CreateActivity{
@@ -26,8 +30,18 @@ public class ActivityEditTheme extends CreateActivity{
         Button editTheme=findViewById(R.id.btnToggleTheme);
 
         UIController uiController=new UIController(this,null);
+        CallBackHandler callBack=new CallBackHandlerImpl(uiController,new ErrorController());
+        SessionManager session=new SessionManager(this);
 
-        back.setOnClickListener(v->{});
+        editTheme.setOnClickListener(v->{
+            if(session.getTheme().equals("Dark")){
+                 session.saveTheme("Light");
+            }else{
+                session.saveTheme("Dark");
+            }
+        });
+        back.setOnClickListener(v->{callBack.onSuccess(ActivityHome.class);});
+
 
     }
 }

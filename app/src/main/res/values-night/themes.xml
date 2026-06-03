@@ -1,19 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="LigthTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="LightTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="HintColor">@color/black</item>
-        <item name="mainBlue">@color/blue</item>
-        <item name="SelectedBlue">@color/blackedBlue</item>
-        <item name="MainBackground">@color/gray</item>
-        <item name="colorPrimary">@color/white</item>
-        <item name="secondText">@color/grayWhite</item>
-        <item name="CardBackground">@color/blackedWhite</item>
-        <item name="SubNavigationColor">@color/whitedGray</item>
+        <item name="mainBlue">@color/greenPrimary</item>
+        <item name="SelectedBlue">@color/greenPrimaryDark</item>
+        <item name="MainBackground">@color/gray000</item>
+        <item name="TextColor">@color/black</item>
+        <item name="LevelBackground">@color/gray050</item>
+        <item name="secondText">@color/gray800</item>
+        <item name="CardBackground">@color/gray100</item>
+        <item name="SubNavigationColor">@color/gray600</item>
         <item name="errorColor">@color/red</item>
-        <item name="subTextColor">@color/graySecond</item>
-        <item name="SubBackground">@color/grayHead</item>
-        <item name="BackButtonColor">@color/grayBack</item>
-        <item name="StrokeMuscle">@color/whitedBlue</item>
+        <item name="subTextColor">@color/gray500</item>
+        <item name="SubBackground">@color/gray150</item>
+        <item name="BackButtonColor">@color/gray300</item>
+        <item name="StrokeMuscle">@color/greenAccentLight</item>
         <item name="BaseMuscle">@color/Transparent</item>
-        <item name="SelectedMuscle">@color/TransparentBlue</item>
+        <item name="SelectedMuscle">@color/TransparentGreen</item>
     </style>
 </resources>
