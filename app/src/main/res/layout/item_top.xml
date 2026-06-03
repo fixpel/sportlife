@@ -3,19 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    style="@style/cardView"
+    android:gravity="center_horizontal"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/cardTop">
+        android:background="@color/blackedWhite"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/avatarIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
             android:contentDescription="Avatar"
             android:scaleType="centerCrop" />
 
@@ -30,15 +33,15 @@
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Имя"
+                android:text=""
                 style="@style/mainText"
                 />
-
+<!--добавь отступы аватару и числу активности -->
             <TextView
                 android:id="@+id/userRank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Экспертность"
+                android:text=""
                 style="@style/subText"
                 />
         </LinearLayout>
@@ -47,7 +50,8 @@
             android:id="@+id/userScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00"
+            android:text="0"
+            android:layout_gravity="center"
             style="@style/mainText"
             />
     </LinearLayout>
