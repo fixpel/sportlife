@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ==================== APP NAME ==================== -->
-    <string name="app_name_part1">Sport-</string>
-    <string name="app_name_part2">life</string>
+    <string name="app_name_part1_eng">Sport-</string>
+    <string name="app_name_part2_eng">life</string>
 
     <!-- ==================== AUTH ==================== -->
-    <string name="label_login">Login</string>
-    <string name="label_registration">Registration</string>
-    <string name="btn_no_account">No account?</string>
-    <string name="btn_have_account">Already have an account?</string>
+    <string name="label_login_eng">Login</string>
+    <string name="label_registration_eng">Registration</string>
+    <string name="btn_no_account_eng">No account?</string>
+    <string name="btn_have_account_eng">Already have an account?</string>
 
     <!-- Hints -->
-    <string name="hint_name">Name:</string>
-    <string name="hint_password">Password:</string>
+    <string name="hint_name_eng">Name:</string>
+    <string name="hint_password_eng">Password:</string>
 
     <!-- ==================== TOP 10 ==================== -->
-    <string name="title_top_10">Top 10</string>
-    <string name="welcome">Welcome</string>
+    <string name="title_top_10_eng">Top 10</string>
+    <string name="welcome_eng">Welcome</string>
 
     <!-- ==================== LEVEL / PREPARATION ==================== -->
-    <string name="title_search_preparation">Search: preparation</string>
-    <string name="question_evaluate_yourself">How would you rate yourself?</string>
-    <string name="level_novice">novice</string>
-    <string name="level_experienced">experienced</string>
-    <string name="level_pro">pro</string>
+    <string name="title_search_preparation_eng">Search: preparation</string>
+    <string name="question_evaluate_yourself_eng">How would you rate yourself?</string>
+    <string name="level_novice_eng">novice</string>
+    <string name="level_experienced_eng">experienced</string>
+    <string name="level_pro_eng">pro</string>
 
     <!-- ==================== MUSCLES ==================== -->
-    <string name="title_search_muscles">Search: muscle Selection</string>
+    <string name="title_search_muscles_eng">Search: muscle Selection</string>
 
-    <string name="muscle_deltas">deltoids</string>
-    <string name="muscle_cardio">cardio</string>
-    <string name="muscle_press">abs</string>
-    <string name="muscle_rectus_abdominis">rectus Abdominis</string>
-    <string name="muscle_brachialis_muscle">shoulders</string>
-    <string name="muscle_biceps">biceps</string>
-    <string name="muscle_brachialis">brachialis</string>
-    <string name="muscle_chest">chest</string>
-    <string name="muscle_oblique_external">external obliques</string>
-    <string name="muscle_quadriceps">quadriceps</string>
-    <string name="muscle_trapezius">trapezius</string>
-    <string name="muscle_lats">lats</string>
-    <string name="muscle_quadriceps_femoris">quads</string>
-    <string name="muscle_triceps">triceps</string>
-    <string name="muscle_hamstrings">hamstrings</string>
-    <string name="muscle_calves">calves</string>
+    <string name="muscle_deltas_eng">deltoids</string>
+    <string name="muscle_cardio_eng">cardio</string>
+    <string name="muscle_press_eng">abs</string>
+    <string name="muscle_rectus_abdominis_eng">rectus Abdominis</string>
+    <string name="muscle_brachialis_muscle_eng">shoulders</string>
+    <string name="muscle_biceps_eng">biceps</string>
+    <string name="muscle_brachialis_eng">brachialis</string>
+    <string name="muscle_chest_eng">chest</string>
+    <string name="muscle_oblique_external_eng">external obliques</string>
+    <string name="muscle_quadriceps_eng">quadriceps</string>
+    <string name="muscle_trapezius_eng">trapezius</string>
+    <string name="muscle_lats_eng">lats</string>
+    <string name="muscle_quadriceps_femoris_eng">quads</string>
+    <string name="muscle_triceps_eng">triceps</string>
+    <string name="muscle_hamstrings_eng">hamstrings</string>
+    <string name="muscle_calves_eng">calves</string>
 
     <!-- ==================== EQUIPMENT ==================== -->
-    <string name="title_search_equipment">Search: equipment</string>
+    <string name="title_search_equipment_eng">Search: equipment</string>
 
     <!-- ==================== RESULT ==================== -->
-    <string name="title_search_result">Search: result</string>
+    <string name="title_search_result_eng">Search: result</string>
 
     <!-- ==================== EXERCISE DETAILS ==================== -->
-    <string name="tab_technique">Technique</string>
-    <string name="tab_video">Video</string>
-    <string name="tab_equipment">Equipment</string>
-    <string name="tab_muscle_groups">Muscle groups</string>
+    <string name="tab_technique_eng">Technique</string>
+    <string name="tab_video_eng">Video</string>
+    <string name="tab_equipment_eng">Equipment</string>
+    <string name="tab_muscle_groups_eng">Muscle groups</string>
 
     <!-- ==================== SETTINGS ==================== -->
-    <string name="question_change_theme">Do you want to change the theme?</string>
-    <string name="btn_change">Change</string>
+    <string name="question_change_theme_eng">Do you want to change the theme?</string>
+    <string name="btn_change_eng">Change</string>
 
     <!-- ==================== SCHEDULE ==================== -->
-    <string name="title_schedule">Schedule</string>
-    <string name="subtitle_choose_days">Select training days</string>
+    <string name="title_schedule_eng">Schedule</string>
+    <string name="subtitle_choose_days_eng">Select training days</string>
 
-    <string name="day_monday">Monday</string>
-    <string name="day_tuesday">Tuesday</string>
-    <string name="day_wednesday">Wednesday</string>
-    <string name="day_thursday">Thursday</string>
-    <string name="day_friday">Friday</string>
-    <string name="day_saturday">Saturday</string>
-    <string name="day_sunday">Sunday</string>
+    <string name="day_monday_eng">Monday</string>
+    <string name="day_tuesday_eng">Tuesday</string>
+    <string name="day_wednesday_eng">Wednesday</string>
+    <string name="day_thursday_eng">Thursday</string>
+    <string name="day_friday_eng">Friday</string>
+    <string name="day_saturday_eng">Saturday</string>
+    <string name="day_sunday_eng">Sunday</string>
 
     <!-- ==================== PROFILE ==================== -->
-    <string name="label_profile_name">Name</string>
-    <string name="label_profile_expertise">Expertise</string>
-    <string name="label_profile_activity">Activity</string>
-    <string name="label_profile_rating">My Rating</string>
+    <string name="label_profile_name_eng">Name</string>
+    <string name="label_profile_expertise_eng">Expertise</string>
+    <string name="label_profile_activity_eng">Activity</string>
+    <string name="label_profile_rating_eng">My Rating</string>
 
     <!-- ==================== CHANGE DIALOGS ==================== -->
-    <string name="title_change_avatar">Change avatar</string>
-    <string name="title_choose_time">Select time</string>
-    <string name="title_change_name">Change name</string>
+    <string name="title_change_avatar_eng">Change avatar</string>
+    <string name="title_choose_time_eng">Select time</string>
+    <string name="title_change_name_eng">Change name</string>
 
     <!-- ==================== DEFAULTS ==================== -->
-    <string name="default_name">Name</string>
-    <string name="default_expertise">None</string>
-    <string name="default_activity">00</string>
-    <string name="default_rating">0</string>
+    <string name="default_name_eng">Name</string>
+    <string name="default_expertise_eng">None</string>
+    <string name="default_activity_eng">00</string>
+    <string name="default_rating_eng">0</string>
 
     <!-- ==================== NAVIGATION BUTTONS ==================== -->
-    <string name="btn_back">Back</string>
-    <string name="btn_save">Save</string>
-    <string name="btn_schedule">Schedule</string>
-    <string name="btn_search">Search</string>
-    <string name="btn_favorite">Favorites</string>
+    <string name="btn_back_eng">Back</string>
+    <string name="btn_save_eng">Save</string>
+    <string name="btn_schedule_eng">Schedule</string>
+    <string name="btn_search_eng">Search</string>
+    <string name="btn_favorite_eng">Favorites</string>
 </resources>
