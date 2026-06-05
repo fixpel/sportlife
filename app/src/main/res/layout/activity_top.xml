@@ -64,6 +64,7 @@
             android:id="@+id/linerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/MainBackground"
             android:layout_weight="1">
 
 

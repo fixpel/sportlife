@@ -43,9 +43,9 @@
         <item name="android:textColor">?attr/errorColor</item>
         <item name="android:gravity">center</item>
     </style>
-    <style name="buttonMain" parent="Widget.AppCompat.Button">
+    <style name="buttonMain" parent="MaterialAlertDialog.Material3">
         <item name="android:textColor">?attr/TextColor</item>
-        <item name="android:buttonCornerRadius">@dimen/ViewRadius</item>
+        <item name="cornerRadius">@dimen/Radius</item>
         <item name="backgroundTint">?attr/mainBlue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:padding">@dimen/padding</item>
@@ -122,5 +122,20 @@
         <item name="android:textSize">@dimen/Text</item>
         <item name="android:textColor">?attr/secondText</item>
         <item name="android:textStyle">normal</item>
+    </style>
+    <style name="DayOfWeek">
+        <item name="android:background">?attr/SubBackground</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:layout_marginBottom">@dimen/margin</item>
+    </style>
+    <style name="createTime">
+        <item name="android:text">+</item>
+        <item name="android:stateListAnimator">@animator/mtrl_btn_unelevated_state_list_anim</item>
+        <item name="elevation">0dp</item>
+        <item name="android:textSize">@dimen/Text</item>
+        <item name="android:textColor">?attr/HintColor</item>
+        <item name="android:backgroundTint">?attr/Background</item>
+        <item name="android:cornerRadius">@dimen/Radius</item>
     </style>
 </resources>

@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout android:layout_width="80dp"
-    android:layout_height="80dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/button"
-        android:background="@drawable/avatar_background2"
-        app:backgroundTint="@null" />
-
-    <ImageView
-        android:layout_width="70dp"
-        android:id="@+id/imgAvatarItem"
-        android:layout_height="70dp"
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="?attr/MainBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:layout_width="@dimen/Img"
+        android:layout_height="@dimen/Img"
         android:layout_gravity="center"
-        android:background="@drawable/avatar_background"
-        android:scaleType="centerCrop"/>
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button"
+            android:background="@drawable/avatar_background2"
+            app:backgroundTint="@null" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/imgAvatarItem"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin"
+            android:layout_gravity="center"
+            android:background="@drawable/avatar_background"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
 </FrameLayout>

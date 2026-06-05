@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="30dp"
+        android:padding="@dimen/padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_logo"
         app:layout_constraintVertical_bias="0.38"
@@ -48,10 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/secondTitle"
-            android:text="Вход"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layout_logo" />
+            android:text="Вход" />
 
 
         <EditText
@@ -59,24 +56,14 @@
             style="@style/EditName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_login_title" />
+            android:layout_marginTop="@dimen/bigMargin" />
 
         <TextView
             android:id="@+id/errorName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_marginTop="4dp"
-
             android:tag="login"
-            style="@style/errorText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_name" />
+            style="@style/errorText" />
 
         <EditText
             android:id="@+id/et_password"
@@ -84,53 +71,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="16dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/errorName" />
+            android:layout_marginTop="@dimen/bigMargin" />
 
         <TextView
             android:id="@+id/errorPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:tag="password"
-            style="@style/errorText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_password" />
+            style="@style/errorText" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_marginTop="20dp"
-
-            android:layout_marginBottom="32dp"
-            android:layout_weight="1"
+            android:layout_marginTop="@dimen/bigMargin"
             style="@style/buttonMain"
             android:text="Войти"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textAllCaps="false" />
 
         <TextView
             android:id="@+id/none_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_marginTop="@dimen/bigMargin"
             android:text="Нет аккаунта?"
-            style="@style/subNavigation"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            app:layout_constraintVertical_bias="0.183" />
+            style="@style/subNavigation" />
 
 
     </LinearLayout>

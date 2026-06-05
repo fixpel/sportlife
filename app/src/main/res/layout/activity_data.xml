@@ -6,123 +6,67 @@
     android:orientation="vertical"
     android:background="?attr/MainBackground"
     android:id="@+id/activitySchedule">
-
-    <!-- ==================== ШАПКА ==================== -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         android:gravity="center"
         android:background="?attr/SubBackground">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sport - "
-            android:textColor="#FFFFFF"
-            android:textSize="35sp"
-            android:textStyle="bold" />
+            style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="life"
-            android:textColor="#00B7B7"
-            android:textSize="35sp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight"/>
     </LinearLayout>
-
-    <!-- ==================== ТЕЛО (Скролл) ==================== -->
-    <!-- ScrollView позволяет прокручивать все 7 дней -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fillViewport="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="@dimen/padding"
             android:background="?attr/MainBackground">
-
-            <!-- Заголовок страницы -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Расписание"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="@dimen/margin"
                 style="@style/secondTitle"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Выберите дни тренировок"
-                android:textSize="14sp"
-                android:layout_marginBottom="24dp"
-                style="@style/subTitle"
-                />
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
-
-                <!-- Заголовок Дня -->
+                style="@style/DayOfWeek">
                 <TextView
                     android:id="@+id/tvMonday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Понедельник"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    style="@style/secondTitle"/>
 
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvMonday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Кнопка Добавить -->
+                    android:nestedScrollingEnabled="false" />
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddMonday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
+                    style="@style/createTime"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
+                style="@style/DayOfWeek">
 
                 <!-- Заголовок Дня -->
                 <TextView
@@ -130,83 +74,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Вторник"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
+                    style="@style/secondTitle"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvTuesday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
+                    android:nestedScrollingEnabled="false" />
 
-                <!-- Кнопка Добавить -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddTuesday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
-
+                    style="@style/createTime"/>
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
-
-                <!-- Заголовок Дня -->
+                style="@style/DayOfWeek">
                 <TextView
                     android:id="@+id/tvWednesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Среда"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    style="@style/secondTitle"/>
 
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvWednesday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
+                    android:nestedScrollingEnabled="false" />
 
-                <!-- Кнопка Добавить -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddWednesday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
-
+                    style="@style/createTime"/>
             </LinearLayout>
 
 
@@ -214,217 +118,117 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
+                style="@style/DayOfWeek">
 
-                <!-- Заголовок Дня -->
                 <TextView
                     android:id="@+id/tvThursday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Четверг"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    style="@style/secondTitle"/>
 
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvThursday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
+                    android:nestedScrollingEnabled="false" />
 
-                <!-- Кнопка Добавить -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddThursday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
-
-            </LinearLayout>
+                    style="@style/createTime"/>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
+                style="@style/DayOfWeek">
 
-                <!-- Заголовок Дня -->
                 <TextView
                     android:id="@+id/tvFriday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Пятница"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    style="@style/secondTitle"/>
 
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvFriday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
+                    android:nestedScrollingEnabled="false" />
 
-                <!-- Кнопка Добавить -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddFriday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
-
+                    style="@style/createTime"/>
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
+                style="@style/DayOfWeek">
 
-                <!-- Заголовок Дня -->
                 <TextView
                     android:id="@+id/tvSaturday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Суббота"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    style="@style/secondTitle" />
 
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvSaturday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
+                    android:nestedScrollingEnabled="false" />
 
-                <!-- Кнопка Добавить -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddSaturday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
-
+                    style="@style/createTime"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#3F3F3F"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp"
-                android:elevation="4dp"
-                android:clipToPadding="false">
+                style="@style/DayOfWeek">
 
-                <!-- Заголовок Дня -->
                 <TextView
                     android:id="@+id/tvSunday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Воскресенье"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="12dp" />
+                    style="@style/secondTitle" />
 
-                <!-- Список тренировок для этого дня -->
-                <!-- Важно: wrap_content для высоты, чтобы карточка росла -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvSunday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginBottom="12dp" />
-
-                <!-- Кнопка Добавить -->
+                    android:nestedScrollingEnabled="false" />
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddSunday"
+                    android:id="@+id/btnAddSunDay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="+"
-                    android:textSize="20sp"
-                    android:paddingHorizontal="24dp"
-                    android:textColor="#000000"
-                    app:backgroundTint="#FFFFFF"
-                    app:cornerRadius="20dp"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton" />
-
+                    style="@style/createTime"/>
             </LinearLayout>
-
-
-
-
-
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <!-- ==================== ФУТЕР ==================== -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:gravity="center"
-        android:background="#3F3F3F">
+        android:padding="@dimen/padding"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="10dp"
-            android:text="Назад"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
+            style="@style/buttonBack" />
     </LinearLayout>
 
 </LinearLayout>

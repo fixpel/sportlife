@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.ProfileService;
@@ -32,24 +33,25 @@ public class ActivitySettings extends CreateActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<TextView> textViews=new ArrayList<>();
-        textViews.add(findViewById(R.id.tvName));
-        textViews.add(findViewById(R.id.tvExpertise));
-        textViews.add(findViewById(R.id.tvActivity));
-        textViews.add(findViewById(R.id.tvRating));
-        Button back =findViewById(R.id.btnBack);
-        ImageView edit=findViewById(R.id.imageButton);
-        ImageView editAvatar=findViewById(R.id.btnChangeAvatar);
-        UIController uiController = new UIController(this, textViews);
-        ErrorController errorController=new ErrorController();
-        CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
-        ProfileService service=new ProfileService();
-        service.info(callBack);
-        back.setOnClickListener(v -> {
+        Button editTheme=findViewById(R.id.btnToggleTheme);
+        Button back=findViewById(R.id.btnBack);
+
+        UIController uiController=new UIController(this,null);
+        CallBackHandler callBack=new CallBackHandlerImpl(uiController,new ErrorController());
+        SessionManager session=new SessionManager(getApplicationContext());
+
+        back.setOnClickListener(v->{
             callBack.onSuccess(ActivityHome.class);
         });
-        edit.setOnClickListener(v->callBack.onSuccess(ActivityEditName.class));
-        editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));
+        editTheme.setOnClickListener(v->{
+            if(session.getTheme().equals("Dark")){
+                session.saveTheme("Light");
+                setTheme(R.style.LightTheme);
+            }else{
+                session.saveTheme("Dark");
+                setTheme(R.style.BaseTheme);
+            }
+        });
     }
 
 

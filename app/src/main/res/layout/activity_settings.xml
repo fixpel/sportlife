@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#333333"
+    android:background="?attr/MainBackground"
     android:id="@+id/activitySettings">
 
 
@@ -13,23 +13,17 @@
         android:layout_height="wrap_content"
 
         android:gravity="center"
-        android:background="#3F3F3F">
+        android:background="?attr/SubBackground">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sport - "
-            android:textColor="#FFFFFF"
-            android:textSize="35sp"
-            android:textStyle="bold" />
+            style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="life"
-            android:textColor="#00B7B7"
-            android:textSize="35sp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight"/>
     </LinearLayout>
 
 
@@ -38,30 +32,22 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp">
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Вы хотите сменить тему?"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="32dp"/>
+            style="@style/subTitle"/>
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnToggleTheme"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Сменить"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:backgroundTint="#00B7B7"
-            app:cornerRadius="30dp" />
+            style="@style/ButtonNavigation"/>
 
     </LinearLayout>
 
@@ -69,19 +55,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center"
-        android:background="#3F3F3F">
+        android:padding="@dimen/padding"
+        android:background="?attr/SubBackground">
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Назад"
-            android:textColor="#FFFFFF"
-            android:textSize="14dp"
-            app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
+            style="@style/buttonBack"/>
     </LinearLayout>
 
 </LinearLayout>

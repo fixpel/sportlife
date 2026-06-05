@@ -3,7 +3,7 @@
         <item name="HintColor">@color/black</item>
         <item name="mainBlue">@color/greenPrimary</item>
         <item name="SelectedBlue">@color/greenPrimaryDark</item>
-        <item name="MainBackground">@color/gray000</item>
+        <item name="MainBackground">@color/white</item>
         <item name="TextColor">@color/black</item>
         <item name="Background">@color/gray050</item>
         <item name="secondText">@color/gray800</item>

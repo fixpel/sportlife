@@ -18,5 +18,6 @@
     <dimen name="padding">12dp</dimen>
     <dimen name="musclePadding">4dp</dimen>
     <dimen name="margin">8dp</dimen>
+    <dimen name="bigMargin">24dp</dimen>
     <dimen name="Img">110dp</dimen>
 </resources>    

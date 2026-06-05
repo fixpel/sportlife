@@ -4,15 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#333333"
+    android:background="?attr/MainBackground"
     android:id="@+id/activityProfile">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:gravity="center"
-        android:background="#3F3F3F">
+        android:background="?attr/SubBackground">
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,29 +33,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="@dimen/padding">
 
             <FrameLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/Img"
+                android:layout_height="@dimen/Img"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="32dp">
+                android:layout_marginBottom="@dimen/margin">
 
                 <ImageView
                     android:id="@+id/imgAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/circle_background"
-                    android:scaleType="centerCrop" />
+                    android:background="@drawable/circle_background" />
 
                 <ImageView
                     android:id="@+id/btnChangeAvatar"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/imgSub"
+                    android:layout_height="@dimen/imgSub"
                     android:layout_gravity="bottom|end"
                     android:src="@android:drawable/ic_menu_camera"
                     android:background="@drawable/circle_accent"
-                    android:padding="8dp"
+                    android:layout_margin="@dimen/margin"
                     android:contentDescription="Сменить аватар"/>
 
             </FrameLayout>
@@ -66,29 +64,25 @@
                 android:layout_height="wrap_content"
                 android:text="Имя"
                 style="@style/subText"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="@dimen/margin"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:tag="login"
-                    style="@style/EditName"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center_vertical" />
+                    style="@style/EditName" />
 
                 <ImageButton
                     android:id="@+id/imageButton"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/imgSub"
+                    android:layout_height="@dimen/imgSub"
                     android:layout_gravity="center|end"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="@dimen/margin"
                     app:srcCompat="@drawable/edit"
                     android:background="@drawable/edit_background"/>
 
@@ -99,8 +93,8 @@
                 android:layout_height="wrap_content"
                 android:text="Экспертность"
                 style="@style/subText"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/bigMargin"
+                android:layout_marginBottom="@dimen/margin"
                 />
 
 
@@ -110,18 +104,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/EditName"
-                android:text="None"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginBottom="24dp"/>
+                android:text="None" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Активность"
                 style="@style/subText"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginTop="@dimen/bigMargin"
+                android:layout_marginBottom="@dimen/margin"/>
 
             <TextView
                 android:id="@+id/tvActivity"
@@ -129,31 +120,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/EditName"
-                android:text="00"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginBottom="24dp"/>
+                android:text="00" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Мой рейтинг"
                 style="@style/subText"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginTop="@dimen/bigMargin"
+                android:layout_marginBottom="@dimen/margin"/>
 
             <TextView
                 android:id="@+id/tvRating"
                 android:tag="top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 style="@style/EditName"
-                android:text="00"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginBottom="24dp"/>
+                android:text="00" />
 
 
         </LinearLayout>
@@ -163,24 +146,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center"
-        android:background="#3F3F3F">
+        android:padding="@dimen/padding"
+        android:background="?attr/SubBackground">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin"
             android:layout_weight="1"
-            android:layout_marginEnd="10dp"
             style="@style/buttonBack"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/margin"
             android:text="Расписание"
             style="@style/ButtonNavigation"/>
     </LinearLayout>
