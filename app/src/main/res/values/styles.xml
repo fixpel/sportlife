@@ -136,6 +136,6 @@
         <item name="android:textSize">@dimen/Text</item>
         <item name="android:textColor">?attr/HintColor</item>
         <item name="android:backgroundTint">?attr/Background</item>
-        <item name="android:cornerRadius">@dimen/Radius</item>
+        <item name="cornerRadius">@dimen/Radius</item>
     </style>
 </resources>
