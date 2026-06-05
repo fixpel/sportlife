@@ -31,13 +31,15 @@ public class ActivityEditTheme extends CreateActivity{
 
         UIController uiController=new UIController(this,null);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,new ErrorController());
-        SessionManager session=new SessionManager(this);
+        SessionManager session=new SessionManager(getApplicationContext());
 
         editTheme.setOnClickListener(v->{
             if(session.getTheme().equals("Dark")){
                  session.saveTheme("Light");
+                 recreate();
             }else{
                 session.saveTheme("Dark");
+                recreate();
             }
         });
         back.setOnClickListener(v->{callBack.onSuccess(ActivityHome.class);});

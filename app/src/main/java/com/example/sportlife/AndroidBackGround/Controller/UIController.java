@@ -61,7 +61,7 @@ public  class UIController {
     }
     public void errorService(String message){
         if(message.startsWith("Too many follow-up request")){
-            message="хммм, какие то не поладки, пожалуйста вернитесь на прошлый экран и попробуйте снова";
+            message="хммм, какие то не поладки, пожалуйста попробуйте снова";
         }
         if(message.startsWith("Failed to connect to")){
             message="ошибка сети проверьте сеть";
@@ -157,30 +157,30 @@ public  class UIController {
                 ImageView favourites=view.findViewById(R.id.chkFavorite);
                 if(exercise.getFavourites()){
                     Glide.with(holder.itemView.getContext())
-                            .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                            .load(R.drawable.unpainted_heart)
                             .circleCrop()
-                            .into(favourites);//закрашенное сердечко
+                            .into(favourites);
                 }else{
                     Glide.with(holder.itemView.getContext())
-                            .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                            .load(R.drawable.painted_heart)
                             .circleCrop()
-                            .into(favourites);//не закрашенне сердечко
+                            .into(favourites);
                 }
                 experts.setText(exercise.getExperts());
                 name.setText(exercise.getName());
                 favourites.setOnClickListener(v->{
                     if(exercise.getFavourites()) {
                         Glide.with(activity)
-                                .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                                .load(R.drawable.painted_heart)
                                 .circleCrop()
-                                .into(favourites);//меняем на незакрашенное сердце
+                                .into(favourites);
                         exercise.setFavourites(false);
                         callBack.onDeleteFavourite(exercise.getName());
                     }else{
                         Glide.with(activity)
-                                .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                                .load(R.drawable.unpainted_heart)
                                 .circleCrop()
-                                .into(favourites);//меняем на закрашеное сердцо
+                                .into(favourites);
                         exercise.setFavourites(true);
                         callBack.onCreateFavourite(exercise.getName());
                 }
@@ -218,31 +218,54 @@ public  class UIController {
         video.getSettings().setUseWideViewPort(true);
         video.getSettings().setLoadWithOverviewMode(true);
         video.getSettings().setDomStorageEnabled(true);
-        video.loadUrl(exercise.getVideo());
+        String html =
+                "<html>" +
+                        "<head>" +
+                        "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" +
+                        "</head>" +
+                        "<body style='margin:0;padding:0;background:black;'>" +
+                        "<iframe " +
+                        "src='https://rutube.ru/play/embed/" + exercise.getVideo() + "' " +
+                        "width='100%' " +
+                        "height='100%' " +
+                        "frameborder='0' " +
+                        "allow='autoplay; fullscreen' " +
+                        "allowfullscreen>" +
+                        "</iframe>" +
+                        "</body>" +
+                        "</html>";
+
+        video.loadDataWithBaseURL(
+                "https://rutube.ru/",
+                html,
+                "text/html",
+                "UTF-8",
+                null
+        );
         if(exercise.getFavourites()){
             Glide.with(activity)
-                    .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                    .load(R.drawable.unpainted_heart)
                     .circleCrop()
                     .into(favourite);
         } else{
             Glide.with(activity)
-                    .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                    .load(R.drawable.painted_heart)
                     .circleCrop()
-                    .into(favourite);//меняем на незакрашенное сердце
+                    .into(favourite);
         }
         favourite.setOnClickListener(v->{
             if(exercise.getFavourites()) {
                 Glide.with(activity)
-                        .load("https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-a3zr-p-kartinki-chernoe-serdtse-na-prozrachnom-fo-4.png")
+                        .load(R.drawable.unpainted_heart)
                         .centerCrop()
-                        .into(favourite);//меняем на незакрашенное сердце
+                        .into(favourite);
                 exercise.setFavourites(false);
                 callBack.onDeleteFavourite(exercise.getName());
             }else{
                 Glide.with(activity)
-                        .load("https://publicdomainvectors.org/tn_img/heart-15.webp")
+                        .load(R.drawable.painted_heart)
                         .circleCrop()
-                        .into(favourite);//меняем на закрашеное сердцо
+                        .into(favourite);
                 exercise.setFavourites(true);
                 callBack.onCreateFavourite(exercise.getName());
             }

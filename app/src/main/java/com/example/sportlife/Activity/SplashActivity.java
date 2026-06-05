@@ -44,7 +44,7 @@ public class SplashActivity extends CreateActivity {
                 service.splash(callBack);
                 callBack.onSuccess(ActivityHome.class);
             }
-        }, 800);
+        }, 500);
 
     }
 
