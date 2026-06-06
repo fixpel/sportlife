@@ -95,4 +95,10 @@
     <string name="btn_scheduleE">Schedule</string>
     <string name="btn_searchE">Search</string>
     <string name="btn_favoriteE">Favorites</string>
+
+    <!-- ==================== Settings ==================== -->
+    <string name="settingsE">Settings</string>
+    <string name="swt_themeE">Light theme</string>
+    <string name="swt_langE">English</string>
+
 </resources>
