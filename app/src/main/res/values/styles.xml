@@ -2,7 +2,7 @@
 <resources>
     <style name="nameAppLeft" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/Title</item>
-        <item name="android:text">Sport-</item>
+
         <item name="android:textColor">?attr/TextColor</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -10,7 +10,6 @@
         <item name="android:textColor">?attr/mainBlue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/Title</item>
-        <item name="android:text">life</item>
     </style>
     <style name="secondTitle" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/SecondTitle</item>
@@ -22,7 +21,6 @@
     <style name="EditName" parent="Widget.AppCompat.EditText">
         <item name="android:textColorHint">?attr/HintColor</item>
         <item name="android:textColor">?attr/HintColor</item>
-        <item name="android:hint">Name:</item>
         <item name="android:background">@drawable/profile_field_bg</item>
         <item name="android:textSize">@dimen/editText</item>
         <item name="android:textStyle">bold</item>
@@ -31,7 +29,6 @@
     <style name="EditPassword" parent="Widget.AppCompat.EditText">
         <item name="android:textColorHint">?attr/HintColor</item>
         <item name="android:textColor">?attr/HintColor</item>
-        <item name="android:hint">Password:</item>
         <item name="android:background">@drawable/profile_field_bg</item>
         <item name="android:textSize">@dimen/editText</item>
         <item name="android:textStyle">bold</item>
@@ -91,7 +88,6 @@
         <item name="android:background">@drawable/level_button_selector</item>
     </style>
     <style name="buttonBack" parent="Widget.Material3.Button">
-        <item name="android:text">Назад</item>
         <item name="android:textSize">@dimen/navigationButton</item>
         <item name="android:textColor">?attr/TextColor</item>
         <item name="backgroundTint">?attr/BackButtonColor</item>
@@ -100,6 +96,7 @@
     </style>
     <style name="muscle">
         <item name="elevation">0dp</item>
+        <item name="android:padding">@dimen/musclePadding</item>
         <item name="android:background">@drawable/muscle_zone_selector</item>
         <item name="android:backgroundTint">@null</item>
         <item name="android:textColor">?attr/TextColor</item>

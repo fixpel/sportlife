@@ -15,11 +15,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part1"
             style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part2"
             style="@style/nameAppRight"/>
     </LinearLayout>
     <ScrollView
@@ -36,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Расписание"
+                android:text="@string/title_schedule"
                 android:layout_marginBottom="@dimen/margin"
                 style="@style/secondTitle"/>
             <LinearLayout
@@ -47,7 +49,8 @@
                     android:id="@+id/tvMonday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Понедельник"
+                    android:text="@string/day_monday"
+
                     style="@style/secondTitle"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -68,12 +71,11 @@
                 android:layout_height="wrap_content"
                 style="@style/DayOfWeek">
 
-                <!-- Заголовок Дня -->
                 <TextView
                     android:id="@+id/tvTuesday"
                     android:layout_width="wrap_content"
+                    android:text="@string/day_tuesday"
                     android:layout_height="wrap_content"
-                    android:text="Вторник"
                     style="@style/secondTitle"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvTuesday"
@@ -97,7 +99,7 @@
                     android:id="@+id/tvWednesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Среда"
+                    android:text="@string/day_wednesday"
                     style="@style/secondTitle"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -124,7 +126,7 @@
                     android:id="@+id/tvThursday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Четверг"
+                    android:text="@string/day_thursday"
                     style="@style/secondTitle"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -149,7 +151,7 @@
                     android:id="@+id/tvFriday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Пятница"
+                    android:text="@string/day_friday"
                     style="@style/secondTitle"/>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -175,7 +177,7 @@
                     android:id="@+id/tvSaturday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Суббота"
+                    android:text="@string/day_saturday"
                     style="@style/secondTitle" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -200,7 +202,7 @@
                     android:id="@+id/tvSunday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Воскресенье"
+                    android:text="@string/day_sunday"
                     style="@style/secondTitle" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -227,6 +229,7 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/btn_back"
             android:layout_weight="1"
             style="@style/buttonBack" />
     </LinearLayout>

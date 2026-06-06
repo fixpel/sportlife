@@ -30,10 +30,12 @@
                 android:id="@+id/textView2"
                 style="@style/nameAppLeft"
                 android:layout_width="wrap_content"
+                android:text="@string/app_name_part1"
                 android:layout_height="wrap_content" />
             <TextView
                 style="@style/nameAppRight"
                 android:layout_width="wrap_content"
+                android:text="@string/app_name_part2"
                 android:layout_height="wrap_content"/>
 
             <ImageView
@@ -50,12 +52,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/secondTitle"
-            android:text="Добро Пожаловать" />
+
+            android:text="@string/welcome"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Топ 10"
+            android:text="@string/title_top_10"
             style="@style/subTitle"
             />
 
@@ -87,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin"
                 android:layout_weight="1"
-                android:text="Поиск"
+                android:text="@string/btn_search"
                 style="@style/ButtonNavigation"
                 app:icon="@drawable/lupa" />
 
@@ -97,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_weight="1"
-                android:text="Избранное"
+                android:text="@string/btn_favorite"
                 style="@style/ButtonNavigation"
                 app:icon="@drawable/history" />
 

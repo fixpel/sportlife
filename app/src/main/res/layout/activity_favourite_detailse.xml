@@ -17,11 +17,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part1"
             style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part2"
             style="@style/nameAppRight"/>
     </LinearLayout>
 
@@ -57,7 +59,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Техника"
+                        android:text="@string/tab_technique"
                         style="@style/subTitle"/>
 
                     <ImageView
@@ -86,7 +88,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Видео"
+                    android:text="@string/tab_video"
                     style="@style/subTitle" />
 
                 <WebView
@@ -108,7 +110,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Инвентарь"
+                    android:text="@string/tab_equipment"
                     style="@style/subTitle" />
 
                 <TextView
@@ -130,7 +132,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Группы мышц"
+                    android:text="@string/tab_muscle_groups"
                     style="@style/subTitle" />
 
                 <TextView
@@ -154,6 +156,7 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/btn_back"
             style="@style/buttonBack"/>
     </LinearLayout>
 
