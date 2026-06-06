@@ -138,4 +138,12 @@
         <item name="android:backgroundTint">?attr/Background</item>
         <item name="cornerRadius">@dimen/Radius</item>
     </style>
+    <style name="settingsTitle">
+        <item name="android:textColor">?attr/TextColor</item>
+        <item name="android:textSize">@dimen/Text</item>
+    </style>
+    <style name="Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">?attr/Background</item>
+        <item name="trackTint">?attr/BackButtonColor</item>
+    </style>
 </resources>

@@ -33,4 +33,9 @@ public class SessionManager {
     public void saveTheme(String theme){
         preferences.edit().putString("Theme",theme).apply();
     }
+
+    public String getLanguage(){
+        return preferences.getString("Language","ru");
+    }
+    public void setLanguage(String Language){preferences.edit().putString("Language",Language).apply();}
 }
