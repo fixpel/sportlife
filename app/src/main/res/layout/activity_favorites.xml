@@ -15,10 +15,12 @@
         <TextView
             style="@style/nameAppLeft"
             android:layout_width="wrap_content"
+            android:text="@string/app_name_part1"
             android:layout_height="wrap_content" />
         <TextView
             style="@style/nameAppRight"
             android:layout_width="wrap_content"
+            android:text="@string/app_name_part2"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView
@@ -26,7 +28,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/favorites"
         android:tag="favorites"
-        android:text="Избранное"
+        android:text="@string/btn_favorite"
         style="@style/secondTitle"/>
     <TextView
         android:id="@+id/errorFavorites"
@@ -78,6 +80,7 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/btn_back"
             style="@style/buttonBack"/>
     </LinearLayout>
 </LinearLayout>

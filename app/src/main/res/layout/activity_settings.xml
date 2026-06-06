@@ -15,9 +15,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part1"
             style="@style/nameAppLeft"/>
         <TextView
             android:layout_width="wrap_content"
+            android:text="@string/app_name_part2"
             android:layout_height="wrap_content"
             style="@style/nameAppRight"/>
     </LinearLayout>
@@ -33,7 +35,8 @@
             android:layout_height="wrap_content"
             style="@style/secondTitle"
             android:id="@+id/inventory"
-            android:text="Настройки" />
+            android:text="@string/settings"
+            />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +59,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Светлая тема"
+                    android:text="@string/swt_theme"
                     style="@style/settingsTitle"/>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -82,7 +85,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="English"
+                    android:text="@string/swt_lang"
                     style="@style/settingsTitle"/>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -105,6 +108,7 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/btn_back"
             style="@style/buttonBack"/>
     </LinearLayout>
 

@@ -28,11 +28,12 @@
 
         <EditText
             android:id="@+id/tvName"
+            style="@style/EditName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/margin"
+            android:hint="@string/hint_name"
             android:layout_marginLeft="@dimen/margin"
-            style="@style/EditName" />
+            android:layout_marginRight="@dimen/margin" />
 
         <TextView
             android:id="@+id/errorName"
@@ -54,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="@dimen/margin"
+                android:text="@string/btn_back"
                 style="@style/buttonBack"/>
 
             <Button
@@ -62,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_weight="1"
-                android:text="сохранить"
+                android:text="@string/btn_save"
                 style="@style/ButtonNavigation" />
         </LinearLayout>
 

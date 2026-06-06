@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin"
-            android:text="Смена аватара"
+            android:text="@string/title_change_avatar"
             style="@style/secondTitle"/>
 
 
@@ -46,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin"
                 android:layout_weight="1"
+                android:text="@string/btn_back"
                 style="@style/buttonBack"/>
 
             <Button
@@ -54,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_weight="1"
-                android:text="Сохранить"
+                android:text="@string/btn_save"
                 style="@style/ButtonNavigation"/>
         </LinearLayout>
 

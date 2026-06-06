@@ -15,10 +15,12 @@
         <TextView
             style="@style/nameAppLeft"
             android:layout_width="wrap_content"
+            android:text="@string/app_name_part1"
             android:layout_height="wrap_content" />
         <TextView
             style="@style/nameAppRight"
             android:layout_width="wrap_content"
+            android:text="@string/app_name_part2"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView
@@ -26,7 +28,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/result"
         android:tag="result"
-        android:text="Поиск: результат"
+        android:text="@string/title_search_result"
         style="@style/secondTitle"/>
     <TextView
         android:id="@+id/errorResult"
@@ -78,6 +80,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
+            android:text="@string/btn_back"
             android:layout_height="wrap_content"
             style="@style/buttonBack"/>
     </LinearLayout>

@@ -14,18 +14,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part1"
             style="@style/nameAppLeft"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name_part2"
             style="@style/nameAppRight"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Поиск: подготовка"
+        android:text="@string/title_search_preparation"
         style="@style/secondTitle"
         />
 
@@ -35,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:tag="experts"
-        android:text="Как вы себя оцениваете?"
+        android:text="@string/question_evaluate_yourself"
         style="@style/subTitle"
         />
 
@@ -52,7 +54,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNovice"
                 style="@style/levelButton"
-                android:text="новичок"
+                android:text="@string/level_novice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
@@ -67,7 +69,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnExperienced"
                 style="@style/levelButton"
-                android:text="опытный"
+                android:text="@string/level_experienced"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
@@ -85,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin"
                 android:layout_marginEnd="@dimen/margin"
-                android:text="профи"
+                android:text="@string/level_pro"
                 app:layout_constraintTop_toBottomOf="@+id/btnExperienced"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -105,6 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="@string/btn_back"
             android:layout_marginRight="@dimen/margin"
             style="@style/buttonBack"/>
 
@@ -113,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Сохранить"
+            android:text="@string/btn_save"
             android:layout_marginRight="@dimen/margin"
             style="@style/ButtonNavigation"/>
 
