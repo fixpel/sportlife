@@ -156,6 +156,7 @@ public  class UIController {
 
             @Override
             public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+                SessionManager session=new SessionManager(activity);
                 ExerciseCardResponse.Exercise exercise=response.getExercises().get(position);
                 View view=holder.itemView;
                 ImageView photo=view.findViewById(R.id.imgExercise);
@@ -175,7 +176,11 @@ public  class UIController {
                             .into(favourites);
                 }
                 experts.setText(TranslateClient.translateLevel(activity,exercise.getExperts()));
-                name.setText(exercise.getName());
+                try {
+                    name.setText(TranslateClient.translateString(exercise.getName(),"result",session.getLanguage()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 favourites.setOnClickListener(v->{
                     if(exercise.getFavourites()) {
                         Glide.with(activity)
@@ -202,7 +207,6 @@ public  class UIController {
                    openNextScreen(to);
                });
             }
-
             @Override
             public int getItemCount() {
                 return response.getExercises().size();
@@ -213,7 +217,11 @@ public  class UIController {
     public void findExercise(ExerciseCardResponse.Exercise exercise, CallBackHandler callBack) throws IOException {
         SessionManager session=new SessionManager(activity);
         TextView name=activity.findViewById(R.id.tvExerciseTitle);
-        name.setText(exercise.getName());
+        try {
+            name.setText(TranslateClient.translateString(exercise.getName(),"result",session.getLanguage()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         ImageView favourite=activity.findViewById(R.id.chkFavorite);
         TextView description=activity.findViewById(R.id.tvTechnique);
         description.setText(exercise.getDescription());

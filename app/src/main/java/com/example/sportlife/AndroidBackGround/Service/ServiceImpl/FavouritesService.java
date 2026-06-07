@@ -2,9 +2,11 @@ package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
+import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Dto.Request.FavouritesRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FavouritesResponse;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.io.IOException;
@@ -81,8 +83,15 @@ public class FavouritesService {
         });
     }
     public void findFavourite(CallBackHandler callBack,String name) throws IOException {
+        SessionManager session=new SessionManager();
         ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e->
-                e.getName().equals(name)).findFirst().orElse(null);
+        {
+            try {
+                return TranslateClient.translateString(e.getName(),"result",session.getLanguage()).equals(name);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }).findFirst().orElse(null);
         if(exercise==null){
             callBack.onTools("объект не найден");
         }else{

@@ -1,6 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Client;
 
 import android.content.Context;
+import android.widget.Switch;
 
 import com.example.sportlife.R;
 
@@ -23,20 +24,19 @@ public final class  TranslateClient {
                             "string",
                             context.getPackageName()
                     );
-
                     return context.getString(resId);
                 })
                 .collect(Collectors.toList());
-    }
-    public static List<String> unTranslateMuscles(){
     }
     public static List<String> unTranslateInventories(List<String> request,String Language ) throws IOException {
         List<String> response=new ArrayList<>();
         if(Language.equals("ru")){
             return request;
         }else{
+            Map<String,String> dictionaryReq=SessionContext.getDictionary("Inventory_"+Language+".json");
+            List<String> ids=request.stream().map(dictionaryReq::get).collect(Collectors.toList());
             Map<String,String> dictionary=SessionContext.getDictionary("Inventory_ru.json");
-            response=request.stream().map(dictionary::get).collect(Collectors.toList());
+            response=ids.stream().map(dictionary::get).collect(Collectors.toList());
         }
         return response;
     }

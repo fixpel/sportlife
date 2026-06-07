@@ -63,7 +63,7 @@ public class SearchService {
     }
     public static Boolean setItems(List<String> items, CallBackHandler callBack){
         if(items.isEmpty()){
-            callBack.onTools("Вфберете хотя бы один инвентарь");
+            callBack.onTools("Выберете хотя бы один инвентарь");
             return false;
         }else {
             return true;
@@ -73,7 +73,7 @@ public class SearchService {
         ExerciseCardResponse.Exercise exercise=exercises.stream().filter(e->
             e.getName().equals(name)).findFirst().orElse(null);
         if(exercise==null){
-            callBack.onTools("объект не найден");
+            callBack.onTools("Объект не найден");
         }else{
             callBack.findExercise(exercise);
         }

@@ -48,11 +48,6 @@
 
         <activity
             android:name=".Activity.ActivityHome"
-            android:exported="true" >
-
-        </activity>
-        <activity
-            android:name=".Activity.ActivityEditName"
             android:exported="true">
         </activity>
         <activity

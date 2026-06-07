@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="BaseTheme" parent="Theme.Material3.DayNight.NoActionBar">
-            <item name="HintColor">@color/black</item>
+            <item name="HintColor">@color/gray500</item>
+            <item name="EditText">@color/black</item>
             <item name="mainBlue">@color/bluePrimary</item>
             <item name="SelectedBlue">@color/bluePrimaryDark</item>
             <item name="MainBackground">@color/gray900</item>
@@ -18,7 +19,8 @@
             <item name="SelectedMuscle">@color/TransparentBlue</item>
     </style>
         <style name="LightTheme" parent="Theme.Material3.DayNight.NoActionBar">
-                <item name="HintColor">@color/black</item>
+                <item name="HintColor">@color/gray500</item>
+                <item name="EditText">@color/black</item>
                 <item name="mainBlue">@color/greenPrimary</item>
                 <item name="SelectedBlue">@color/greenPrimaryDark</item>
                 <item name="MainBackground">@color/white</item>

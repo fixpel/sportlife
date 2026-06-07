@@ -20,7 +20,7 @@
     </style>
     <style name="EditName" parent="Widget.AppCompat.EditText">
         <item name="android:textColorHint">?attr/HintColor</item>
-        <item name="android:textColor">?attr/HintColor</item>
+        <item name="android:textColor">?attr/EditText</item>
         <item name="android:background">@drawable/profile_field_bg</item>
         <item name="android:textSize">@dimen/editText</item>
         <item name="android:textStyle">bold</item>
@@ -28,7 +28,7 @@
     </style>
     <style name="EditPassword" parent="Widget.AppCompat.EditText">
         <item name="android:textColorHint">?attr/HintColor</item>
-        <item name="android:textColor">?attr/HintColor</item>
+        <item name="android:textColor">?attr/EditText</item>
         <item name="android:background">@drawable/profile_field_bg</item>
         <item name="android:textSize">@dimen/editText</item>
         <item name="android:textStyle">bold</item>
@@ -70,7 +70,7 @@
         <item name="android:textStyle">bold</item>
     </style>
     <style name="mainText" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">?attr/HintColor</item>
+        <item name="android:textColor">?attr/EditText</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/Text</item>
     </style>
@@ -81,7 +81,7 @@
     </style>
     <style name="levelButton">
         <item name="android:textSize">@dimen/levelText</item>
-        <item name="android:textColor">?attr/HintColor</item>
+        <item name="android:textColor">?attr/EditText</item>
         <item name="android:textStyle">bold</item>
         <item name="android:padding">@dimen/padding</item>
         <item name="android:backgroundTint">@null</item>
@@ -132,7 +132,7 @@
         <item name="android:stateListAnimator">@animator/mtrl_btn_unelevated_state_list_anim</item>
         <item name="elevation">0dp</item>
         <item name="android:textSize">@dimen/Text</item>
-        <item name="android:textColor">?attr/HintColor</item>
+        <item name="android:textColor">?attr/EditText</item>
         <item name="android:backgroundTint">?attr/Background</item>
         <item name="cornerRadius">@dimen/Radius</item>
     </style>

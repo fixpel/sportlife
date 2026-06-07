@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
         <attr name="HintColor" format="color"/>
+        <attr name="EditText" format="color"/>
         <attr name="mainBlue" format="color"/>
         <attr name="SelectedBlue" format="color"/>
         <attr name="MainBackground" format="color"/>
