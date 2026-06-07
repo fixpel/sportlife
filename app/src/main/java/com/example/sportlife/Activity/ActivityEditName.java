@@ -29,23 +29,39 @@ public class ActivityEditName extends ActivityCreate {
     protected int getIdView() {
         return R.id.editDialog;
     }
-    protected void onCreate(Bundle bundle){
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        View view=getLayoutInflater().inflate(R.layout.edit_dialog,null);
-        AlertDialog dialog=new AlertDialog.Builder(this).setView(view).create();
+        View view = getLayoutInflater().inflate(R.layout.edit_dialog, null);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE |
+                            WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+            );
+        }
         dialog.show();
-        Button no=dialog.findViewById(R.id.btnNo);
-        Button yes=dialog.findViewById(R.id.btnYes);
-        EditText name=dialog.findViewById(R.id.tvName);
-        TextView errorName=dialog.findViewById(R.id.errorName);
-        List<TextView> textViews =new ArrayList<>();
-        textViews.add(errorName);
-        UIController uiController=new UIController(this,textViews);
-        ErrorController errorController=new ErrorController();
-        CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
-        SessionManager session= new SessionManager(getApplicationContext());
-        ProfileService service=new ProfileService();
-        no.setOnClickListener(v->callBack.onSuccess(ActivityProfile.class));
-        yes.setOnClickListener(v->service.updateName(name.getText().toString(),callBack,session));
+        Button no = dialog.findViewById(R.id.btnNo);
+        Button yes = dialog.findViewById(R.id.btnYes);
+        EditText name = dialog.findViewById(R.id.tvName);
+        TextView errorName = dialog.findViewById(R.id.errorName);
+        name.requestFocus();
+        dialog.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+        );
+        no.setOnClickListener(v -> dialog.dismiss());
+        yes.setOnClickListener(v -> {
+            String newName = name.getText().toString().trim();
+            if (!newName.isEmpty()) {
+                dialog.dismiss();
+            } else {
+                errorName.setText("Введите имя");
+                errorName.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
