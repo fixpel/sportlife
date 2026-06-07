@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
+import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +30,9 @@ public class SearchService {
     private static List<ExerciseCardResponse.Exercise> exercises;
     @Getter
     private static int totalPage;
-    public static void search(CallBackHandler callBack, int page){
-        SearchRequest request=new SearchRequest(muscles,items);
+    public static void search(CallBackHandler callBack, int page) throws IOException {
+        SessionManager session=new SessionManager();
+        SearchRequest request=new SearchRequest(muscles, TranslateClient.unTranslateInventories(items,session.getLanguage()));
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.search(request,10,page).enqueue(new Callback<ExerciseCardResponse>() {
             @Override
@@ -50,7 +54,7 @@ public class SearchService {
     }
     public static Boolean setMuscles(List<String> muscles, CallBackHandler callBack){
         if(muscles.isEmpty()){
-            callBack.onTools("ВЫберете хотя бы одн мышцу");
+            callBack.onTools("ВЫберете хотя бы одну мышцу");
             return false;
         }else {
             SearchService.muscles = muscles;
@@ -65,7 +69,7 @@ public class SearchService {
             return true;
         }
     }
-    public static void findExercise(CallBackHandler callBack,String name){
+    public static void findExercise(CallBackHandler callBack,String name) throws IOException {
         ExerciseCardResponse.Exercise exercise=exercises.stream().filter(e->
             e.getName().equals(name)).findFirst().orElse(null);
         if(exercise==null){

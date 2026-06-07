@@ -9,6 +9,8 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 
+import java.io.IOException;
+
 import retrofit2.Response;
 
 public interface CallBackHandler {
@@ -18,7 +20,7 @@ public interface CallBackHandler {
     void findTop(FindTopResponse response);
     void findInventory(FindInventoryResponse response);
     void findExercises(ExerciseCardResponse response);
-    void findExercise(ExerciseCardResponse.Exercise exercise);
+    void findExercise(ExerciseCardResponse.Exercise exercise) throws IOException;
     void onUnAuth();
     void onCreateFavourite(String name);
     void onDeleteFavourite(String name);

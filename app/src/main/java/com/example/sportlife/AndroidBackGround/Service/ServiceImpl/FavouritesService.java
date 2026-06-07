@@ -7,6 +7,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse
 import com.example.sportlife.AndroidBackGround.Dto.Response.FavouritesResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
+import java.io.IOException;
 import java.util.List;
 
 import lombok.Getter;
@@ -79,7 +80,7 @@ public class FavouritesService {
             }
         });
     }
-    public void findFavourite(CallBackHandler callBack,String name){
+    public void findFavourite(CallBackHandler callBack,String name) throws IOException {
         ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e->
                 e.getName().equals(name)).findFirst().orElse(null);
         if(exercise==null){
