@@ -44,6 +44,7 @@
     <string name="muscle_6">трицепс</string>
     <string name="muscle_15">бицепс бедра</string>
     <string name="muscle_16">икры</string>
+    <string name="muscle_3">икроножные</string>
 
     <!-- ==================== ЭКРАН ИНВЕНТАРЯ ==================== -->
     <string name="title_search_equipment">Поиск: инвентарь</string>

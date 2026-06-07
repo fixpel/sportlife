@@ -273,7 +273,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin"
-
                     android:text="@string/muscle_15"
                     android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@+id/zoneIkry"
@@ -281,18 +280,33 @@
                     app:layout_constraintTop_toBottomOf="@+id/zoneTriceps"
                     app:layout_constraintWidth_percent="0.22" />
 
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/zoneIkry"
                     style="@style/muscle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin"
-                    android:layout_marginBottom="@dimen/margin"
                     android:text="@string/muscle_16"
                     android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneBricepsBedra"
+                    app:layout_constraintBottom_toTopOf="@+id/zoneGastrocnemius"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.22" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/zoneGastrocnemius"
+                    style="@style/muscle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:layout_marginBottom="@dimen/margin"
+                    android:text="@string/muscle_3"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/zoneIkry"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/zoneBricepsBedra"
                     app:layout_constraintWidth_percent="0.22" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
