@@ -1,0 +1,34 @@
+{
+  "en": {
+
+    "Бег на беговой дорожке": "Treadmill run",
+    "Жим гантелей на наклонной скамье": "Incline dumbbell press",
+    "Жим лежа": "Bench press",
+    "Махи с гантелями": "Dumbbell raises",
+    "Отжимания на брусьях": "Dips",
+    "Подтягивания": "Pull-ups",
+    "Подъем ног в висе": "Hanging leg raises",
+    "подъем штанги на бицепс": "Barbell curls",
+    "Разгибания рук": "Tricep extensions",
+    "Французский жим": "French press",
+    "Приседания со штангой": "Barbell squats",
+    "Выпады с гантелями": "Dumbbell lunges",
+    "Румынская тяга": "Romanian deadlift",
+    "Жим ногами в тренажёре": "Leg press",
+    "Разгибание ног в тренажёре": "Leg extensions",
+    "Сгибание ног в тренажёре": "Leg curls",
+    "Подъёмы на носки стоя": "Standing calf raises",
+    "Болгарские сплит-приседы": "Bulgarian split squats",
+    "TRX-отжимания": "TRX push-ups",
+    "TRX-подтягивания (лёжа)": "TRX rows",
+    "TRX-приседания": "TRX squats",
+    "Лазание по канату без ног": "Legless rope rlimb",
+    "Сведение рук в кроссовере": "Cable crossovers",
+    "Скручивания на фитболе": "Stability ball crunches",
+    "Шаги на степпере": "Stair climber",
+    "Махи гирей": "Kettlebell swings",
+    "Прыжки на скакалке": "Jump rope",
+    "Тяга эспандера к лицу": "Band face pulls",
+    "Гиперэкстензия": "Hyperextensions"
+  }
+}
