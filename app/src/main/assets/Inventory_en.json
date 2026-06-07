@@ -1,25 +1,27 @@
 {
   "en": {
-    "exercise_1" : "pull-up bar",
-    "exercise_2" : "barbell",
-    "exercise_3" : "treadmill",
-    "exercise_4" : "dumbbells",
-    "exercise_5" : "gymnastics bench",
-    "exercise_6" : "dips",
-    "exercise_7": "leg press machine",
-    "exercise_8" : "extension machine",
-    "exercise_9" : "curl machine",
-    "exercise_10" : "step platform",
-    "exercise_11" : "weight belt",
-    "exercise_12" : "climbing rope",
-    "exercise_13" : "crossover",
-    "exercise_14" : "fitball (Swiss ball)",
-    "exercise_15" : "stepper",
-    "exercise_16" : "kettlebell",
-    "exercise_17" : "weights (legs/arms)",
-    "exercise_18" : "jump rope",
-    "exercise_19" : "expander",
-    "exercise_20" : "roman chair",
-    "exercise_21" : "TRX straps"
+    "турник" : "pull-up bar",
+    "штанга" : "barbell",
+    "беговая дорожка" : "treadmill",
+    "гантели" : "dumbbells",
+    "гимнастическая скамья" : "gymnastics bench",
+    "брусья" : "dips",
+    "тренажёр для жима ногами": "leg press machine",
+    "тренажёр для разгибаний" : "extension machine",
+    "тренажёр для сгибаний" : "curl machine",
+    "степ-платформа" : "step platform",
+    "пояс для отягощения" : "weight belt",
+    "канат для лазания" : "climbing rope",
+    "кроссовер" : "crossover",
+    "фитбол (швейцарский мяч)" : "fitball (Swiss ball)",
+    "степпер" : "stepper",
+    "гиря" : "kettlebell",
+    "утяжелители (на ноги/руки)" : "weights (legs/arms)",
+    "скакалка" : "jump rope",
+    "эспандер" : "expander",
+    "римский стул" : "roman chair",
+    "Петли TRX" : "TRX straps"
+
+
   }
 }
