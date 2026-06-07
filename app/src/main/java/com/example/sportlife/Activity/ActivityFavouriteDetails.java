@@ -11,6 +11,7 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FavouritesService;
 import com.example.sportlife.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,11 @@ public class ActivityFavouriteDetails extends ActivityCreate {
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
         FavouritesService service=new FavouritesService();
-        service.findFavourite(callBack,nameExercise);
+        try {
+            service.findFavourite(callBack,nameExercise);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Button back=findViewById(R.id.btnBack);
         back.setOnClickListener(v->callBack.onSuccess(ActivityFavorites.class));
     }

@@ -13,6 +13,7 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,11 @@ public class ActivityResult extends ActivityCreate {
         ImageView next=findViewById(R.id.btnNext);
         ImageView prev=findViewById(R.id.btnPrev);
         prev.setVisibility(View.GONE);
-        SearchService.search(callBack,page);
+        try {
+            SearchService.search(callBack,page);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         TextView tvPage=findViewById(R.id.tvPageNumber);
         next.setOnClickListener(v->{
             int pageint=Integer.parseInt(tvPage.getText().toString());
@@ -48,7 +53,11 @@ public class ActivityResult extends ActivityCreate {
                 pageint=pageint+1;
                 tvPage.setText(Integer.toString(pageint));
                 next.setVisibility(TextView.VISIBLE);
-                SearchService.search(callBack,pageint-1);
+                try {
+                    SearchService.search(callBack,pageint-1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
             if(pageint==SearchService.getTotalPage()){
                 next.setVisibility(TextView.GONE);
@@ -66,7 +75,11 @@ public class ActivityResult extends ActivityCreate {
                 pageint=pageint-1;
                 tvPage.setText(Integer.toString(pageint));
                 prev.setVisibility(TextView.VISIBLE);
-                SearchService.search(callBack,pageint-1);
+                try {
+                    SearchService.search(callBack,pageint-1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
             if(pageint==1){
                 prev.setVisibility(TextView.GONE);

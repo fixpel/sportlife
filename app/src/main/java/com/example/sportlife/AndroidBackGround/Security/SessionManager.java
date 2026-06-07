@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class SessionManager {
-    private SharedPreferences preferences;
+    private static SharedPreferences preferences;
     public SessionManager(Context contextShared){
-        this.preferences=contextShared.getSharedPreferences("User", Context.MODE_PRIVATE);
+        preferences=contextShared.getSharedPreferences("User", Context.MODE_PRIVATE);
     }
     public void saveToken(String accessToken,String refreshToken){
         preferences.edit().putString("access",accessToken).putString("refresh",refreshToken).apply();

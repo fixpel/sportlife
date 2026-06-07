@@ -29,11 +29,13 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryRespons
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 import com.google.android.material.button.MaterialButton;
 
+import java.io.IOException;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -101,6 +103,7 @@ public  class UIController {
     public void findInventory(FindInventoryResponse response){
         RecyclerView recyclerView=activity.findViewById(R.id.recyclerInventory);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        SessionManager session=new SessionManager(activity);
         recyclerView.setAdapter(new RecyclerView.Adapter() {
             @NonNull
             @Override
@@ -113,7 +116,11 @@ public  class UIController {
                 FindInventoryResponse.InventoryObject inventory = response.getInventories().get(position);
                 ImageView photo = holder.itemView.findViewById(R.id.imgEquipment);
                 TextView name = holder.itemView.findViewById(R.id.tvEquipmentName);
-                name.setText(inventory.getName());
+                try {
+                    name.setText(TranslateClient.translateString(inventory.getName(),"Inventory",session.getLanguage()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 holder.itemView.setSelected(SearchService.getItems().contains(name.getText().toString()));
                 Glide.with(holder.itemView.getContext())
                         .load(inventory.getPhoto())
@@ -203,7 +210,8 @@ public  class UIController {
         });
     }
     @OptIn(markerClass = UnstableApi.class)
-    public void findExercise(ExerciseCardResponse.Exercise exercise, CallBackHandler callBack){
+    public void findExercise(ExerciseCardResponse.Exercise exercise, CallBackHandler callBack) throws IOException {
+        SessionManager session=new SessionManager(activity);
         TextView name=activity.findViewById(R.id.tvExerciseTitle);
         name.setText(exercise.getName());
         ImageView favourite=activity.findViewById(R.id.chkFavorite);
@@ -211,8 +219,8 @@ public  class UIController {
         description.setText(exercise.getDescription());
         TextView items=activity.findViewById(R.id.tvEquipment);
         TextView muscles=activity.findViewById(R.id.tvMuscle);
-        muscles.setText(String.join(", ", TranslateClient.translateMuscle(activity,"muscle",exercise.getMuscles())));
-        items.setText(String.join(", ", exercise.getItems()));
+        muscles.setText(String.join(", ", TranslateClient.translateMuscles(activity,"muscle",exercise.getMuscles())));
+        items.setText(String.join(", ",TranslateClient.translateInventories(exercise.getItems(),"Inventory",session.getLanguage())));
         WebView video=activity.findViewById(R.id.videoContainer);
         video.getSettings().setJavaScriptEnabled(true);
         video.setWebViewClient(new WebViewClient());

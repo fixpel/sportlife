@@ -16,6 +16,8 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FavouritesService;
 
+import java.io.IOException;
+
 import lombok.RequiredArgsConstructor;
 import retrofit2.Response;
 
@@ -56,7 +58,7 @@ public class CallBackHandlerImpl implements CallBackHandler {
     }
 
     @Override
-    public void findExercise(ExerciseCardResponse.Exercise exercise) {
+    public void findExercise(ExerciseCardResponse.Exercise exercise) throws IOException {
         uiController.findExercise(exercise,this);
     }
 
