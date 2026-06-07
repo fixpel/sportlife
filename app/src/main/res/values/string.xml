@@ -105,4 +105,11 @@
     <string name="swt_theme">Светлая тема</string>
     <string name="swt_lang">Английский</string>
 
+
+    <string name="error_xm">Хммм, какие то не поладки, пожалуйста попробуйте снова</string>
+    <string name="error_conection">Ошибка сети проверьте сеть</string>
+    <string name="none_musсle">Выберете хотя бы одну мышцу</string>
+    <string name="none_equipment">Выберете хотя бы один инвентарь</string>
+    <string name="none_object">Объект не найден</string>
+
 </resources>

@@ -63,12 +63,29 @@ public  class UIController {
         });
     }
     public void errorService(String message){
+        int resId = 0;
         if(message.startsWith("Too many follow-up request")){
-            message="хммм, какие то не поладки, пожалуйста попробуйте снова";
+             resId = activity.getResources().getIdentifier(
+                    "error_xm",
+                    "string",
+                    activity.getPackageName()
+            );
+
         }
         if(message.startsWith("Failed to connect to")){
-            message="ошибка сети проверьте сеть";
+             resId = activity.getResources().getIdentifier(
+                    "error_conection",
+                    "string",
+                    activity.getPackageName()
+            );
+
         }
+        resId = activity.getResources().getIdentifier(
+                message,
+                "string",
+                activity.getPackageName()
+        );
+        message=activity.getString(resId);
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
     public void findTop(FindTopResponse response){
