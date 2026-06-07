@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.sportlife.Activity.ActivityEditAvatar;
 import com.example.sportlife.Activity.ActivityResultDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
+import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
@@ -85,7 +86,7 @@ public  class UIController {
                 TextView rank = holder.itemView.findViewById(R.id.userRank);
                 ImageView avatar = holder.itemView.findViewById(R.id.avatarIcon);
                 name.setText(user.getLogin());
-                rank.setText(user.getExperts());
+                rank.setText(TranslateClient.translateLevel(activity,user.getExperts()));
                 Glide.with(holder.itemView.getContext())
                         .load(user.getAvatar())
                         .circleCrop()
@@ -166,7 +167,7 @@ public  class UIController {
                             .circleCrop()
                             .into(favourites);
                 }
-                experts.setText(exercise.getExperts());
+                experts.setText(TranslateClient.translateLevel(activity,exercise.getExperts()));
                 name.setText(exercise.getName());
                 favourites.setOnClickListener(v->{
                     if(exercise.getFavourites()) {
@@ -210,7 +211,7 @@ public  class UIController {
         description.setText(exercise.getDescription());
         TextView items=activity.findViewById(R.id.tvEquipment);
         TextView muscles=activity.findViewById(R.id.tvMuscle);
-        muscles.setText(String.join(", ",exercise.getMuscles()));
+        muscles.setText(String.join(", ", TranslateClient.translateMuscle(activity,"muscle",exercise.getMuscles())));
         items.setText(String.join(", ", exercise.getItems()));
         WebView video=activity.findViewById(R.id.videoContainer);
         video.getSettings().setJavaScriptEnabled(true);

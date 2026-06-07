@@ -21,23 +21,23 @@
     <string name="level_pro">pro</string>
 
     <string name="title_search_muscles">Search: muscle Selection</string>
-    <string name="muscle_deltas">deltoids</string>
-    <string name="muscle_cardio">cardio</string>
-    <string name="muscle_press">abs</string>
-    <string name="muscle_yag">gluteal</string>
-    <string name="muscle_rectus_abdominis">rectus Abdominis</string>
-    <string name="muscle_brachialis_muscle">shoulders</string>
-    <string name="muscle_biceps">biceps</string>
-    <string name="muscle_brachialis">brachialis</string>
-    <string name="muscle_chest">chest</string>
-    <string name="muscle_oblique_external">external obliques</string>
-    <string name="muscle_quadriceps">quadriceps</string>
-    <string name="muscle_trapezius">trapezius</string>
-    <string name="muscle_lats">lats</string>
-    <string name="muscle_quadriceps_femoris">quads</string>
-    <string name="muscle_triceps">triceps</string>
-    <string name="muscle_hamstrings">hamstrings</string>
-    <string name="muscle_calves">calves</string>
+    <string name="muscle_5">deltoids</string>
+    <string name="muscle_1">cardio</string>
+    <string name="muscle_8">abs</string>
+    <string name="muscle_14">gluteal</string>
+    <string name="muscle_7">rectus Abdominis</string>
+    <string name="muscle_10">shoulders</string>
+    <string name="muscle_9">biceps</string>
+    <string name="muscle_18">brachialis</string>
+    <string name="muscle_4">chest</string>
+    <string name="muscle_12">external obliques</string>
+    <string name="muscle_2">quadriceps</string>
+    <string name="muscle_13">trapezius</string>
+    <string name="muscle_17">lats</string>
+    <string name="muscle_11">quads</string>
+    <string name="muscle_6">triceps</string>
+    <string name="muscle_15">hamstrings</string>
+    <string name="muscle_16">calves</string>
 
     <string name="title_search_equipment">Search: equipment</string>
 

@@ -9,6 +9,7 @@ import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.R;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class ActivityEditTheme extends ActivityCreate {
     @Override
@@ -24,20 +25,38 @@ public class ActivityEditTheme extends ActivityCreate {
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
         Button back=findViewById(R.id.btnBack);
-        Button editTheme=findViewById(R.id.btnToggleTheme);
+        SwitchMaterial editTheme=findViewById(R.id.switchTheme);
+        SwitchMaterial editLanguage=findViewById(R.id.switchLanguage);
 
         UIController uiController=new UIController(this,null);
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,new ErrorController());
         SessionManager session=new SessionManager(getApplicationContext());
 
-        editTheme.setOnClickListener(v->{
-            if(session.getTheme().equals("Dark")){
-                 session.saveTheme("Light");
-                 recreate();
-            }else{
+        editTheme.setChecked(session.getTheme().equals("Light"));
+        editLanguage.setChecked(session.getLanguage().equals("en"));
+
+        editTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
+
+            if (session.getTheme().equals("Dark")) {
+                session.saveTheme("Light");
+            } else {
                 session.saveTheme("Dark");
-                recreate();
             }
+            buttonView.postDelayed(() -> {
+                recreate();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }, 190);
+        });
+        editLanguage.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(session.getLanguage().equals("ru")){
+                session.saveLanguage("en");
+            }else{
+                session.saveLanguage("ru");
+            }
+            buttonView.postDelayed(()->{
+                recreate();
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            },190);
         });
         back.setOnClickListener(v->{callBack.onSuccess(ActivityHome.class);});
 

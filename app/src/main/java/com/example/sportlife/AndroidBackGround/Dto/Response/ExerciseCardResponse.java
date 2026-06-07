@@ -22,7 +22,7 @@ public class ExerciseCardResponse {
         private String description;
         private String name;
         private String photo;
-        private List<String> muscles;
+        private List<Long> muscles;
         private List<String> items;
         private Boolean favourites;
         private String experts;

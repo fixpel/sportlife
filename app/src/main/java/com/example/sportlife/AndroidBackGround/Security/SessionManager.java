@@ -37,5 +37,5 @@ public class SessionManager {
     public String getLanguage(){
         return preferences.getString("Language","ru");
     }
-    public void setLanguage(String Language){preferences.edit().putString("Language",Language).apply();}
+    public void saveLanguage(String Language){preferences.edit().putString("Language",Language).apply();}
 }

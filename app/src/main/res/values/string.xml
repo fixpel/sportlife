@@ -27,26 +27,23 @@
 
     <!-- ==================== ЭКРАН МЫШЦ ==================== -->
     <string name="title_search_muscles">Поиск: выбор мышц</string>
-
-    <!-- Названия мышц -->
-    <string name="muscle_deltas">дельты</string>
-    <string name="muscle_cardio">кардио</string>
-    <string name="muscle_press">пресс</string>
-    <string name="muscle_yag">ягодичные</string>
-    <string name="muscle_rectus_abdominis">прямая мышца</string>
-    <string name="muscle_brachialis_muscle">плечевая мышца</string>
-    <string name="muscle_biceps">бицепс</string>
-    <string name="muscle_brachialis">брахиалис</string>
-    <string name="muscle_chest">грудные мышцы</string>
-    <string name="muscle_oblique_external">наружная косая</string>
-    <string name="muscle_quadriceps">квадрицепс</string>
-    <string name="muscle_trapezius">трапеция</string>
-    <string name="muscle_lats">широчайшие</string>
-    <string name="muscle_quadriceps_femoris">четырёхглавая</string>
-    <string name="muscle_triceps">трицепс</string>
-    <string name="muscle_hamstrings">бицепс бедра</string>
-    <string name="muscle_calves">икры</string>
-    <string name="muscle_yag">ягодичные</string>
+    <string name="muscle_5">дельты</string>
+    <string name="muscle_1">кардио</string>
+    <string name="muscle_8">пресс</string>
+    <string name="muscle_14">ягодицы</string>
+    <string name="muscle_7">прямая мышца</string>
+    <string name="muscle_10">плечевая мышца</string>
+    <string name="muscle_9">бицепс</string>
+    <string name="muscle_18">брахиалис</string>
+    <string name="muscle_4">грудные мышцы</string>
+    <string name="muscle_12">наружная косая</string>
+    <string name="muscle_2">квадрицепс</string>
+    <string name="muscle_13">трапеция</string>
+    <string name="muscle_17">широчайшие</string>
+    <string name="muscle_11">четырёхглавая</string>
+    <string name="muscle_6">трицепс</string>
+    <string name="muscle_15">бицепс бедра</string>
+    <string name="muscle_16">икры</string>
 
     <!-- ==================== ЭКРАН ИНВЕНТАРЯ ==================== -->
     <string name="title_search_equipment">Поиск: инвентарь</string>

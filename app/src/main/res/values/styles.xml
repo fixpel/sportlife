@@ -119,6 +119,7 @@
         <item name="android:textSize">@dimen/Text</item>
         <item name="android:textColor">?attr/secondText</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:padding">@dimen/padding</item>
     </style>
     <style name="DayOfWeek">
         <item name="android:background">?attr/SubBackground</item>
@@ -141,6 +142,6 @@
     </style>
     <style name="Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
         <item name="thumbTint">?attr/Background</item>
-        <item name="trackTint">?attr/BackButtonColor</item>
+        <item name="trackTint">@color/switch_selector</item>
     </style>
 </resources>
