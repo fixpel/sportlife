@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.sportlife.Activity.ActivityEditAvatar;
+import com.example.sportlife.Activity.ActivityProfile;
 import com.example.sportlife.Activity.ActivityResultDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
 import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
@@ -348,10 +348,10 @@ public  class UIController {
                     int oldPosition = selectedPosition[0];
                     if(selectedPosition[0] == position){
                         selectedPosition[0] = -1;
-                        ActivityEditAvatar.setNameAvatar(null);
+                        ActivityProfile.setSelectedAvatarName(null);
                     } else{
                         selectedPosition[0] = position;
-                        ActivityEditAvatar.setNameAvatar(name);
+                        ActivityProfile.setSelectedAvatarName(name);
                     }
                     notifyItemChanged(oldPosition);
                     notifyItemChanged(selectedPosition[0]);

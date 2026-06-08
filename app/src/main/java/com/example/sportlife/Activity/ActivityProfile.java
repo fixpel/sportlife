@@ -16,49 +16,49 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.ProfileService;
 import com.example.sportlife.R;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class ActivityProfile extends ActivityCreate {
-    List<TextView> textViews=new ArrayList<>();
+    public static String selectedAvatarName;
+
+    public static void setSelectedAvatarName(String name) {
+        selectedAvatarName = name;
+    }
+
+    public static String getSelectedAvatarName() {
+        return selectedAvatarName;
+    }
+
+    List<TextView> textViews = new ArrayList<>();
     @Override
     protected int getIdLayout() {
         return R.layout.activity_profile;
     }
-
     @Override
     protected int getIdView() {
         return R.id.activityProfile;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        textViews=new ArrayList<>();
+        textViews = new ArrayList<>();
         textViews.add(findViewById(R.id.tvName));
         textViews.add(findViewById(R.id.tvExpertise));
         textViews.add(findViewById(R.id.tvActivity));
         textViews.add(findViewById(R.id.tvRating));
-        Button back =findViewById(R.id.btnBack);
-        Button Schedule = findViewById(R.id.btnSchedule);
-        ImageView edit=findViewById(R.id.imageButton);
-        ImageView editAvatar=findViewById(R.id.btnChangeAvatar);
-
+        Button back = findViewById(R.id.btnBack);
+        Button schedule = findViewById(R.id.btnSchedule);
+        ImageView edit = findViewById(R.id.imageButton);
+        ImageView editAvatar = findViewById(R.id.btnChangeAvatar);
         UIController uiController = new UIController(this, textViews);
-        ErrorController errorController=new ErrorController();
-        CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
-        ProfileService service=new ProfileService();
+        ErrorController errorController = new ErrorController();
+        CallBackHandler callBack = new CallBackHandlerImpl(uiController, errorController);
+        ProfileService service = new ProfileService();
         service.info(callBack);
-
-        back.setOnClickListener(v -> {
-            callBack.onSuccess(ActivityHome.class);
-        });
-        Schedule.setOnClickListener(v->{
-            callBack.onSuccess(ActivityDate.class);
-        });
-        edit.setOnClickListener(v->{
-            View view=getLayoutInflater().inflate(R.layout.edit_dialog,null);
+        back.setOnClickListener(v -> callBack.onSuccess(ActivityHome.class));
+        schedule.setOnClickListener(v -> callBack.onSuccess(ActivityDate.class));
+        edit.setOnClickListener(v -> {
+            View view = getLayoutInflater().inflate(R.layout.edit_dialog, null);
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setView(view)
                     .create();
@@ -76,17 +76,40 @@ public class ActivityProfile extends ActivityCreate {
             Button yes = dialog.findViewById(R.id.btnYes);
             EditText name = dialog.findViewById(R.id.tvName);
             TextView errorName = dialog.findViewById(R.id.errorName);
-            List<TextView> textViewList=new ArrayList<>();
+            List<TextView> textViewList = new ArrayList<>();
             textViewList.add(errorName);
-            UIController uiControllerD=new UIController(this,textViewList);
-            CallBackHandler callBackHandler=new CallBackHandlerImpl(uiControllerD,new ErrorController());
+            UIController uiControllerD = new UIController(this, textViewList);
+            CallBackHandler callBackHandler = new CallBackHandlerImpl(uiControllerD, new ErrorController());
             name.requestFocus();
             no.setOnClickListener(n -> dialog.dismiss());
             yes.setOnClickListener(y -> {
                 String newName = name.getText().toString();
-                service.updateName(newName,callBackHandler,new SessionManager(dialog.getContext()));
+                service.updateName(newName, callBackHandler, new SessionManager(dialog.getContext()));
             });
         });
-        editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));
+        editAvatar.setOnClickListener(v -> {
+            View view = getLayoutInflater().inflate(R.layout.edit_avatar, null);
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setView(view)
+                    .create();
+            dialog.setCancelable(false);
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.show();
+            List<TextView> avatarTexts = new ArrayList<>();
+            avatarTexts.add(dialog.findViewById(R.id.Title));
+            UIController avatarUiController = new UIController(this, avatarTexts);
+            CallBackHandler avatarCallBack = new CallBackHandlerImpl(avatarUiController, new ErrorController());
+            service.findAvatars(avatarCallBack, dialog);
+            Button no = dialog.findViewById(R.id.btnNo);
+            Button yes = dialog.findViewById(R.id.btnYes);
+            no.setOnClickListener(n -> dialog.dismiss());
+            yes.setOnClickListener(y -> {
+                String selectedAvatar = ActivityProfile.getSelectedAvatarName();
+                if (selectedAvatar != null && !selectedAvatar.isEmpty()) {
+                    service.updateAvatar(selectedAvatar, avatarCallBack);
+                    dialog.dismiss();
+                }
+            });
+        });
     }
 }
