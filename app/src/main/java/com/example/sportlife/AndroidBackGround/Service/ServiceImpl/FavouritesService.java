@@ -2,11 +2,9 @@ package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
-import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Dto.Request.FavouritesRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FavouritesResponse;
-import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.io.IOException;
@@ -14,6 +12,7 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -78,14 +77,14 @@ public class FavouritesService {
 
             @Override
             public void onFailure(Call<ExerciseCardResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                    callBack.onTools(t.getMessage());
             }
         });
     }
-    public void findFavourite(CallBackHandler callBack,String id) throws IOException {
+    public void findFavourite(CallBackHandler callBack,String id) {
         ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e-> e.getId().equals(id)).findFirst().orElse(null);
         if(exercise==null){
-            callBack.onTools("none_object");
+            callBack.onTools("5");
         }else{
             callBack.findExercise(exercise);
         }

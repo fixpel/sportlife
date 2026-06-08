@@ -165,7 +165,7 @@
             style="@style/buttonBack"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
+            android:id="@+id/btnSchedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

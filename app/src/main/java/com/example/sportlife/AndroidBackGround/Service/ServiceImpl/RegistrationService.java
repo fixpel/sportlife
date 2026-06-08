@@ -12,6 +12,7 @@ import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -32,7 +33,6 @@ public class RegistrationService {
                     session.saveToken(tokenAccess,tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);
                 }else{
-                    Log.d("error","authththt");
                     callBack.onError(response);
                 }
             }

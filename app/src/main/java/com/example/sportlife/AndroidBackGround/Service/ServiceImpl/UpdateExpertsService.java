@@ -18,6 +18,7 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.time.LocalDate;
 
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -2,7 +2,6 @@ package com.example.sportlife.AndroidBackGround.Service;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.util.Log;
 
 import com.example.sportlife.Activity.ActivityResultDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
@@ -37,9 +36,8 @@ public class CallBackHandlerImpl implements CallBackHandler {
         ErrorResponse error=errorController.parseError(response,this);
         uiController.ErrorAdvice(error);
     }
-
     @Override
-    public void onTools(String t) throws IOException {
+    public void onTools(String t){
         uiController.errorService(t);
     }
 
@@ -59,8 +57,12 @@ public class CallBackHandlerImpl implements CallBackHandler {
     }
 
     @Override
-    public void findExercise(ExerciseCardResponse.Exercise exercise) throws IOException {
-        uiController.findExercise(exercise,this);
+    public void findExercise(ExerciseCardResponse.Exercise exercise) {
+        try {
+            uiController.findExercise(exercise,this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -93,5 +95,10 @@ public class CallBackHandlerImpl implements CallBackHandler {
     @Override
     public void findAvatars(FindAvatarResponse response, AlertDialog dialog) {
         uiController.findAvatars(response,dialog);
+    }
+
+    @Override
+    public void findSchedule() {
+
     }
 }

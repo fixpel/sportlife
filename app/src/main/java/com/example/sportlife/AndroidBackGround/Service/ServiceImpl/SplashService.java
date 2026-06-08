@@ -9,6 +9,7 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.io.IOException;
 
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,19 +18,15 @@ public class SplashService {
     public void splash(CallBackHandler callBack){
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.splash().enqueue(new Callback<SplashResponse>() {
+            @SneakyThrows
             @Override
             public void onResponse(Call<SplashResponse> call, Response<SplashResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
                     callBack.onTools(response.body().getMessage());
                 }else{
-                    try {
-                        callBack.onTools(response.errorBody().string());
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                    callBack.onTools(response.errorBody().string());
                 }
             }
-
             @Override
             public void onFailure(Call<SplashResponse> call, Throwable t) {
                 callBack.onTools(t.getMessage());

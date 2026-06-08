@@ -36,11 +36,7 @@ public class ActivityFavouriteDetails extends ActivityCreate {
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
         FavouritesService service=new FavouritesService();
-        try {
-            service.findFavourite(callBack,idExercise);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        service.findFavourite(callBack,idExercise);
         Button back=findViewById(R.id.btnBack);
         back.setOnClickListener(v->callBack.onSuccess(ActivityFavorites.class));
     }

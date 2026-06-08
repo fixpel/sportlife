@@ -43,6 +43,7 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 
 @Data
 @NoArgsConstructor
@@ -56,17 +57,26 @@ public  class UIController {
         activity.finish();
     }
     public void ErrorAdvice(ErrorResponse error){
+        SessionManager session=new SessionManager(activity);
         editTexts.forEach(e->e.setText(null));
         editTexts.forEach(e->{
             if(error.getErrors().containsKey(e.getTag().toString())){
-                e.setText(error.getErrors().get(e.getTag().toString()).toString());
+                try {
+                    e.setText(TranslateClient.translateString(error.getErrors().get(e.getTag().toString()).toString(),"Error",session.getLanguage()));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
-    public void errorService(String message) throws IOException {
+    public void errorService(String message){
         SessionManager session=new SessionManager(activity);
-        message=TranslateClient.translateString(message,"Error",session.getLanguage());
-        Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
+        try {
+            message=TranslateClient.translateString(message,"Error",session.getLanguage());
+            Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+
+        }
     }
     public void findTop(FindTopResponse response){
         RecyclerView recyclerView=activity.findViewById(R.id.recyclerViewTop);
@@ -215,11 +225,7 @@ public  class UIController {
     public void findExercise(ExerciseCardResponse.Exercise exercise, CallBackHandler callBack) throws IOException {
         SessionManager session=new SessionManager(activity);
         TextView name=activity.findViewById(R.id.tvExerciseTitle);
-        try {
-            name.setText(TranslateClient.translateString(exercise.getId(),"Result",session.getLanguage()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        name.setText(TranslateClient.translateString(exercise.getId(),"Result",session.getLanguage()));
         ImageView favourite=activity.findViewById(R.id.chkFavorite);
         TextView description=activity.findViewById(R.id.tvTechnique);
         description.setText(TranslateClient.translateString(exercise.getId(),"Technique",session.getLanguage()));

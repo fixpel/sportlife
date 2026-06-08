@@ -1,15 +1,11 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
-import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
-import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.io.IOException;
@@ -18,6 +14,7 @@ import java.util.List;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +30,6 @@ public class SearchService {
     @Getter
     private static int totalPage;
     public static void search(CallBackHandler callBack, int page) throws IOException {
-        SessionManager session=new SessionManager();
         SearchRequest request=new SearchRequest(muscles, items);;
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.search(request,10,page).enqueue(new Callback<ExerciseCardResponse>() {
@@ -47,7 +43,6 @@ public class SearchService {
                     callBack.onError(response);
                 }
             }
-
             @Override
             public void onFailure(@NonNull Call<ExerciseCardResponse> call, @NonNull Throwable t) {
                 callBack.onTools(t.getMessage());

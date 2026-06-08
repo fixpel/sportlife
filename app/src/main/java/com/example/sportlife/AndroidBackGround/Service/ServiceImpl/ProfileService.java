@@ -12,6 +12,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.UpdateEmployeeRespon
 import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,13 +30,15 @@ public class ProfileService {
                 }
             }
 
+            @SneakyThrows
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
                 callBack.onTools(t.getMessage());
             }
         });
     }
-    public void updateName(String name, CallBackHandler callBack, SessionManager session){
+    public void updateName(String name, CallBackHandler callBack, AlertDialog dialog){
+        SessionManager session=new SessionManager(dialog.getContext());
         ApiRepository apiRepository=RetrofitClient.getApiRepository();
         UpdateEmployeeRequest request=new UpdateEmployeeRequest(name,null);
         apiRepository.update(request).enqueue(new Callback<UpdateEmployeeResponse>() {
@@ -46,12 +49,11 @@ public class ProfileService {
                     String refreshToken=response.body().getRefreshToken();
                     session.saveToken(accessToken,refreshToken);
                     session.saveName(name);
-                    callBack.onSuccess(ActivityProfile.class);
+                    callBack.onTools(response.body().getMessage());
                 }else{
                     callBack.onError(response);
                 }
             }
-
             @Override
             public void onFailure(Call<UpdateEmployeeResponse> call, Throwable t) {
                 callBack.onTools(t.getMessage());
@@ -65,13 +67,12 @@ public class ProfileService {
             @Override
             public void onResponse(Call<UpdateEmployeeResponse> call, Response<UpdateEmployeeResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools("аватар обновлен");
+                    callBack.onTools(response.body().getMessage());
                     callBack.onSuccess(ActivityProfile.class);
                 }else{
                     callBack.onError(response);
                 }
             }
-
             @Override
             public void onFailure(Call<UpdateEmployeeResponse> call, Throwable t) {
                 callBack.onTools(t.getMessage());

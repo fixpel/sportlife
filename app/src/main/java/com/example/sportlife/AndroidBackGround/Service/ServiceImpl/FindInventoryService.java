@@ -13,6 +13,7 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

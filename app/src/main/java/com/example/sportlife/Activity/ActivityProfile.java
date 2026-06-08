@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.ProfileService;
@@ -20,9 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityProfile extends ActivityCreate {
-
-
-
+    List<TextView> textViews=new ArrayList<>();
     @Override
     protected int getIdLayout() {
         return R.layout.activity_profile;
@@ -36,21 +35,27 @@ public class ActivityProfile extends ActivityCreate {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<TextView> textViews=new ArrayList<>();
+        textViews=new ArrayList<>();
         textViews.add(findViewById(R.id.tvName));
         textViews.add(findViewById(R.id.tvExpertise));
         textViews.add(findViewById(R.id.tvActivity));
         textViews.add(findViewById(R.id.tvRating));
         Button back =findViewById(R.id.btnBack);
+        Button Schedule = findViewById(R.id.btnSchedule);
         ImageView edit=findViewById(R.id.imageButton);
         ImageView editAvatar=findViewById(R.id.btnChangeAvatar);
+
         UIController uiController = new UIController(this, textViews);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
         ProfileService service=new ProfileService();
         service.info(callBack);
+
         back.setOnClickListener(v -> {
             callBack.onSuccess(ActivityHome.class);
+        });
+        Schedule.setOnClickListener(v->{
+            callBack.onSuccess(ActivityDate.class);
         });
         edit.setOnClickListener(v->{
             View view=getLayoutInflater().inflate(R.layout.edit_dialog,null);
@@ -71,16 +76,13 @@ public class ActivityProfile extends ActivityCreate {
             Button yes = dialog.findViewById(R.id.btnYes);
             EditText name = dialog.findViewById(R.id.tvName);
             TextView errorName = dialog.findViewById(R.id.errorName);
+            textViews.add(errorName);
+            uiController.setEditTexts(textViews);
             name.requestFocus();
             no.setOnClickListener(n -> dialog.dismiss());
             yes.setOnClickListener(y -> {
-                String newName = name.getText().toString().trim();
-                if (!newName.isEmpty()) {
-                    dialog.dismiss();
-                } else {
-                    errorName.setText("Введите имя");
-                    errorName.setVisibility(View.VISIBLE);
-                }
+                String newName = name.getText().toString();
+                service.updateName(newName,callBack,dialog);
             });
         });
         editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));

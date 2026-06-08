@@ -11,6 +11,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FavouritesResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindScheduleResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RefreshResponse;
@@ -64,4 +65,6 @@ public interface ApiRepository {
     Call<UpdateEmployeeResponse> update(@Body UpdateEmployeeRequest request);
     @GET("Avatar/info")
     Call<FindAvatarResponse> findAvatars();
+    @GET("Calendar/info")
+    Call<FindScheduleResponse> findSchedule();
 }

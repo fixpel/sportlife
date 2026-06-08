@@ -9,6 +9,7 @@ import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import retrofit2.Call;
 import retrofit2.Response;
 
