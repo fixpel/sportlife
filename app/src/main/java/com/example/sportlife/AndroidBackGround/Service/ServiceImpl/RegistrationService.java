@@ -33,6 +33,9 @@ public class RegistrationService {
                     session.saveToken(tokenAccess,tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }

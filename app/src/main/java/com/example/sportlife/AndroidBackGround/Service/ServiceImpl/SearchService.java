@@ -40,6 +40,9 @@ public class SearchService {
                     totalPage=response.body().getTotalPage();
                     callBack.findExercises(response.body());
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }
@@ -51,7 +54,7 @@ public class SearchService {
     }
     public static Boolean setMuscles(List<String> muscles, CallBackHandler callBack){
         if(muscles.isEmpty()){
-            callBack.onTools("3","String");
+            callBack.onTools("3","Message");
             return false;
         }else {
             SearchService.muscles = muscles;
@@ -60,7 +63,7 @@ public class SearchService {
     }
     public static Boolean setItems(List<String> items, CallBackHandler callBack){
         if(items.isEmpty()){
-            callBack.onTools("4","String");
+            callBack.onTools("4","Message");
             return false;
         }else {
             return true;
@@ -70,7 +73,7 @@ public class SearchService {
         ExerciseCardResponse.Exercise exercise=exercises.stream().filter(e->
                e.getId().equals(id)).findFirst().orElse(null);
         if(exercise==null){
-            callBack.onTools("5","String");
+            callBack.onTools("5","Message");
         }else{
             callBack.findExercise(exercise);
         }

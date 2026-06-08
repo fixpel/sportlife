@@ -68,11 +68,39 @@ public  class UIController {
     }
     public void errorService(String message,String type){
         SessionManager session=new SessionManager(activity);
-        if(message.startsWith("Failed to connect to")|| message.startsWith("failed to connect to")){
-            message="2";
-        }else if(message.startsWith("Too many follow request")||message.startsWith("too many follow request")){
-            message="1";
+        switch (type) {
+
+            case "ConnectException":
+                message = "";
+                break;
+
+            case "UnknownHostException":
+                message = "";
+                break;
+
+            case "SocketTimeoutException":
+                message = "";
+                break;
+
+            case "SocketException":
+                message = "";
+                break;
+
+            case "SSLHandshakeException":
+            case "SSLException":
+                message = "";
+                break;
+            case "ApiException":
+                message = "";
+                break;
+            case "Message":
+                message="";
+                break;
+            default:
+                message="";
+                break;
         }
+
         try {
             message=TranslateClient.translateString(message,"Error",session.getLanguage());
             Toast.makeText(activity,message,Toast.LENGTH_LONG).show();

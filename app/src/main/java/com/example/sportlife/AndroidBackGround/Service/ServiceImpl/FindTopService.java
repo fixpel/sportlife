@@ -23,6 +23,9 @@ public class FindTopService {
                 if(response.isSuccessful()&&response.body()!=null) {
                     callBack.findTop(response.body());
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }
