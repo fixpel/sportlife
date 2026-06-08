@@ -2,7 +2,9 @@ package com.example.sportlife.AndroidBackGround.Controller;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -70,22 +72,18 @@ public  class UIController {
                     "string",
                     activity.getPackageName()
             );
-
-        }
-        if(message.startsWith("Failed to connect to")){
-             resId = activity.getResources().getIdentifier(
+            message=activity.getString(resId);
+        }else if(message.startsWith("Failed to connect to")){
+            resId = activity.getResources().getIdentifier(
                     "error_conection",
                     "string",
                     activity.getPackageName()
             );
-
+            message=activity.getString(resId);
+        }else{
+            Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
+            return;
         }
-        resId = activity.getResources().getIdentifier(
-                message,
-                "string",
-                activity.getPackageName()
-        );
-        message=activity.getString(resId);
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
     }
     public void findTop(FindTopResponse response){
@@ -134,21 +132,22 @@ public  class UIController {
                 ImageView photo = holder.itemView.findViewById(R.id.imgEquipment);
                 TextView name = holder.itemView.findViewById(R.id.tvEquipmentName);
                 try {
-                    name.setText(TranslateClient.translateString(inventory.getName(),"Inventory",session.getLanguage()));
+                    name.setText(TranslateClient.translateString(inventory.getId(),"Inventory",session.getLanguage()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                holder.itemView.setSelected(SearchService.getItems().contains(name.getText().toString()));
+                holder.itemView.setContentDescription(inventory.getId());
+                holder.itemView.setSelected(SearchService.getItems().contains(holder.itemView.getContentDescription().toString()));
                 Glide.with(holder.itemView.getContext())
                         .load(inventory.getPhoto())
                         .circleCrop()
                         .into(photo);
                 holder.itemView.setOnClickListener(v->{
-                    boolean isSelected=!SearchService.getItems().contains(name.getText().toString());
+                    boolean isSelected=!SearchService.getItems().contains(holder.itemView.getContentDescription().toString());
                     if(isSelected){
-                        SearchService.getItems().add(name.getText().toString());
+                        SearchService.getItems().add(holder.itemView.getContentDescription().toString());
                     }else{
-                        SearchService.getItems().remove(name.getText().toString());
+                        SearchService.getItems().remove(holder.itemView.getContentDescription().toString());
                     }
                     v.setSelected(isSelected);
                 });
@@ -194,7 +193,7 @@ public  class UIController {
                 }
                 experts.setText(TranslateClient.translateLevel(activity,exercise.getExperts()));
                 try {
-                    name.setText(TranslateClient.translateString(exercise.getName(),"result",session.getLanguage()));
+                    name.setText(TranslateClient.translateString(exercise.getId(),"Result",session.getLanguage()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -217,10 +216,10 @@ public  class UIController {
                 });
                view.setOnClickListener(v->{
                    if(to== ActivityResultDetail.class){
-                       ActivityResultDetail.setNameExercise(name.getText().toString());
+                       ActivityResultDetail.setIdExercise(exercise.getId());
                    }else{
-                       ActivityFavouriteDetails.setNameExercise(name.getText().toString());
-                   }
+                       ActivityFavouriteDetails.setIdExercise(exercise.getId());
+                       }
                    openNextScreen(to);
                });
             }
@@ -235,7 +234,7 @@ public  class UIController {
         SessionManager session=new SessionManager(activity);
         TextView name=activity.findViewById(R.id.tvExerciseTitle);
         try {
-            name.setText(TranslateClient.translateString(exercise.getName(),"result",session.getLanguage()));
+            name.setText(TranslateClient.translateString(exercise.getId(),"Result",session.getLanguage()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -278,12 +277,12 @@ public  class UIController {
         );
         if(exercise.getFavourites()){
             Glide.with(activity)
-                    .load(R.drawable.unpainted_heart)
+                    .load(R.drawable.painted_heart)
                     .circleCrop()
                     .into(favourite);
         } else{
             Glide.with(activity)
-                    .load(R.drawable.painted_heart)
+                    .load(R.drawable.unpainted_heart)
                     .circleCrop()
                     .into(favourite);
         }
@@ -317,7 +316,7 @@ public  class UIController {
                         e.setText("уровень ещё неуказано");
                         break;
                     }else {
-                        e.setText(response.getExperts());
+                        e.setText(TranslateClient.translateLevel(activity,response.getExperts()));
                         break;
                     }
                 case "activity":
@@ -333,7 +332,7 @@ public  class UIController {
         RecyclerView recyclerView = dialog.findViewById(R.id.recylerAvatar);
         recyclerView.setLayoutManager(new GridLayoutManager(dialog.getContext(), 2));
         final int[] selectedPosition = {-1};
-        recyclerView.setAdapter(new RecyclerView.Adapter<>() {
+        recyclerView.setAdapter(new RecyclerView.Adapter() {
             @NonNull
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

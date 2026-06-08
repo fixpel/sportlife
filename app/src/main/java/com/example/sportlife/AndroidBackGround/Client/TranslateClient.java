@@ -1,12 +1,10 @@
 package com.example.sportlife.AndroidBackGround.Client;
 
 import android.content.Context;
-import android.widget.Switch;
 
 import com.example.sportlife.R;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,7 +13,7 @@ public final class  TranslateClient {
     public static List<String> translateMuscles(
             Context context,
             String prefix,
-            List<Long> ids
+            List<String> ids
     ) {
         return ids.stream()
                 .map(id -> {
@@ -28,17 +26,9 @@ public final class  TranslateClient {
                 })
                 .collect(Collectors.toList());
     }
-    public static List<String> unTranslateInventories(List<String> request,String Language ) throws IOException {
-        List<String> response=new ArrayList<>();
-        if(Language.equals("ru")){
-            return request;
-        }else{
-            Map<String,String> dictionaryReq=SessionContext.getDictionary("Inventory_"+Language+".json");
-            List<String> ids=request.stream().map(dictionaryReq::get).collect(Collectors.toList());
-            Map<String,String> dictionary=SessionContext.getDictionary("Inventory_ru.json");
-            response=ids.stream().map(dictionary::get).collect(Collectors.toList());
-        }
-        return response;
+    public static List<String> translateInventories(List<String> inventories,String type,String Language) throws IOException {
+        Map<String,String> dictionary=SessionContext.getDictionary(type+"/"+type+"_"+Language+".json");
+        return inventories.stream().map(dictionary::get).collect(Collectors.toList());
     }
     public static String translateLevel(Context context,String string){
         String level="";
@@ -55,18 +45,19 @@ public final class  TranslateClient {
         }
         return level;
     }
-    public static String translateString(String inventory, String type, String Language) throws IOException {
-        if(Language.equals("ru")){
-            return inventory;
+    public static String unTranslateLevel(Context context,String string){
+        String level=null;
+        if(context.getString(R.string.level_novice).equals(string)){
+            level="новичок";
+        }else if(context.getString(R.string.level_experienced).equals(string)){
+            level="опытный";
+        }else if(context.getString(R.string.level_pro).equals(string)){
+            level="профи";
         }
-        Map<String ,String> dictionary=SessionContext.getDictionary(type+"_"+Language+".json");
-        return dictionary.get(inventory);
+        return level;
     }
-    public static List<String> translateInventories(List<String> inventories,String type,String Language) throws IOException {
-        if(Language.equals("ru")){
-            return inventories;
-        }
-        Map<String,String> dictionary=SessionContext.getDictionary(type+"_"+Language+".json");
-        return inventories.stream().map(dictionary::get).collect(Collectors.toList());
+    public static String translateString(String string, String type, String Language) throws IOException {
+        Map<String ,String> dictionary=SessionContext.getDictionary(type+"/"+type+"_"+Language+".json");
+        return dictionary.get(string);
     }
 }

@@ -19,7 +19,7 @@ import lombok.Setter;
 
 public class ActivityFavouriteDetails extends ActivityCreate {
     @Setter
-    public static String nameExercise;
+    public static String idExercise;
     @Override
     protected int getIdLayout() {
         return R.layout.activity_favourite_detailse;
@@ -37,7 +37,7 @@ public class ActivityFavouriteDetails extends ActivityCreate {
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
         FavouritesService service=new FavouritesService();
         try {
-            service.findFavourite(callBack,nameExercise);
+            service.findFavourite(callBack,idExercise);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

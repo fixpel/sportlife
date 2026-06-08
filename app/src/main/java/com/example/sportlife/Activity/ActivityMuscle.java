@@ -1,6 +1,7 @@
 package com.example.sportlife.Activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -8,11 +9,13 @@ import android.widget.TextView;
 
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +39,8 @@ public class ActivityMuscle extends ActivityCreate {
         UIController uiController=new UIController(this,null);
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
+        SessionManager session=new SessionManager(getApplicationContext());
+
         ImageView next=findViewById(R.id.btnNext);
         ImageView prev=findViewById(R.id.btnPrev);
         prev.setVisibility(View.GONE);
@@ -56,7 +61,11 @@ public class ActivityMuscle extends ActivityCreate {
 
         back.setOnClickListener(v->{
             SearchService.getMuscles().clear();
-            callBack.onSuccess(ActivityLevel.class);
+            if(LocalDate.parse(session.getDate()).plusDays(4).getDayOfYear()>LocalDate.now().getDayOfYear()){
+                callBack.onSuccess(ActivityHome.class);
+            }else {
+                callBack.onSuccess(ActivityLevel.class);
+            }
         });
         save.setOnClickListener(v->{
             if(SearchService.setMuscles(muscles, callBack)){
@@ -94,14 +103,17 @@ public class ActivityMuscle extends ActivityCreate {
     }
 
     private void setupZoneButton(int buttonId) {
+        UIController uiController=new UIController(this,null);
+        ErrorController errorController=new ErrorController();
+        CallBackHandler callBack=new CallBackHandlerImpl(uiController,errorController);
         Button zoneButton = findViewById(buttonId);
         if (zoneButton != null) {
             zoneButton.setOnClickListener(v -> {
                 boolean isSelected = !zoneButton.isSelected();
                 if(isSelected){
-                    muscles.add(zoneButton.getText().toString());
+                    muscles.add(zoneButton.getContentDescription().toString());
                 }else{
-                    muscles.remove(zoneButton.getText().toString());
+                    muscles.remove(zoneButton.getContentDescription().toString());
                 }
                 zoneButton.setSelected(isSelected);
             });
@@ -123,14 +135,12 @@ public class ActivityMuscle extends ActivityCreate {
             imgFront.setVisibility(View.VISIBLE);
             imgBack.setVisibility(View.GONE);
             showZonesForPage(1);
-        } else {
+        }else {
             imgFront.setVisibility(View.GONE);
             imgBack.setVisibility(View.VISIBLE);
             showZonesForPage(2);
         }
     }
-
-
     private void showZonesForPage(int page) {
         findViewById(R.id.zoneBiceps).setVisibility(page == 1 ? View.VISIBLE : View.GONE);
         findViewById(R.id.zoneDeltaFront).setVisibility(page == 1 ? View.VISIBLE : View.GONE);

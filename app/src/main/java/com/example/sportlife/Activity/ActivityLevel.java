@@ -5,8 +5,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Controller.ErrorController;
 import com.example.sportlife.AndroidBackGround.Controller.UIController;
+import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.UpdateExpertsService;
@@ -38,15 +40,16 @@ public class ActivityLevel extends ActivityCreate {
         btnPro = findViewById(R.id.btnPro);
         Button back = findViewById(R.id.btnBack);
         Button save = findViewById(R.id.btnSave);
-        TextView expert = findViewById(R.id.expert);
+        TextView error = findViewById(R.id.errorLevel);
 
         List<TextView> textViews = new ArrayList<>();
-        textViews.add(expert);
+        textViews.add(error);
 
         UIController uiController = new UIController(this, textViews);
         ErrorController errorController = new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController, errorController);
         UpdateExpertsService service = new UpdateExpertsService();
+        SessionManager session=new SessionManager(getApplicationContext());
 
 
         View.OnClickListener levelClickListener = v -> {
@@ -69,13 +72,14 @@ public class ActivityLevel extends ActivityCreate {
         btnNovice.setOnClickListener(levelClickListener);
         btnExperienced.setOnClickListener(levelClickListener);
         btnPro.setOnClickListener(levelClickListener);
-
         back.setOnClickListener(v -> {
             callBack.onSuccess(ActivityHome.class);
         });
-
         save.setOnClickListener(v -> {
-            service.updateExperts(experts, callBack);
+            if(experts == null && session.getExperts()!=null){
+                experts=session.getExperts();
+            }
+            service.updateExperts(TranslateClient.unTranslateLevel(this,experts), callBack,session);
         });
     }
 }

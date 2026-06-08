@@ -18,11 +18,12 @@ public class ExerciseCardResponse {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Exercise{
+        private String id;
         private String video;
         private String description;
         private String name;
         private String photo;
-        private List<Long> muscles;
+        private List<String> muscles;
         private List<String> items;
         private Boolean favourites;
         private String experts;

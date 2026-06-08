@@ -1,5 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
@@ -32,7 +34,7 @@ public class SearchService {
     private static int totalPage;
     public static void search(CallBackHandler callBack, int page) throws IOException {
         SessionManager session=new SessionManager();
-        SearchRequest request=new SearchRequest(muscles, TranslateClient.unTranslateInventories(items,session.getLanguage()));
+        SearchRequest request=new SearchRequest(muscles, items);;
         ApiRepository apiRepository= RetrofitClient.getApiRepository();
         apiRepository.search(request,10,page).enqueue(new Callback<ExerciseCardResponse>() {
             @Override
@@ -69,9 +71,9 @@ public class SearchService {
             return true;
         }
     }
-    public static void findExercise(CallBackHandler callBack,String name) throws IOException {
+    public static void findExercise(CallBackHandler callBack,String id) throws IOException {
         ExerciseCardResponse.Exercise exercise=exercises.stream().filter(e->
-            e.getName().equals(name)).findFirst().orElse(null);
+               e.getId().equals(id)).findFirst().orElse(null);
         if(exercise==null){
             callBack.onTools("none_object");
         }else{

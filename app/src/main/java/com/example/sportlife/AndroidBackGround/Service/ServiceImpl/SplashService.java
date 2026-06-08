@@ -1,5 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 
+import android.util.Log;
+
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Dto.Response.SplashResponse;

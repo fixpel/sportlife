@@ -13,6 +13,8 @@ import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FindTopService;
 import com.example.sportlife.R;
 
+import java.time.LocalDate;
+
 public class ActivityHome extends ActivityCreate {
     @Override
     protected int getIdLayout() {
@@ -40,7 +42,11 @@ public class ActivityHome extends ActivityCreate {
         Button history=findViewById(R.id.btnHistory);
         ImageView profile=findViewById(R.id.btnProfile);
         search.setOnClickListener(v->{
-            callBack.onSuccess(ActivityLevel.class);
+            if(LocalDate.parse(session.getDate()).plusDays(4).getDayOfYear()>LocalDate.now().getDayOfYear()){
+                callBack.onSuccess(ActivityMuscle.class);
+            }else {
+                callBack.onSuccess(ActivityLevel.class);
+            }
         });
         history.setOnClickListener(v->{
             callBack.onSuccess(ActivityFavorites.class);

@@ -82,18 +82,10 @@ public class FavouritesService {
             }
         });
     }
-    public void findFavourite(CallBackHandler callBack,String name) throws IOException {
-        SessionManager session=new SessionManager();
-        ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e->
-        {
-            try {
-                return TranslateClient.translateString(e.getName(),"result",session.getLanguage()).equals(name);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        }).findFirst().orElse(null);
+    public void findFavourite(CallBackHandler callBack,String id) throws IOException {
+        ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e-> e.getId().equals(id)).findFirst().orElse(null);
         if(exercise==null){
-            callBack.onTools("объект не найден");
+            callBack.onTools("none_object");
         }else{
             callBack.findExercise(exercise);
         }
