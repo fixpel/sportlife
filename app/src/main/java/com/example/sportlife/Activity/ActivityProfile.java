@@ -76,13 +76,15 @@ public class ActivityProfile extends ActivityCreate {
             Button yes = dialog.findViewById(R.id.btnYes);
             EditText name = dialog.findViewById(R.id.tvName);
             TextView errorName = dialog.findViewById(R.id.errorName);
-            textViews.add(errorName);
-            uiController.setEditTexts(textViews);
+            List<TextView> textViewList=new ArrayList<>();
+            textViewList.add(errorName);
+            UIController uiControllerD=new UIController(this,textViewList);
+            CallBackHandler callBackHandler=new CallBackHandlerImpl(uiControllerD,new ErrorController());
             name.requestFocus();
             no.setOnClickListener(n -> dialog.dismiss());
             yes.setOnClickListener(y -> {
                 String newName = name.getText().toString();
-                service.updateName(newName,callBack,dialog);
+                service.updateName(newName,callBackHandler,new SessionManager(dialog.getContext()));
             });
         });
         editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));

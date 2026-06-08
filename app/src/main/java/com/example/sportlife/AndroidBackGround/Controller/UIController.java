@@ -71,6 +71,12 @@ public  class UIController {
     }
     public void errorService(String message){
         SessionManager session=new SessionManager(activity);
+        Log.d("ERROR",message);
+        if(message.startsWith("Failed to connect to")){
+            message="2";
+        }else if(message.startsWith("Too many follow request")){
+            message="1";
+        }
         try {
             message=TranslateClient.translateString(message,"Error",session.getLanguage());
             Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
@@ -174,12 +180,12 @@ public  class UIController {
                 ImageView favourites=view.findViewById(R.id.chkFavorite);
                 if(exercise.getFavourites()){
                     Glide.with(holder.itemView.getContext())
-                            .load(R.drawable.unpainted_heart)
+                            .load(R.drawable.painted_heart)
                             .circleCrop()
                             .into(favourites);
                 }else{
                     Glide.with(holder.itemView.getContext())
-                            .load(R.drawable.painted_heart)
+                            .load(R.drawable.unpainted_heart)
                             .circleCrop()
                             .into(favourites);
                 }
@@ -192,14 +198,14 @@ public  class UIController {
                 favourites.setOnClickListener(v->{
                     if(exercise.getFavourites()) {
                         Glide.with(activity)
-                                .load(R.drawable.painted_heart)
+                                .load(R.drawable.unpainted_heart)
                                 .circleCrop()
                                 .into(favourites);
                         exercise.setFavourites(false);
                         callBack.onDeleteFavourite(exercise.getName());
                     }else{
                         Glide.with(activity)
-                                .load(R.drawable.unpainted_heart)
+                                .load(R.drawable.painted_heart)
                                 .circleCrop()
                                 .into(favourites);
                         exercise.setFavourites(true);
@@ -296,7 +302,7 @@ public  class UIController {
         editTexts.forEach(e->{
             Glide.with(activity).load(response.getAvatar()).circleCrop().into((ImageView)activity.findViewById(R.id.imgAvatar));
             switch (e.getTag().toString()){
-                case "login":
+                case "name":
                     e.setText(response.getLogin());
                     break;
                 case "experts":

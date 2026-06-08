@@ -76,7 +76,7 @@
                     android:id="@+id/tvName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="login"
+                    android:tag="name"
                     android:text="@string/default_name"
                     style="@style/EditName" />
 
