@@ -3,6 +3,7 @@ package com.example.sportlife.AndroidBackGround.Service.ServiceImpl;
 import android.app.AlertDialog;
 
 import com.example.sportlife.Activity.ActivityProfile;
+import com.example.sportlife.Activity.ActivityResult;
 import com.example.sportlife.AndroidBackGround.Client.ApiRepository;
 import com.example.sportlife.AndroidBackGround.Client.RetrofitClient;
 import com.example.sportlife.AndroidBackGround.Dto.Request.UpdateEmployeeRequest;
@@ -37,8 +38,7 @@ public class ProfileService {
             }
         });
     }
-    public void updateName(String name, CallBackHandler callBack, AlertDialog dialog){
-        SessionManager session=new SessionManager(dialog.getContext());
+    public void updateName(String name, CallBackHandler callBack, SessionManager session){
         ApiRepository apiRepository=RetrofitClient.getApiRepository();
         UpdateEmployeeRequest request=new UpdateEmployeeRequest(name,null);
         apiRepository.update(request).enqueue(new Callback<UpdateEmployeeResponse>() {
@@ -50,6 +50,7 @@ public class ProfileService {
                     session.saveToken(accessToken,refreshToken);
                     session.saveName(name);
                     callBack.onTools(response.body().getMessage());
+                    callBack.onSuccess(ActivityProfile.class);
                 }else{
                     callBack.onError(response);
                 }
