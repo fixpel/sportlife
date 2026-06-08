@@ -16,7 +16,7 @@ import lombok.Setter;
 
 public class ActivityResultDetail extends ActivityCreate {
     @Setter
-    public static String nameExercise;
+    public static String idExercise;
     @Override
     protected int getIdLayout() {
         return R.layout.activity_result_detail;
@@ -34,7 +34,7 @@ public class ActivityResultDetail extends ActivityCreate {
         ErrorController errorController=new ErrorController();
         CallBackHandler callBack = new CallBackHandlerImpl(uiController,errorController);
         try {
-            SearchService.findExercise(callBack,nameExercise);
+            SearchService.findExercise(callBack,idExercise);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

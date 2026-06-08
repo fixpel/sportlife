@@ -97,7 +97,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
     <TextView
-        android:id="@+id/errorName"
+        android:id="@+id/errorLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:tag="login"

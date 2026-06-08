@@ -2,6 +2,7 @@ package com.example.sportlife.AndroidBackGround.Service;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.util.Log;
 
 import com.example.sportlife.Activity.ActivityResultDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;

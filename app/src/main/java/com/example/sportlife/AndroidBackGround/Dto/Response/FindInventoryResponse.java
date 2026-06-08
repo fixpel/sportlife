@@ -18,7 +18,7 @@ public class FindInventoryResponse {
     @Data
     @AllArgsConstructor
     public static class InventoryObject {
-        private String name;
+        private String id;
         private String photo;
         }
 }

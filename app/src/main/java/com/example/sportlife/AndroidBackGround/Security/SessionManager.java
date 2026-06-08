@@ -3,6 +3,8 @@ package com.example.sportlife.AndroidBackGround.Security;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.time.LocalDate;
+
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -38,4 +40,14 @@ public class SessionManager {
         return preferences.getString("Language","ru");
     }
     public void saveLanguage(String Language){preferences.edit().putString("Language",Language).apply();}
+
+    public void setExperts(String experts, LocalDate date){
+        preferences.edit().putString("experts",experts).putString("date", String.valueOf(date)).apply();
+    }
+    public  String getExperts(){
+        return preferences.getString("experts",null);
+    }
+    public String getDate(){
+        return preferences.getString("date",LocalDate.now().toString());
+    }
 }
