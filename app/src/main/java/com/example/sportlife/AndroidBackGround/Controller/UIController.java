@@ -240,7 +240,7 @@ public  class UIController {
         }
         ImageView favourite=activity.findViewById(R.id.chkFavorite);
         TextView description=activity.findViewById(R.id.tvTechnique);
-        description.setText(exercise.getDescription());
+        description.setText(TranslateClient.translateString(exercise.getId(),"Technique",session.getLanguage()));
         TextView items=activity.findViewById(R.id.tvEquipment);
         TextView muscles=activity.findViewById(R.id.tvMuscle);
         muscles.setText(String.join(", ", TranslateClient.translateMuscles(activity,"muscle",exercise.getMuscles())));
