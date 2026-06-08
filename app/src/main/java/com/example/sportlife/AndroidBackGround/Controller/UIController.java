@@ -71,33 +71,33 @@ public  class UIController {
         switch (type) {
 
             case "ConnectException":
-                message = "";
+                message = "30";
                 break;
 
             case "UnknownHostException":
-                message = "";
+                message = "31";
                 break;
 
             case "SocketTimeoutException":
-                message = "";
+                message = "32";
                 break;
 
             case "SocketException":
-                message = "";
+                message = "33";
                 break;
 
             case "SSLHandshakeException":
             case "SSLException":
-                message = "";
+                message = "34";
                 break;
             case "ApiException":
-                message = "";
+                message = "1";
                 break;
             case "Message":
-                message="";
+                message=message;
                 break;
             default:
-                message="";
+                message="35";
                 break;
         }
 

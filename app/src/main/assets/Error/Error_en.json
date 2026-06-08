@@ -28,9 +28,10 @@
   "27": "Exercise added to favorites.",
   "28": "Exercise removed from favorites.",
   "29": "Welcome",
-  "30":"Server unavailable",
-  "31":"No network",
-  "32":"Timed out",
-  "33":"The connection was lost",
-  "34":"Secure Connection Error"
+  "30":"The remote server is currently unavailable.",
+  "31":"The network is currently unavailable",
+  "32":"Request response timed out",
+  "33":"For some unknown reason the connection was broken.",
+  "34":"The server cannot provide a secure connection.",
+  "35":"Oops! Something went wrong."
 }
