@@ -31,8 +31,11 @@ public class FavouritesService {
             @Override
             public void onResponse(Call<FavouritesResponse> call, Response<FavouritesResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage(),"String");
+                    callBack.onTools(response.body().getMessage(),"Message");
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }
@@ -50,8 +53,11 @@ public class FavouritesService {
             @Override
             public void onResponse(Call<FavouritesResponse> call, Response<FavouritesResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage(),"String");
+                    callBack.onTools(response.body().getMessage(),"Message");
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }
@@ -71,6 +77,9 @@ public class FavouritesService {
                     callBack.findFavourites(response.body());
                     setFavourites(response.body().getExercises());
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }
@@ -84,7 +93,7 @@ public class FavouritesService {
     public void findFavourite(CallBackHandler callBack,String id) {
         ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e-> e.getId().equals(id)).findFirst().orElse(null);
         if(exercise==null){
-            callBack.onTools("5","String");
+            callBack.onTools("5","Message");
         }else{
             callBack.findExercise(exercise);
         }

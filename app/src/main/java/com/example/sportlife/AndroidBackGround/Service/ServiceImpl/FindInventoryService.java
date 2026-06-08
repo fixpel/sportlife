@@ -31,6 +31,9 @@ public class FindInventoryService {
                     setTotalPage(response.body().getTotalPage());
                     callBack.findInventory(response.body());
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }

@@ -34,6 +34,9 @@ public class UpdateExpertsService {
                     session.setExperts(experts,LocalDate.now());
                     callBack.onSuccess(ActivityMuscle.class);
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }

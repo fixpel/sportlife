@@ -49,7 +49,7 @@ public class ProfileService {
                     String refreshToken=response.body().getRefreshToken();
                     session.saveToken(accessToken,refreshToken);
                     session.saveName(name);
-                    callBack.onTools(response.body().getMessage(),"String");
+                    callBack.onTools(response.body().getMessage(),"Message");
                     callBack.onSuccess(ActivityProfile.class);
                 }else{
                     callBack.onError(response);
@@ -68,7 +68,7 @@ public class ProfileService {
             @Override
             public void onResponse(Call<UpdateEmployeeResponse> call, Response<UpdateEmployeeResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage(),"String");
+                    callBack.onTools(response.body().getMessage(),"Message");
                     callBack.onSuccess(ActivityProfile.class);
                 }else{
                     callBack.onError(response);
@@ -88,6 +88,9 @@ public class ProfileService {
                 if(response.body()!=null&&response.isSuccessful()){
                     callBack.findAvatars(response.body(),dialog);
                 }else{
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
                     callBack.onError(response);
                 }
             }

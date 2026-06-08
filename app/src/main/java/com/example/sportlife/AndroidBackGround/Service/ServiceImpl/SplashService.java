@@ -22,9 +22,12 @@ public class SplashService {
             @Override
             public void onResponse(Call<SplashResponse> call, Response<SplashResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage(),"String");
+                    callBack.onTools(response.body().getMessage(),"Message");
                 }else{
-                    callBack.onTools(response.errorBody().string(),"String");
+                    if(response.code()==500){
+                        callBack.onTools("","ApiException");
+                    }
+                    callBack.onTools(response.errorBody().string(),"Message");
                 }
             }
             @Override

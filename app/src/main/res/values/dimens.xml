@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="Title">35dp</dimen>
-    <dimen name="SecondTitle">22dp</dimen>
-    <dimen name="subTitle">20dp</dimen>
-    <dimen name="buttonText">18dp</dimen>
-    <dimen name="Text">16dp</dimen>
-    <dimen name="subText">12dp</dimen>
-    <dimen name="editText">15dp</dimen>
-    <dimen name="levelText">25dp</dimen>
-    <dimen name="navigationButton">14dp</dimen>
-    <dimen name="muscleName">10dp</dimen>
+    <dimen name="Title">35sp</dimen>
+    <dimen name="SecondTitle">22sp</dimen>
+    <dimen name="subTitle">20sp</dimen>
+    <dimen name="buttonText">18sp</dimen>
+    <dimen name="Text">16sp</dimen>
+    <dimen name="subText">12sp</dimen>
+    <dimen name="editText">15sp</dimen>
+    <dimen name="levelText">25sp</dimen>
+    <dimen name="navigationButton">14sp</dimen>
+    <dimen name="muscleName">10sp</dimen>
     <dimen name="Radius">30dp</dimen>
     <dimen name="imgSub">30dp</dimen>
     <dimen name="navigationRadius">16dp</dimen>
