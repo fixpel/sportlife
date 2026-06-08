@@ -72,9 +72,9 @@ public  class UIController {
     public void errorService(String message){
         SessionManager session=new SessionManager(activity);
         Log.d("ERROR",message);
-        if(message.startsWith("Failed to connect to")){
+        if(message.startsWith("Failed to connect to")|| message.startsWith("failed to connect to")){
             message="2";
-        }else if(message.startsWith("Too many follow request")){
+        }else if(message.startsWith("Too many follow request")||message.startsWith("too many follow request")){
             message="1";
         }
         try {

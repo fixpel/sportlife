@@ -89,10 +89,4 @@ public class ActivityProfile extends ActivityCreate {
         });
         editAvatar.setOnClickListener(v->callBack.onSuccess(ActivityEditAvatar.class));
     }
-
-
-
-
-
-
 }

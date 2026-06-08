@@ -32,6 +32,7 @@
         <item name="android:background">@drawable/profile_field_bg</item>
         <item name="android:textSize">@dimen/editText</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:inputType">textPassword</item>
         <item name="android:padding">@dimen/padding</item>
     </style>
     <style name="errorText" parent="Widget.AppCompat.TextView">
