@@ -34,7 +34,7 @@ public class AuthService {
             }
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }

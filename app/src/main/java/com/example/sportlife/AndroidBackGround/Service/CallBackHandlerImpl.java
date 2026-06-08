@@ -37,8 +37,8 @@ public class CallBackHandlerImpl implements CallBackHandler {
         uiController.ErrorAdvice(error);
     }
     @Override
-    public void onTools(String t){
-        uiController.errorService(t);
+    public void onTools(String t,String type){
+        uiController.errorService(t, type);
     }
 
     @Override

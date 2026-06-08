@@ -31,7 +31,7 @@ public class FavouritesService {
             @Override
             public void onResponse(Call<FavouritesResponse> call, Response<FavouritesResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage());
+                    callBack.onTools(response.body().getMessage(),"String");
                 }else{
                     callBack.onError(response);
                 }
@@ -39,7 +39,7 @@ public class FavouritesService {
 
             @Override
             public void onFailure(Call<FavouritesResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
@@ -50,14 +50,14 @@ public class FavouritesService {
             @Override
             public void onResponse(Call<FavouritesResponse> call, Response<FavouritesResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage());
+                    callBack.onTools(response.body().getMessage(),"String");
                 }else{
                     callBack.onError(response);
                 }
             }
             @Override
             public void onFailure(Call<FavouritesResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
@@ -77,14 +77,14 @@ public class FavouritesService {
 
             @Override
             public void onFailure(Call<ExerciseCardResponse> call, Throwable t) {
-                    callBack.onTools(t.getMessage());
+                    callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
     public void findFavourite(CallBackHandler callBack,String id) {
         ExerciseCardResponse.Exercise exercise=favourites.stream().filter(e-> e.getId().equals(id)).findFirst().orElse(null);
         if(exercise==null){
-            callBack.onTools("5");
+            callBack.onTools("5","String");
         }else{
             callBack.findExercise(exercise);
         }

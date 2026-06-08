@@ -37,7 +37,7 @@ public class FindInventoryService {
 
             @Override
             public void onFailure(Call<FindInventoryResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }

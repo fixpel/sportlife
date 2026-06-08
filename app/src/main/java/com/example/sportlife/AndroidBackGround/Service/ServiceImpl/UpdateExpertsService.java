@@ -39,7 +39,7 @@ public class UpdateExpertsService {
             }
             @Override
             public void onFailure(Call<UpdateResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }

@@ -28,7 +28,7 @@ public class FindTopService {
             }
             @Override
             public void onFailure(Call<FindTopResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }

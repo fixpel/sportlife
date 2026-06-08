@@ -22,14 +22,14 @@ public class SplashService {
             @Override
             public void onResponse(Call<SplashResponse> call, Response<SplashResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage());
+                    callBack.onTools(response.body().getMessage(),"String");
                 }else{
-                    callBack.onTools(response.errorBody().string());
+                    callBack.onTools(response.errorBody().string(),"String");
                 }
             }
             @Override
             public void onFailure(Call<SplashResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }

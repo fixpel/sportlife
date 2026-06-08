@@ -2,9 +2,7 @@ package com.example.sportlife.AndroidBackGround.Controller;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -43,7 +41,6 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
 
 @Data
 @NoArgsConstructor
@@ -69,9 +66,8 @@ public  class UIController {
             }
         });
     }
-    public void errorService(String message){
+    public void errorService(String message,String type){
         SessionManager session=new SessionManager(activity);
-        Log.d("ERROR",message);
         if(message.startsWith("Failed to connect to")|| message.startsWith("failed to connect to")){
             message="2";
         }else if(message.startsWith("Too many follow request")||message.startsWith("too many follow request")){

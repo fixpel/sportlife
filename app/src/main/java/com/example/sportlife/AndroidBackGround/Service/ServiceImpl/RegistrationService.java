@@ -38,7 +38,7 @@ public class RegistrationService {
             }
             @Override
             public void onFailure(Call<RegistrationResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     ;}

@@ -34,7 +34,7 @@ public class ProfileService {
             @SneakyThrows
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
@@ -49,7 +49,7 @@ public class ProfileService {
                     String refreshToken=response.body().getRefreshToken();
                     session.saveToken(accessToken,refreshToken);
                     session.saveName(name);
-                    callBack.onTools(response.body().getMessage());
+                    callBack.onTools(response.body().getMessage(),"String");
                     callBack.onSuccess(ActivityProfile.class);
                 }else{
                     callBack.onError(response);
@@ -57,7 +57,7 @@ public class ProfileService {
             }
             @Override
             public void onFailure(Call<UpdateEmployeeResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
@@ -68,7 +68,7 @@ public class ProfileService {
             @Override
             public void onResponse(Call<UpdateEmployeeResponse> call, Response<UpdateEmployeeResponse> response) {
                 if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage());
+                    callBack.onTools(response.body().getMessage(),"String");
                     callBack.onSuccess(ActivityProfile.class);
                 }else{
                     callBack.onError(response);
@@ -76,7 +76,7 @@ public class ProfileService {
             }
             @Override
             public void onFailure(Call<UpdateEmployeeResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
@@ -94,7 +94,7 @@ public class ProfileService {
 
             @Override
             public void onFailure(Call<FindAvatarResponse> call, Throwable t) {
-                callBack.onTools(t.getMessage());
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
     }
