@@ -42,11 +42,7 @@ public class ActivityHome extends ActivityCreate {
         Button history=findViewById(R.id.btnHistory);
         ImageView profile=findViewById(R.id.btnProfile);
         search.setOnClickListener(v->{
-            if(LocalDate.parse(session.getDate()).plusDays(4).getDayOfYear()>LocalDate.now().getDayOfYear()){
-                callBack.onSuccess(ActivityMuscle.class);
-            }else {
                 callBack.onSuccess(ActivityLevel.class);
-            }
         });
         history.setOnClickListener(v->{
             callBack.onSuccess(ActivityFavorites.class);
