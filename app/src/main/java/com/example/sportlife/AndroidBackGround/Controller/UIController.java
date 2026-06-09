@@ -137,7 +137,13 @@ public  class UIController {
                 TextView rank = holder.itemView.findViewById(R.id.userRank);
                 ImageView avatar = holder.itemView.findViewById(R.id.avatarIcon);
                 name.setText(user.getLogin());
-                rank.setText(TranslateClient.translateLevel(activity,user.getExperts()));
+                String experts="";
+                if(user.getExperts()==null){
+                    experts="none";
+                }else{
+                    experts=user.getExperts();
+                }
+                rank.setText(TranslateClient.translateLevel(activity,experts));
                 Glide.with(holder.itemView.getContext())
                         .load(user.getAvatar())
                         .circleCrop()
