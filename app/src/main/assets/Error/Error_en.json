@@ -33,5 +33,10 @@
   "32":"Request response timed out",
   "33":"For some unknown reason the connection was broken.",
   "34":"The server cannot provide a secure connection.",
-  "35":"Oops! Something went wrong."
+  "35":"Oops! Something went wrong.",
+  "36": "It looks like you haven't created any reminders for your workout",
+  "37": "Oops! Looks like such a schedule already exists",
+  "38": "Oops! Looks like that reminder is gone.",
+  "39": "New reminder successfully added",
+  "40": "The reminder was successfully deleted"
 }

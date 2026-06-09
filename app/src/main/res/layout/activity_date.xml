@@ -43,6 +43,12 @@
                 android:text="@string/title_schedule"
                 android:layout_marginBottom="@dimen/margin"
                 style="@style/secondTitle"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="Schedule"
+                style="@style/errorText" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -288,6 +294,8 @@
                         style="@style/createTime"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+
 
         </LinearLayout>
     </ScrollView>

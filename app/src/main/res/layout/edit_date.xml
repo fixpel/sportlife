@@ -4,17 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#333333"
+    android:background="?attr/MainBackground"
     android:id="@+id/activityEditTime">
 
-    <!-- ==================== ШАПКА ==================== -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:background="?attr/SubBackground"
         android:gravity="center"
-        android:background="#3F3F3F"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -23,56 +21,57 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name_part1"
-            android:textColor="#FFFFFF"
-            android:textSize="35sp"
-            android:textStyle="bold" />
+            style="@style/nameAppLeft" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name_part2"
-            android:textColor="#00B7B7"
-            android:textSize="35sp"
-            android:textStyle="bold" />
+            style="@style/nameAppRight" />
     </LinearLayout>
 
-    <!-- ==================== ТЕЛО ==================== -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/body"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#333333"
         app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintBottom_toTopOf="@id/footer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Заголовок: 10% от высоты тела -->
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:text="@string/title_choose_time"
-            android:textColor="#B0B0B0"
-            android:textSize="18sp"
-            android:gravity="center"
+            style="@style/secondTitle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.10"/>
 
-        <!-- Контейнер для NumberPicker: 60% от высоты тела -->
+        <TextView
+            android:id="@+id/textView"
+            style="@style/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="ERROR"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
         <LinearLayout
             android:id="@+id/pickersContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@id/tvTimePreview"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.60">
+            app:layout_constraintHeight_percent="0.60"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
 
             <NumberPicker
@@ -80,17 +79,17 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"
-                android:descendantFocusability="blocksDescendants"/>
+                android:descendantFocusability="blocksDescendants" />
 
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.10"
+                android:gravity="center"
                 android:text=":"
                 android:textColor="#FFFFFF"
-                android:textSize="48sp"
-                android:gravity="center"/>
+                android:textSize="48sp" />
 
 
             <NumberPicker
@@ -98,7 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"
-                android:descendantFocusability="blocksDescendants"/>
+                android:descendantFocusability="blocksDescendants" />
 
         </LinearLayout>
 
@@ -111,7 +110,7 @@
             android:textColor="#00B7B7"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:gravity="center"
+            style="@style/secondTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,37 +121,33 @@
 
     <LinearLayout
         android:id="@+id/footer"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
+        android:padding="@dimen/padding"
         android:gravity="center"
-        android:background="#3F3F3F"
+        android:background="?attr/SubBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCancel"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="10dp"
+            android:layout_marginRight="@dimen/margin"
             android:text="@string/btn_back"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#757575"
-            app:cornerRadius="24dp" />
+            style="@style/buttonBack" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/margin"
             android:text="@string/btn_save"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#00ACC1"
-            app:cornerRadius="24dp" />
+            style="@style/ButtonNavigation" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
