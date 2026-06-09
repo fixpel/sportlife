@@ -3,12 +3,16 @@ package com.example.sportlife.AndroidBackGround.Controller;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.sportlife.Activity.ActivityDate;
 import com.example.sportlife.Activity.ActivityProfile;
 import com.example.sportlife.Activity.ActivityResultDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
@@ -32,11 +37,17 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Security.SessionManager;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
+import com.example.sportlife.AndroidBackGround.Service.CallBackHandlerImpl;
+import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.ScheduleService;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.SearchService;
 import com.example.sportlife.R;
 import com.google.android.material.button.MaterialButton;
 
 import java.io.IOException;
+import java.nio.channels.SelectableChannel;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -394,17 +405,100 @@ public  class UIController {
     }
     public void findSchedule(FindScheduleResponse response, String dayOfWeek){
         int rId=0;
+        List<String> times=new ArrayList<>();
         switch(dayOfWeek){
-            case "Monday":
+            case "MONDAY":
                 rId=R.id.rvMonday;
-            case "Tuesday":
+                times=response.getMonday();
+                break;
+            case "TUESDAY":
                 rId=R.id.rvTuesday;
-            case "Wednesday":
+                times=response.getTuesday();
+                break;
+            case "WEDNESDAY":
                 rId=R.id.rvWednesday;
-            case "Thursday":
+                times=response.getWednesday();
+                break;
+            case "THURSDAY":
                 rId=R.id.rvThursday;
-            case "Friday":
-
+                times=response.getThursday();
+                break;
+            case "FRIDAY":
+                rId=R.id.rvFriday;
+                times=response.getFriday();
+                break;
+            case "SATURDAY":
+                rId=R.id.rvSaturday;
+                times=response.getSaturday();
+                break;
+            case "SUNDAY":
+                rId=R.id.rvSunday;
+                times=response.getSunday();
+                break;
         }
+        RecyclerView recyclerView=activity.findViewById(rId);
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        List<String> finalTimes = times;
+        recyclerView.setAdapter(new RecyclerView.Adapter() {
+            @NonNull
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = activity.getLayoutInflater()
+                        .inflate(R.layout.item_popup_training, parent, false);
+                return new RecyclerView.ViewHolder(view){};
+            }
+            @Override
+            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position){
+                String time=finalTimes.get(position);
+                TextView timeV=holder.itemView.findViewById(R.id.tvTime);
+                timeV.setText(time);
+                ImageView edit=holder.itemView.findViewById(R.id.btnEdit);
+                ImageView delete=holder.itemView.findViewById(R.id.btnDelete);
+                delete.setOnClickListener(d->{
+                    UIController uiController=new UIController(activity,null);
+                    CallBackHandler callBackHandler=new CallBackHandlerImpl(uiController,new ErrorController());
+                    ScheduleService.deleteSchedule(callBackHandler,dayOfWeek,time);
+                    callBackHandler.onSuccess(ActivityDate.class);
+                });
+                edit.setOnClickListener(v->{
+                    AlertDialog dialog=new AlertDialog.Builder(activity).setView(R.layout.edit_date).create();
+                    dialog.setCancelable(false);
+                    dialog.setCanceledOnTouchOutside(false);
+                    if (dialog.getWindow() != null) {
+                        dialog.getWindow().setSoftInputMode(
+                                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE |
+                                        WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+                        );
+                    }
+                    dialog.show();
+                    TextView error=dialog.findViewById(R.id.errorSchedule);
+                    List<TextView> textViews=new ArrayList<>();
+                    textViews.add(error);
+                    UIController uiControllerD=new UIController(activity,textViews);
+                    CallBackHandler callBackD= new CallBackHandlerImpl(uiControllerD,new ErrorController());
+                    TimePicker timePicker = dialog.findViewById(R.id.numberPicker);
+                    timePicker.setIs24HourView(true);
+                    Button save=dialog.findViewById(R.id.btnSave);
+                    save.setOnClickListener(s->{
+                        TimePicker picker=dialog.findViewById(R.id.numberPicker);
+                        int minute=picker.getMinute();
+                        int hour=picker.getHour();
+                        LocalTime time1 = LocalTime.of(hour,minute);
+                        String timeD=time1.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                        ScheduleService.deleteSchedule(callBackD,dayOfWeek,time);
+                        ScheduleService.createSchedule(callBackD,dayOfWeek,timeD);
+                        callBackD.onSuccess(ActivityDate.class);
+                });
+            });
+            }
+            @Override
+            public int getItemCount() {
+                if(finalTimes!=null){
+                    return finalTimes.size();
+                }else{
+                    return 0;
+                }
+            }
+        });
     }
 }

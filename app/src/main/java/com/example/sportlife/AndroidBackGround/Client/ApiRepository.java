@@ -5,6 +5,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Request.ExpertsRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.FavouritesRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.RefreshRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.RegistrationRequest;
+import com.example.sportlife.AndroidBackGround.Dto.Request.ScheduleRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.SearchRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Request.UpdateEmployeeRequest;
 import com.example.sportlife.AndroidBackGround.Dto.Response.AuthResponse;
@@ -17,6 +18,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RefreshResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.RegistrationResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.ScheduleResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.SplashResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.UpdateEmployeeResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.UpdateResponse;
@@ -67,4 +69,13 @@ public interface ApiRepository {
     Call<FindAvatarResponse> findAvatars();
     @GET("Calendar/info")
     Call<FindScheduleResponse> findSchedule();
+    @POST("Calendar/create")
+    Call<ScheduleResponse> crateSchedule(@Body ScheduleRequest request);
+    @HTTP(
+            method = "DELETE",
+            path = "Calendar/delete",
+            hasBody = true
+    )
+    Call<ScheduleResponse> deleteSchedule(@Body ScheduleRequest request);
+
 }

@@ -2,152 +2,69 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activityEditTime"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/MainBackground"
-    android:id="@+id/activityEditTime">
+    android:background="?attr/MainBackground">
 
     <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/SubBackground"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name_part1"
-            style="@style/nameAppLeft" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name_part2"
-            style="@style/nameAppRight" />
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/body"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="@string/title_choose_time"
-            style="@style/secondTitle"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.10"/>
-
-        <TextView
-            android:id="@+id/textView"
-            style="@style/errorText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:tag="ERROR"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
-        <LinearLayout
-            android:id="@+id/pickersContainer"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/tvTimePreview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.60"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
-
-
-            <NumberPicker
-                android:id="@+id/numberPickerHour"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.45"
-                android:descendantFocusability="blocksDescendants" />
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.10"
-                android:gravity="center"
-                android:text=":"
-                android:textColor="#FFFFFF"
-                android:textSize="48sp" />
-
-
-            <NumberPicker
-                android:id="@+id/numberPickerMinute"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.45"
-                android:descendantFocusability="blocksDescendants" />
-
-        </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/tvTimePreview"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="19:00"
-            android:textColor="#00B7B7"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            style="@style/secondTitle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.20"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <LinearLayout
-        android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding"
-        android:gravity="center"
+        android:orientation="vertical"
         android:background="?attr/SubBackground"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCancel"
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/margin"
-            android:text="@string/btn_back"
-            style="@style/buttonBack" />
+            android:text="@string/title_choose_time"
+            android:layout_marginBottom="@dimen/margin"
+            style="@style/secondTitle"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
-
+        <TextView
+            android:id="@+id/errorSchedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/margin"
-            android:text="@string/btn_save"
-            style="@style/ButtonNavigation" />
+            android:tag="Schedule"
+            android:text=""
+            style="@style/errorText"/>
+        <TimePicker
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:descendantFocusability="blocksDescendants"
+            android:timePickerMode="spinner"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin"
+                android:text="@string/btn_back"
+                style="@style/buttonBack"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin"
+                android:text="@string/btn_save"
+                style="@style/ButtonNavigation"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

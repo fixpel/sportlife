@@ -28,10 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="19:00"
-            style="@style/subTitle"
-            android:gravity="center" />
-
-        <!-- Кнопка удаления (Корзина) -->
+            style="@style/subTitle" />
         <ImageButton
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
@@ -40,7 +37,6 @@
             android:background="?attr/SubBackground"
             android:contentDescription="Удалить тренировку"
             app:tint="?attr/errorColor" />
-
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
