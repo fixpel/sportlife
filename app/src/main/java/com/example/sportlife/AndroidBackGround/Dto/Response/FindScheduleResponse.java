@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FindScheduleResponse {
-    private List<LocalTime> monday;
-    private List<LocalTime> tuesday;
-    private List<LocalTime> wednesday;
-    private List<LocalTime> thursday;
-    private List<LocalTime> friday;
-    private List<LocalTime> saturday;
-    private List<LocalTime> sunday;
+    private List<String> monday;
+    private List<String> tuesday;
+    private List<String> wednesday;
+    private List<String> thursday;
+    private List<String> friday;
+    private List<String> saturday;
+    private List<String> sunday;
 }

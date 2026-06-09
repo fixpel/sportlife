@@ -2,6 +2,7 @@ package com.example.sportlife.AndroidBackGround.Service;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.util.Log;
 
 import com.example.sportlife.Activity.ActivityResultDetail;
 import com.example.sportlife.Activity.ActivityFavouriteDetails;
@@ -101,7 +102,8 @@ public class CallBackHandlerImpl implements CallBackHandler {
 
     @Override
     public void findSchedule(FindScheduleResponse response) {
-        for (int i = 0; i <8; i++) {
+        for (int i = 1; i <8; i++) {
+            Log.d("CALLBACK",DayOfWeek.of(i).toString());
             uiController.findSchedule(response,DayOfWeek.of(i).toString());
         }
     }
