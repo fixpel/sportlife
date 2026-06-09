@@ -26,6 +26,7 @@ import com.example.sportlife.AndroidBackGround.Client.TranslateClient;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindScheduleResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
@@ -390,5 +391,20 @@ public  class UIController {
                 return response.getNames().size();
             }
         });
+    }
+    public void findSchedule(FindScheduleResponse response, String dayOfWeek){
+        int rId=0;
+        switch(dayOfWeek){
+            case "Monday":
+                rId=R.id.rvMonday;
+            case "Tuesday":
+                rId=R.id.rvTuesday;
+            case "Wednesday":
+                rId=R.id.rvWednesday;
+            case "Thursday":
+                rId=R.id.rvThursday;
+            case "Friday":
+
+        }
     }
 }

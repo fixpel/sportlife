@@ -11,12 +11,14 @@ import com.example.sportlife.AndroidBackGround.Controller.UIController;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ErrorResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindScheduleResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
 import com.example.sportlife.AndroidBackGround.Service.ServiceImpl.FavouritesService;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 
 import lombok.RequiredArgsConstructor;
 import retrofit2.Response;
@@ -98,7 +100,9 @@ public class CallBackHandlerImpl implements CallBackHandler {
     }
 
     @Override
-    public void findSchedule() {
-
+    public void findSchedule(FindScheduleResponse response) {
+        for (int i = 0; i <8; i++) {
+            uiController.findSchedule(response,DayOfWeek.of(i).toString());
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindAvatarResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindInventoryResponse;
+import com.example.sportlife.AndroidBackGround.Dto.Response.FindScheduleResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.FindTopResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ExerciseCardResponse;
 import com.example.sportlife.AndroidBackGround.Dto.Response.ProfileResponse;
@@ -25,5 +26,5 @@ public interface CallBackHandler {
     void findFavourites(ExerciseCardResponse response);
     void profile(ProfileResponse response);
     void findAvatars(FindAvatarResponse response, AlertDialog dialog);
-    void findSchedule();
+    void findSchedule(FindScheduleResponse response);
 }
