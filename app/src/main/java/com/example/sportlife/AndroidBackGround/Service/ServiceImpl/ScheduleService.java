@@ -10,6 +10,7 @@ import com.example.sportlife.AndroidBackGround.Dto.Response.ScheduleResponse;
 import com.example.sportlife.AndroidBackGround.Service.CallBackHandler;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -42,10 +43,8 @@ public class ScheduleService {
         apiRepository.crateSchedule(request).enqueue(new Callback<ScheduleResponse>() {
             @Override
             public void onResponse(Call<ScheduleResponse> call, Response<ScheduleResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     callBack.onTools(response.body().getMessage(),"Message");
-                }else{
-                    callBack.onError(response);
                 }
             }
 
@@ -61,10 +60,8 @@ public class ScheduleService {
         apiRepository.deleteSchedule(request).enqueue(new Callback<ScheduleResponse>() {
             @Override
             public void onResponse(Call<ScheduleResponse> call, Response<ScheduleResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     callBack.onTools(response.body().getMessage(),"Message");
-                }else{
-                    callBack.onError(response);
                 }
             }
 
@@ -73,5 +70,36 @@ public class ScheduleService {
                 callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
             }
         });
+    }
+    public static void editSchedule(CallBackHandler callBack, String timeOld, String timeNew, String timeDay){
+        ApiRepository apiRepository=RetrofitClient.getApiRepository();
+        ScheduleRequest requestDelete=new ScheduleRequest(timeDay,timeOld);
+        ScheduleRequest requestCreate=new ScheduleRequest(timeDay,timeNew);
+        apiRepository.crateSchedule(requestCreate).enqueue(new Callback<ScheduleResponse>() {
+            @Override
+            public void onResponse(Call<ScheduleResponse> call, Response<ScheduleResponse> response) {
+                if(callBack.filterError(response)!=null){
+                    apiRepository.deleteSchedule(requestDelete).enqueue(new Callback<ScheduleResponse>() {
+                        @Override
+                        public void onResponse(Call<ScheduleResponse> call, Response<ScheduleResponse> response) {
+                            if(callBack.filterError(response)!=null){
+                                callBack.onTools("41","Message");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ScheduleResponse> call, Throwable t) {
+                            callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ScheduleResponse> call, Throwable t) {
+                callBack.onTools(t.getMessage(),t.getClass().getSimpleName());
+            }
+        });
+
     }
 }

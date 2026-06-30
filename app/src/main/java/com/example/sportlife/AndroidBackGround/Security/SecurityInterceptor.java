@@ -18,12 +18,14 @@ public class SecurityInterceptor implements Interceptor {
 
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
-
+        SessionManager session = new SessionManager(context);
         Request request = chain.request();
         if (request.header("Authorization") != null) {
             return chain.proceed(request);
         }
         String path = request.url().encodedPath();
+        Log.d("[INTERCEPTOR]","[INTERCEPTOR_1]");
+        Log.d("[INTERCEPTOR_BODY_2]",request.url().toString());
         if (path.contains("/auth")
                 || path.contains("/refresh")
                 || path.contains("/create")
@@ -31,9 +33,7 @@ public class SecurityInterceptor implements Interceptor {
                 || path.contains("/splash")) {
             return chain.proceed(request);
         }
-        Log.d("dfdf",":int");
-        SessionManager session = new SessionManager(context);
-
+        Log.d("[INTERCEPTOR]","[INTERCEPTOR_2]");
         String token = session.getAccessToken();
         if (token == null || token.trim().isEmpty()) {
             return chain.proceed(request);

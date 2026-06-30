@@ -71,7 +71,8 @@ public  class UIController {
         editTexts.forEach(e->{
             if(error.getErrors().containsKey(e.getTag().toString())){
                 try {
-                    e.setText(TranslateClient.translateString(error.getErrors().get(e.getTag().toString()).toString(),"Error",session.getLanguage()));
+                    System.out.println(error.getErrors().get(e.getTag()));
+                    e.setText(TranslateClient.translateString(error.getErrors().get(e.getTag()).toString(),"Message",session.getLanguage()));
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -114,8 +115,8 @@ public  class UIController {
         }
 
         try {
-            message=TranslateClient.translateString(message,"Error",session.getLanguage());
-            Toast.makeText(activity,message,Toast.LENGTH_LONG).show();
+            message=TranslateClient.translateString(message,"Message",session.getLanguage());
+            Toast.makeText(activity,message,Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
 
         }
@@ -491,8 +492,7 @@ public  class UIController {
                         int hour=picker.getHour();
                         LocalTime time1 = LocalTime.of(hour,minute);
                         String timeD=time1.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-                        ScheduleService.deleteSchedule(callBackD,dayOfWeek,time);
-                        ScheduleService.createSchedule(callBackD,dayOfWeek,timeD);
+                        ScheduleService.editSchedule(callBackD,timeD,time,dayOfWeek);
                         callBackD.onSuccess(ActivityDate.class);
                 });
             });

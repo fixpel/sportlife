@@ -30,13 +30,8 @@ public class FavouritesService {
         apiRepository.createFavourites(request).enqueue(new Callback<FavouritesResponse>() {
             @Override
             public void onResponse(Call<FavouritesResponse> call, Response<FavouritesResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
-                    callBack.onTools(response.body().getMessage(),"Message");
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
+                if(callBack.filterError(response)!=null) {
+                    callBack.onTools(response.body().getMessage(), "Message");
                 }
             }
 
@@ -52,13 +47,8 @@ public class FavouritesService {
         apiRepository.deleteFavourites(request).enqueue(new Callback<FavouritesResponse>() {
             @Override
             public void onResponse(Call<FavouritesResponse> call, Response<FavouritesResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     callBack.onTools(response.body().getMessage(),"Message");
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
             @Override
@@ -72,15 +62,10 @@ public class FavouritesService {
         apiRepository.findFavourites(10,page).enqueue(new Callback<ExerciseCardResponse>() {
             @Override
             public void onResponse(Call<ExerciseCardResponse> call, Response<ExerciseCardResponse> response) {
-                if(response.body()!=null&&response.isSuccessful()){
+                if(callBack.filterError(response)!=null){
                     setTotalPage(response.body().getTotalPage());
                     callBack.findFavourites(response.body());
                     setFavourites(response.body().getExercises());
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
 

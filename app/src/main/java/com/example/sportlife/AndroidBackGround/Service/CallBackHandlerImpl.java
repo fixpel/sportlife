@@ -35,8 +35,14 @@ public class CallBackHandlerImpl implements CallBackHandler {
     }
 
     @Override
-    public void onError(Response<?> response) {
-        ErrorResponse error=errorController.parseError(response,this);
+    public Response filterError(Response response) {
+       Response response1= errorController.filterError(response,this);
+       return response1;
+    }
+
+    @Override
+    public void onError(Response response) {
+        ErrorResponse error=errorController.parseError(response);
         uiController.ErrorAdvice(error);
     }
     @Override

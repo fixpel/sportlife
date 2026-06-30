@@ -22,17 +22,12 @@ public class AuthService {
         apiRepository.auth(authRequest).enqueue(new retrofit2.Callback<AuthResponse>() {
             @Override
             public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     String tokenAccess = response.body().getAccessToken();
                     String tokenRefresh = response.body().getRefreshToken();
                     session.saveName(name);
                     session.saveToken(tokenAccess, tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
             @Override
