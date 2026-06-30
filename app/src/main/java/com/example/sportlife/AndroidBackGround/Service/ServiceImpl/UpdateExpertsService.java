@@ -30,14 +30,9 @@ public class UpdateExpertsService {
         apiRepository.updateExperts(request).enqueue(new Callback<UpdateResponse>() {
             @Override
             public void onResponse(Call<UpdateResponse> call, Response<UpdateResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null) {
+                if(callBack.filterError(response)!=null) {
                     session.setExperts(experts,LocalDate.now());
                     callBack.onSuccess(ActivityMuscle.class);
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
             @Override

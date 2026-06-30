@@ -20,13 +20,8 @@ public class FindTopService {
         apiRepository.findTop().enqueue(new Callback<FindTopResponse>() {
             @Override
             public void onResponse(Call<FindTopResponse> call, Response<FindTopResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null) {
+                if(callBack.filterError(response)!=null) {
                     callBack.findTop(response.body());
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
             @Override

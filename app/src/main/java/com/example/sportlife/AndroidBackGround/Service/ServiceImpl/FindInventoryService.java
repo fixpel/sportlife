@@ -27,14 +27,9 @@ public class FindInventoryService {
         apiRepository.findInventory(10,page).enqueue(new Callback<FindInventoryResponse>() {
             @Override
             public void onResponse(Call<FindInventoryResponse> call, Response<FindInventoryResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null) {
                     setTotalPage(response.body().getTotalPage());
                     callBack.findInventory(response.body());
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
 

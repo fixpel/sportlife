@@ -1,6 +1,7 @@
 package com.example.sportlife.AndroidBackGround.Client;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.sportlife.R;
 

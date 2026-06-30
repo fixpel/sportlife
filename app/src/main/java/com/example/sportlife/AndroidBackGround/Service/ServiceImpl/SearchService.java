@@ -35,15 +35,10 @@ public class SearchService {
         apiRepository.search(request,10,page).enqueue(new Callback<ExerciseCardResponse>() {
             @Override
             public void onResponse(@NonNull Call<ExerciseCardResponse> call, @NonNull Response<ExerciseCardResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     exercises=response.body().getExercises();
                     totalPage=response.body().getTotalPage();
                     callBack.findExercises(response.body());
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
             @Override

@@ -26,17 +26,12 @@ public class RegistrationService {
         apiRepository.registration(request).enqueue(new retrofit2.Callback<RegistrationResponse>() {
             @Override
             public void onResponse(Call<RegistrationResponse> call, Response<RegistrationResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     String tokenAccess =response.body().getAccessToken();
                     String tokenRefresh=response.body().getRefreshToken();
                     session.saveName(name);
                     session.saveToken(tokenAccess,tokenRefresh);
                     callBack.onSuccess(ActivityHome.class);
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onError(response);
                 }
             }
             @Override

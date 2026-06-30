@@ -15,7 +15,7 @@
     <string name="hint_password">Пароль:</string>
 
     <!-- ==================== ЭКРАН ТОП-10 ==================== -->
-    <string name="title_top_100">Топ 100</string>
+    <string name="title_top_10">Топ 10</string>
     <string name="welcome">Добро пожаловать</string>
 
     <!-- ==================== ЭКРАН УРОВНЯ (ПОДГОТОВКА) ==================== -->

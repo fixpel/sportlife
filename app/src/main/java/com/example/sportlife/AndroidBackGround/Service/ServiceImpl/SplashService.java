@@ -21,13 +21,8 @@ public class SplashService {
             @SneakyThrows
             @Override
             public void onResponse(Call<SplashResponse> call, Response<SplashResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null){
                     callBack.onTools(response.body().getMessage(),"Message");
-                }else{
-                    if(response.code()==500){
-                        callBack.onTools("","ApiException");
-                    }
-                    callBack.onTools(response.errorBody().string(),"Message");
                 }
             }
             @Override

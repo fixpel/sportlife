@@ -24,10 +24,8 @@ public class ProfileService {
         apiRepository.infoProfile().enqueue(new Callback<ProfileResponse>() {
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                if(response.isSuccessful()&&response.body()!=null){
+                if(callBack.filterError(response)!=null) {
                     callBack.profile(response.body());
-                }else{
-                    callBack.onError(response);
                 }
             }
 

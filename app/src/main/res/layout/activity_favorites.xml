@@ -34,7 +34,7 @@
         android:id="@+id/errorFavorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:tag="favorites"
+        android:tag="favourites"
         style="@style/errorText"/>
 
     <androidx.recyclerview.widget.RecyclerView
